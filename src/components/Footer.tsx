@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Footer.css';
 
 export interface FooterProps {
     
@@ -22,10 +23,10 @@ class Footer extends React.Component<FooterProps, FooterState> {
 
     render() { 
         return ( 
-            <>
+            <div className="footer-wrapper">
             {/* &copy; {startDate}  {nowDate} - Laurine Leung */}
             &copy; 2021 - Laurine Leung
-            </>
+            </div>
         );
     }
 }

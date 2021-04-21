@@ -1,0 +1,68 @@
+/* NAVHOME */
+.color-nav {
+  background-color: rgb(254, 248, 177);
+}
+
+.icon-home {
+  color: black;
+}
+
+.icon-home:hover {
+  color: #f7e401;
+}
+
+.jumbotron {
+  background-color: white !important;
+  height: 100vh !important;
+  width: auto;
+}
+
+.card-bg {
+  border: none !important;
+  width: 200px;
+}
+
+/* PAGE SEPARATOR 1 */
+.custom-shape-divider-top-1618878871 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1618878871 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 122px;
+}
+
+.custom-shape-divider-top-1618878871 .shape-fill {
+  fill: rgb(254, 248, 177);
+}
+/* END PAGE SEPARATOR */
+
+/* PAGE SEPARATOR 2 */
+.custom-shape-divider-top-1618879240 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1618879240 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 122px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1618879240 .shape-fill {
+  fill: rgb(254, 248, 177);
+}
+/* END PAGE SEPARATOR */

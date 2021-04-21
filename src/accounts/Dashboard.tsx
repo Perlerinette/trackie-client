@@ -1,7 +1,10 @@
 import * as React from 'react';
+import './Dashboard.css';
+import NavJobseeker from './NavJobseeker';
 
 export interface DashboardProps {
-    
+    token: string,
+    logout: (event: React.MouseEvent<SVGElement, MouseEvent>) => void
 }
  
 export interface DashboardState {
@@ -18,7 +21,10 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
     render() { 
         return ( 
             <>
+            <NavJobseeker logout={this.props.logout}/>
+            <div className="dash-wrapper">
             <h2>Dashboard</h2>
+            </div>
             </>
          );
     }
