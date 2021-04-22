@@ -14,7 +14,6 @@ export interface LoginProps extends RouteComponentProps {
 }
  
 export interface LoginState {
-    firstname: string,
     email: string,
     password: string,
     isPwdVisible: boolean,
@@ -28,7 +27,6 @@ class Login extends React.Component<LoginProps, LoginState> {
     constructor(props: LoginProps) {
         super(props);
         this.state = { 
-            firstname: "",
             email: "",
             password: "",
             isPwdVisible: false,
@@ -81,7 +79,7 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
           console.log(data.sessionJobseekerToken);
           this.props.updateToken(data.sessionJobseekerToken, "jobseeker");
         //   this.props.updateEmail(data.user.email);
-          this.setState({firstname: data.jobseeker.firstname});
+        localStorage.setItem('jobseekerName', data.jobseeker.firstname);
           console.log(data.jobseeker.email);
           this.props.history.push('/dashboard');
         });

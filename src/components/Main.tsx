@@ -8,6 +8,7 @@ import Home from './Home';
 import Myjobapps from '../accounts/MyJobApps';
 import Dashboard from '../accounts/Dashboard';
 import DashboardSchool from '../accounts/DashboardSchool';
+import NavJobseeker from '../accounts/NavJobseeker';
 
 
 export interface MainProps {
@@ -41,14 +42,14 @@ class Main extends React.Component<MainProps, MainState> {
             this.setState({
                 sessionJobseekerToken: newToken
             });
-            console.log("sessionJobseekerToken", this.state.sessionJobseekerToken);
+            // console.log("sessionJobseekerToken", this.state.sessionJobseekerToken);
         }
         else if(tokenType === "school"){
             localStorage.setItem('schoolToken', newToken);
             this.setState({
                 sessionSchoolToken: newToken
             });
-            console.log("sessionSchoolToken", this.state.sessionSchoolToken);
+            // console.log("sessionSchoolToken", this.state.sessionSchoolToken);
         }
     }
 
@@ -56,14 +57,14 @@ class Main extends React.Component<MainProps, MainState> {
 
     componentDidMount() {
         if(localStorage.getItem('jobseekerToken') || localStorage.getItem('jobseekerToken') !== null){
-            console.log(localStorage.getItem('jobseekerToken'));
+            // console.log(localStorage.getItem('jobseekerToken'));
             this.setState({
                 sessionJobseekerToken: localStorage.getItem('jobseekerToken')!,
                 sessionSchoolToken:"",
                 accountType: "jobseeker"
             })
         } else if(localStorage.getItem('schoolToken') || localStorage.getItem('schoolToken') !== null){
-            console.log(localStorage.getItem('schoolToken'));
+            // console.log(localStorage.getItem('schoolToken'));
                 this.setState({
                     sessionSchoolToken: localStorage.getItem('schoolToken')!,
                     sessionJobseekerToken: "",
@@ -87,14 +88,6 @@ class Main extends React.Component<MainProps, MainState> {
         });
         
     }
-
-    // clearToken = () => {
-    //     localStorage.clear();
-    //     this.setState({
-    //         sessionJobseekerToken: "",
-    //         accountType:""
-    //     });
-    // }
     
       /* END of TOKEN RELATED*/
 
@@ -106,7 +99,8 @@ class Main extends React.Component<MainProps, MainState> {
             <Router>
                 <Switch>                    
                     <Route exact path="/" component={() => <Home/>} />
-                    <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <Dashboard token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route>
+                    <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <NavJobseeker token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route>
+                    {/* <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <Dashboard token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route> */}
                     <Route exact path="/login"> <Auth updateToken = {this.updateToken} accountType={"jobseeker"} />  </Route>
                     <Route exact path="/school/dashboard"  > {this.state.sessionSchoolToken ? <DashboardSchool schoolToken={this.state.sessionSchoolToken} logout={this.logout}/> : <Redirect to="/" /> } </Route>
                     <Route exact path="/school/login"> <Auth updateToken = {this.updateToken} accountType={"school"} />  </Route>
