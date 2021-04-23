@@ -3,6 +3,7 @@ import APIURL from '../helpers/environment';
 import { Container, Col, Row, Card, CardTitle, CardHeader, CardBody } from 'reactstrap';
 import { Line, Bar, Doughnut, Pie } from "react-chartjs-2";
 import {GiSandsOfTime} from 'react-icons/gi';
+import JobApp from '../interfaces/Interfaces';
 import './Dashboard.css';
 import { PieChart } from '@material-ui/icons';
 import { access } from 'node:fs';
@@ -12,7 +13,7 @@ export interface DashboardProps {
 }
  
 export interface DashboardState {
-    jobappsData: Array<JobApps>,
+    jobappsData: Array<JobApp>,
     datesOfApplications: Array<string>,
     numberOfApplications: number,
     statusOfApplications: Array<string>,
@@ -23,18 +24,6 @@ export interface DashboardState {
     nbOfOffers: number,
     nbOfOfferDeclined: number,
     nbOfOfferAccepted: number
-}
-
-interface JobApps{
-    id: number,
-    jobtitle: string,
-    company: string,
-    applicationdate: string,
-    location: string,
-    status: string,
-    jobseekerid: number,
-    createdAt: string,
-    updateAt: string
 }
 
 
