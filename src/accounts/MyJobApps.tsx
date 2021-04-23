@@ -2,7 +2,7 @@
  import APIURL from '../helpers/environment';
 
  export interface MyjobappsProps {
-    token: string
+    token: string,
  }
   
  export interface MyjobappsState {
@@ -17,7 +17,13 @@
            };
      }
 
+
      
+
+
+     jobAppsMapper = () => {
+         return 
+     }
 
 
 
@@ -25,8 +31,11 @@
          return ( 
              <>
             <div className="dash-wrapper">
-            <h4 style={{textAlign:"center"}}>{localStorage.getItem('jobseekerName')}'s </h4>
-            <h2 style={{textAlign:"center"}}>Job Applications</h2>
+            <br/>
+                <div className="cadre-title"  style={{width: "400px"}}>
+                    <h4 >{localStorage.getItem('jobseekerName')}'s </h4>
+                    <h2 >- Job Applications -</h2>
+                </div>
             </div>
              </>
           );

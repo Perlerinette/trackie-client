@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
-import { UncontrolledTooltip, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem  } from 'reactstrap';
+import { UncontrolledTooltip } from 'reactstrap';
 
 import Dashboard from './Dashboard';
 import login_green from '../assets/login_green.png';
@@ -79,13 +79,7 @@ class NavJobseeker extends React.Component<NavJobseekerProps, NavJobseekerState>
                 <NavbarToggler onClick={this.toggleNavbar}  />
                 <Collapse isOpen={this.state.collapsed} navbar>
                 <Nav className="ml-auto" navbar>
-                    <NavItem className="mr-3">
-                        <MdAccountCircle size={30} id="tooltip1" onClick={this.displayAccount}/>
-                        <UncontrolledTooltip placement="top" target="tooltip1" >
-                            Account
-                        </UncontrolledTooltip>
-                    </NavItem>
-                    <NavItem className="mr-3 ml-3">
+                    <NavItem className="mr-3 ">
                         <RiDashboard3Line size={30} id="tooltip2" onClick={this.displayDashboard}/>
                         <UncontrolledTooltip placement="top" target="tooltip2">
                             Dashboard
@@ -95,6 +89,12 @@ class NavJobseeker extends React.Component<NavJobseekerProps, NavJobseekerState>
                         <RiFileListLine size={30} id="tooltip3"  onClick={this.displayMyApps}/>
                         <UncontrolledTooltip placement="top" target="tooltip3">
                             My Applications
+                        </UncontrolledTooltip>
+                    </NavItem>
+                    <NavItem className="mr-3 ml-3">
+                        <MdAccountCircle size={30} id="tooltip1" onClick={this.displayAccount}/>
+                        <UncontrolledTooltip placement="top" target="tooltip1" >
+                            Account
                         </UncontrolledTooltip>
                     </NavItem>
                     <NavItem className="mr-3 ml-3">

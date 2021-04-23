@@ -25,9 +25,11 @@ class Account extends React.Component<AccountProps, AccountState> {
         return ( 
             <>
            <div className="dash-wrapper">
-           <h4 style={{textAlign:"center"}}>{localStorage.getItem('jobseekerName')}'s </h4>
-           <h2 style={{textAlign:"center"}}>Account</h2>
-           
+                <br/>
+                <div className="cadre-title"  style={{width: "250px"}}>
+                    <h4 >{localStorage.getItem('jobseekerName')}'s </h4>
+                    <h2 >- Account -</h2>
+                </div>
            </div>
             </>
          );
