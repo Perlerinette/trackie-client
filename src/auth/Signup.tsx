@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React from 'react';
 import APIURL from '../helpers/environment';
 
 import {Row, Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, UncontrolledTooltip} from 'reactstrap';
@@ -169,7 +169,7 @@ render() {
               </FormGroup>
 
               <div className="align-middle text-center">
-                <Button  className="submitBtn" type="submit">Create your account</Button>
+                <Button  className="submit-login-signup" type="submit">Create your account</Button>
               </div>
             </Form>
             </div>

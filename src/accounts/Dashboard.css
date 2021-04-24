@@ -13,13 +13,13 @@
   margin-right: auto;
   height: 100px;
   /* width: 200px; */
-  border: solid 5px #637259;
+  border: solid 5px #94ac85;
   border-style: outset; /*ridge*/
   background-color: #f8f9f1;
   text-align: center;
 }
 
-.card {
+.card-pie-chart {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   height: 300px;
   width: 500px;

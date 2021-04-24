@@ -3,6 +3,7 @@ interface JobApp{
     jobtitle: string,
     company: string,
     applicationdate: string,
+    jobdescription: string,
     location: string,
     status: string,
     jobseekerid: number,

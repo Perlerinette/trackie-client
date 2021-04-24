@@ -27,7 +27,7 @@
   border: solid 1px #637259 !important;
 }
 
-.submitBtn {
+.submit-login-signup {
   background-color: #dafbc6 !important;
   color: black !important;
   border: 1px solid #cec4ba !important;
@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.submitBtn:hover {
+.submit-login-signup:hover {
   background-color: #aac499 !important;
 }
 

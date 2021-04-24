@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-do
 import NavHome from './NavHome';
 import Footer from './Footer';
 import Auth from '../auth/Auth';
-import LoginSchool from '../auth/LoginSchool';
 import Home from './Home';
-import Myjobapps from '../accounts/MyJobApps';
-import Dashboard from '../accounts/Dashboard';
 import DashboardSchool from '../accounts/DashboardSchool';
 import NavJobseeker from '../accounts/NavJobseeker';
 

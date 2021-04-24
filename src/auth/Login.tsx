@@ -131,7 +131,7 @@ render() {
                             </FormGroup>
 
                             <div className="align-middle text-center">
-                            <Button  className="submitBtn" type="submit" block>Sign in</Button>
+                            <Button  className="submit-login-signup" type="submit" block>Sign in</Button>
                             </div>
                         </Form>                    
                     </div>

@@ -33,7 +33,7 @@ class Account extends React.Component<AccountProps, AccountState> {
            </div>
             </>
          );
-    }
+    } 
 }
  
 export default Account;

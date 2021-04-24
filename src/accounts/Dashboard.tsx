@@ -1,12 +1,10 @@
 import * as React from 'react';
 import APIURL from '../helpers/environment';
 import { Container, Col, Row, Card, CardTitle, CardHeader, CardBody } from 'reactstrap';
-import { Line, Bar, Doughnut, Pie } from "react-chartjs-2";
+import { Line, Bar, Pie } from "react-chartjs-2";
 import {GiSandsOfTime} from 'react-icons/gi';
 import JobApp from '../interfaces/Interfaces';
 import './Dashboard.css';
-import { PieChart } from '@material-ui/icons';
-import { access } from 'node:fs';
 
 export interface DashboardProps {
     token: string
@@ -18,7 +16,6 @@ export interface DashboardState {
     numberOfApplications: number,
     statusOfApplications: Array<string>,
     nbOfPending: number,
-    nbOfShorlisted: number,
     nbOfInterviewed: number,
     nbOfRejected: number,
     nbOfOffers: number,
@@ -37,7 +34,6 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
             numberOfApplications: 0,
             statusOfApplications: [],
             nbOfPending: 0,
-            nbOfShorlisted: 0,
             nbOfInterviewed: 0,
             nbOfRejected: 0,
             nbOfOffers: 0,
@@ -87,15 +83,14 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     getStatusAndCount = () => {
         this.setState({
-            nbOfPending: this.countOccurrences(this.state.statusOfApplications, "pending"),
-            nbOfShorlisted: this.countOccurrences(this.state.statusOfApplications, "shortlisted"),
-            nbOfInterviewed: this.countOccurrences(this.state.statusOfApplications, "interviewed"),
-            nbOfRejected: this.countOccurrences(this.state.statusOfApplications, "rejected"),
-            nbOfOffers: this.countOccurrences(this.state.statusOfApplications, "offer"),
-            nbOfOfferDeclined: this.countOccurrences(this.state.statusOfApplications, "declined"),
-            nbOfOfferAccepted: this.countOccurrences(this.state.statusOfApplications, "accepted"),
+            nbOfPending: this.countOccurrences(this.state.statusOfApplications, "Pending"),
+            nbOfInterviewed: this.countOccurrences(this.state.statusOfApplications, "Interviewed"),
+            nbOfRejected: this.countOccurrences(this.state.statusOfApplications, "Rejected"),
+            nbOfOffers: this.countOccurrences(this.state.statusOfApplications, "Offer"),
+            nbOfOfferDeclined: this.countOccurrences(this.state.statusOfApplications, "Declined"),
+            nbOfOfferAccepted: this.countOccurrences(this.state.statusOfApplications, "Hired"),
         })
-        console.log("Pending: ", this.state.nbOfPending , "Shortlisted: ", this.state.nbOfShorlisted, "Interviewed: ", this.state.nbOfInterviewed, "Rejected: ", this.state.nbOfRejected, "Offers: ", this.state.nbOfOffers, "Accepted: ", this.state.nbOfOfferAccepted, "Declined: ", this.state.nbOfOfferDeclined);
+        console.log("Pending: ", this.state.nbOfPending , "Interviewed: ", this.state.nbOfInterviewed, "Rejected: ", this.state.nbOfRejected, "Offers: ", this.state.nbOfOffers, "Hired: ", this.state.nbOfOfferAccepted, "Declined: ", this.state.nbOfOfferDeclined);
     }
                 
         // var count: Object = this.state.statusOfApplications.reduce( (arr: Object, curr: any) => {
@@ -235,7 +230,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     <br/>
                     <Row>
                     <Col>
-                        <Card body className="text-center card">
+                        <Card body className="text-center card-pie-chart">
                             <CardTitle tag="h5">Applications Status</CardTitle>
                             {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
                             <Container>

@@ -6,7 +6,6 @@ import Trackie from '../assets/trackie.png';
 import TrackieSol from '../assets/trackie_sol.png';
 import Bubble_L from '../assets/bubble_left.png';
 import Bubble_R from '../assets/bubble_right.png';
-import Bubble_M from '../assets/bubble_middle.png';
 
 export interface HomeProps {
     

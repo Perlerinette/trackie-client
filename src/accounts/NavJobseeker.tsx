@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem  } from 'reactstrap';
 import { UncontrolledTooltip } from 'reactstrap';
 

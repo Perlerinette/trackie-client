@@ -35,27 +35,6 @@ class Auth extends React.Component<AuthProps, AuthState> {
     }
           
 
-            
-
-            // <Navbar/>
-            // <Container className="login-container  ">
-            //     <div className="vertical-center">
-            //     <Row >
-            //         {/* {this.displayComponents} */}
-            //         {this.state.displayLogin ? <Login updateToken = {this.props.updateToken}/> : 
-            //                 <Signup updateToken = {this.props.updateToken}/> }
-            //     </Row>
-            //     <Row   >
-            //         {/* <Col className="col-spacing"></Col> */}
-            //         <Col className="col-spacing login-toggle-row" >
-            //         {this.state.displayLogin ? <a id="switch-form" onClick={this.toggle}  >Don't have an account? Sign up.</a> : 
-            //         <a id="switch-form" onClick={this.toggle}>Already registered? Sign in.</a>}
-            //         </Col>
-            //         {/* <Col className="col-spacing"></Col> */}
-            //     </Row>
-            //     </div>
-            // </Container>
-
     render() { 
         return ( 
             <>
