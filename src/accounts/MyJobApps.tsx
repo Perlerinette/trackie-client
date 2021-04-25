@@ -3,11 +3,12 @@
  import JobApp from '../interfaces/Interfaces';
  import './MyJobApps.css';
  import { Table, UncontrolledTooltip, Container, Alert } from 'reactstrap';
- import {TiArrowSortedDown, TiEdit} from 'react-icons/ti';
- import {  BiDownload } from 'react-icons/bi';
+ import {TiArrowSortedDown} from 'react-icons/ti';
  import { RiDeleteBinLine} from 'react-icons/ri';
 import JobAppCreate from './JobAppCreate';
 import JobAppExpand from './JobAppExpand';
+import JobAppEdit from './JobAppEdit';
+import JobAppDownload from './JobAppDownload';
 
  export interface MyjobappsProps {
     token: string,
@@ -22,8 +23,6 @@ import JobAppExpand from './JobAppExpand';
     alertText: String,
     alertColor: string,
     alertVisible: boolean,
-    modalViewMore: boolean,
-    createVisible: boolean
  }
   
  class Myjobapps extends React.Component<MyjobappsProps, MyjobappsState> {
@@ -38,8 +37,6 @@ import JobAppExpand from './JobAppExpand';
             alertText: "",
             alertColor: "",
             alertVisible: false,
-            modalViewMore: false,
-            createVisible: false
         };
      }
 
@@ -81,11 +78,10 @@ import JobAppExpand from './JobAppExpand';
                     <td>{jobapp.jobtitle}</td>
                     <td>{jobapp.status}</td>
                     <td>
-                        <TiEdit  id="tooltipEdit" className="icon-edit"/>
-                        <UncontrolledTooltip placement="top" target="tooltipEdit">
-                            Edit
-                        </UncontrolledTooltip>
-
+                        
+                        {/* edit job app */}
+                        <JobAppEdit token={this.props.token} getAllApplications={this.getAllApplications} jobapp={jobapp} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert}/>
+                        {/* delete job app */}
                         <RiDeleteBinLine id="tooltipDel" className="icon-delete" onClick={(event: React.MouseEvent<SVGElement, MouseEvent>) => this.deleteJobapp(jobapp)}/>
                         <UncontrolledTooltip placement="top" target="tooltipDel">
                             Delete
@@ -113,10 +109,7 @@ import JobAppExpand from './JobAppExpand';
             }) 
             .then( () => {
                 this.getAllApplications();
-                this.setState({
-                    alertColor: "success",
-                    alertText: `Job Application " ${deleteJob} (${deleteDate}) " has been deleted !`
-                })
+                this.setTextAlert("success", `Job Application " ${deleteJob} (${deleteDate}) " has been deleted !`);
                 // display success alert
                 this.onShowAlert();
             })
@@ -196,15 +189,18 @@ import JobAppExpand from './JobAppExpand';
             this.setState({alertVisible:false})
           },2000)
         });
-      }
+    }
 
-    /* END of ALERT MESSAGES */
+    setTextAlert = (color: string, text: string) => {
+        this.setState({
+            alertColor: color,
+            alertText: text
+        })
+    }  
+
+      /* END of ALERT MESSAGES */
 
     /*****************************/
-
-       
-
-    
 
      render() { 
          return ( 
@@ -224,12 +220,13 @@ import JobAppExpand from './JobAppExpand';
                 <br/>
                 <div className="icons-add-download-wrapper">
                     {/* create new job application */}
-                    <JobAppCreate token={this.props.token} getAllApplications={this.getAllApplications} />
+                    <JobAppCreate token={this.props.token} getAllApplications={this.getAllApplications} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert} />
                     {/* download all applications */}
-                    <BiDownload id="tooltipdld" className="icons-add-download"/>
+                    {/* <BiDownload id="tooltipdld" className="icons-add-download"/>
                     <UncontrolledTooltip placement="top" target="tooltipdld">
                         Download all
-                    </UncontrolledTooltip>
+                    </UncontrolledTooltip> */}
+                    <JobAppDownload jobappTable={this.state.jobappsData}/>
                 </div>
                 <br/>
                 <Table hover>

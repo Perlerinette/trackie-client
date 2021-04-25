@@ -97,7 +97,6 @@ class Main extends React.Component<MainProps, MainState> {
                 <Switch>                    
                     <Route exact path="/" component={() => <Home/>} />
                     <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <NavJobseeker token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route>
-                    {/* <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <Dashboard token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route> */}
                     <Route exact path="/login"> <Auth updateToken = {this.updateToken} accountType={"jobseeker"} />  </Route>
                     <Route exact path="/school/dashboard"  > {this.state.sessionSchoolToken ? <DashboardSchool schoolToken={this.state.sessionSchoolToken} logout={this.logout}/> : <Redirect to="/" /> } </Route>
                     <Route exact path="/school/login"> <Auth updateToken = {this.updateToken} accountType={"school"} />  </Route>

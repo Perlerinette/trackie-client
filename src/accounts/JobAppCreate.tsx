@@ -3,11 +3,15 @@ import APIURL from '../helpers/environment';
 import JobApp from '../interfaces/Interfaces';
 import { BiAddToQueue } from 'react-icons/bi';
 import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip, FormText} from 'reactstrap';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export interface JobAppCreateProps {
    token: string,
-   getAllApplications: Function
+   getAllApplications: Function,
+   setTextAlert: Function,
+   onShowAlert: Function
 }
  
 export interface JobAppCreateState {
@@ -17,10 +21,11 @@ export interface JobAppCreateState {
     jobdescription: string,
     location: string,
     status: string,
-    modal: boolean
+    modal: boolean,
+    testDate: Date
    
 }
- 
+  
 class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState> {
     constructor(props: JobAppCreateProps) {
         super(props);
@@ -31,7 +36,8 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
             jobdescription: "",
             location: "",
             status: "",
-            modal: false
+            modal: false,
+            testDate: new Date()
           };
     }
 
@@ -63,6 +69,8 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                 this.toggle();
                 this.resetInputs();
                 this.props.getAllApplications();
+                this.props.setTextAlert("success",`Successfully created a new job application!`);
+                this.props.onShowAlert();
                 
            })
            .catch(error => { console.log(error)})
@@ -86,11 +94,11 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
         })
     }
 
-    setDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            applicationdate: e.currentTarget.value
-        })
-    }
+    // setDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     this.setState({
+    //         applicationdate: e.currentTarget.value
+    //     })
+    // }
 
     setJobTitle = (e: React.ChangeEvent<HTMLInputElement> ) => {
         this.setState({
@@ -116,12 +124,30 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
         })
     }
 
-    //to close modal form in case we change our mind
+    //to close/open modal form 
     toggle = () => {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
         console.log("modal :", this.state.modal);
+    }
+
+    getMMDDYYYY = (date: string) => {
+        
+        let year = date.slice(0,4);
+        let month = date.slice(5,7);
+        let day = date.slice(8,10);
+        date = month + '/' + day + '/' + year;
+        
+        return date;
+    }
+
+    handleChangeDate = (date: Date) => {
+        console.log(date.toISOString());
+        this.setState({
+            testDate: date,
+            applicationdate: this.getMMDDYYYY(date.toISOString())
+        })
     }
 
 
@@ -137,7 +163,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
             <Modal isOpen={this.state.modal} toggle={this.toggle}  backdrop={true}>
      
             <Form>
-            <ModalHeader toggle={this.toggle} className="modal-create-header ">
+            <ModalHeader className="modal-create-header ">
                 <h4>Applied somewhere?</h4>
                 <p>Log your job applications here.</p>
             </ModalHeader>
@@ -146,8 +172,8 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                     <Row>
                         <Col>
                             <FormGroup>
-                                <Label htmlFor="date" >Date of Application:</Label>
-                                <Input name="date" value={this.state.applicationdate} onChange={this.setDate}>Date of Application: </Input>
+                                <Label>Date of Application:</Label>
+                                <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.testDate} onChange= {this.handleChangeDate} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor='jobtitle' >Job Title:</Label>
@@ -171,9 +197,9 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                                 <Label htmlFor='status' >Status:</Label>
                                 <Input type="select" name='status' value={this.state.status} onChange={this.setStatus}>
                                     <option value=""></option>
-                                    <option value="pending">Pending</option>
-                                    <option value="interviewed">Interviewed</option>
-                                    <option value="rejected">Rejected</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Interviewed">Interviewed</option>
+                                    <option value="Rejected">Rejected</option>
                                     <option value="Offer">Offer</option>
                                     <option value="Declined">Declined</option>
                                     <option value="Accepted">Hired</option>
