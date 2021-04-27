@@ -1,4 +1,4 @@
-.design-container {
+.settings-box {
   background-color: white;
   text-align: center;
 
@@ -7,6 +7,8 @@
   border-radius: 10px;
   height: auto;
   width: auto;
+  margin-left: auto !important;
+  /* margin-right: auto; */
 }
 
 .profile-box {
@@ -18,6 +20,49 @@
   border-radius: 10px;
   height: auto;
   width: auto;
+}
+
+.profile-container {
+  text-align: left;
+}
+
+.icon-profile-valid {
+  font-size: 30px;
+  color: #dafbc6;
+}
+
+.icon-profile-invalid {
+  font-size: 30px;
+  color: rgb(240, 78, 78);
+}
+
+/* .trackie-img {
+  width: 60px;
+  flex: 1;
+  justify-content: flex-end;
+  margin-bottom: 10;
+} */
+
+.btn-stop-sharing {
+  font-size: 30px;
+  color: rgb(240, 78, 78);
+  display: inline-block;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 30px;
+  /* box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.5em; */
+}
+
+.btn-start-sharing {
+  font-size: 30px;
+  color: #bbd6a9;
+  /* background-color: rgb(75, 88, 68, 0.95); */
+  /* /* display: inline-block; */
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 30px;
+  /* box-shadow: 0px 0px 2px #888;*/
 }
 
 .overlay {

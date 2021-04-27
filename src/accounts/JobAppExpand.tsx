@@ -1,5 +1,5 @@
 import * as React from 'react';
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 import './MyJobApps.css';
 import { BiAddToQueue, BiExpand } from 'react-icons/bi';
 import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';

@@ -6,6 +6,7 @@ import Login from './Login';
 import SignupSchool from './SignupSchool';
 import LoginSchool from './LoginSchool';
 import {Container, Col, Row} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export interface AuthProps {
     updateToken: Function,
@@ -32,6 +33,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
         this.setState({
             displayLogin: !(this.state.displayLogin)
         });
+        //history.push("/signup")
     }
           
 
@@ -47,7 +49,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
                 <Row >
                     {/* {this.displayComponents} */}
                     {this.state.displayLogin ? <Login updateToken = {this.props.updateToken}/> : 
-                            <Signup updateToken = {this.props.updateToken}/> }
+                            <Signup updateToken = {this.props.updateToken}/>}
                 </Row>
                 <Row   >
                     {/* <Col className="col-spacing"></Col> */}

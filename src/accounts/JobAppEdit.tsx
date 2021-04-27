@@ -1,6 +1,6 @@
 import * as React from 'react';
 import APIURL from '../helpers/environment';
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 import {TiEdit} from 'react-icons/ti';
 import {RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import {Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip} from 'reactstrap';

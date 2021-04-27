@@ -88,25 +88,26 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
             <h3>Confirm your identity to access the settings</h3>
             <br/>
             <Form onSubmit={this.handleSubmit}>
-                    <FormGroup>
-                        <Row>
+                <FormGroup>
+                    <Row>
                         <Col md="6">
-                        <InputGroup style={{marginLeft: "auto", width: "250px"}}>
-                            <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Enter your Password" value={this.state.password} required />
-                            <InputGroupAddon addonType="append" >
+                            <InputGroup style={{marginLeft: "auto", width: "250px"}}>
+                                <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Enter your Password" value={this.state.password} required />
+                                <InputGroupAddon addonType="append" >
                                     <InputGroupText className="icon-field">
                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
                                         {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
                                     </InputGroupText>
-                            </InputGroupAddon>
-                        </InputGroup>
-                    </Col>
-                    <Col md="6"> <Button  className="submit-login-signup" type="submit" block style={{width: "250px"}}>Unlock</Button></Col>
+                                </InputGroupAddon>
+                            </InputGroup>
+                        </Col>
+                        <Col md="6"> 
+                            <Button  className="submit-login-signup" type="submit" block style={{width: "250px"}}>Unlock</Button>
+                        </Col>
                     </Row>
-                    </FormGroup>
-
-                </Form> 
-                </Container>
+                </FormGroup>
+            </Form> 
+            </Container>
          );
     }
 }

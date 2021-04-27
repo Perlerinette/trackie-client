@@ -1,12 +1,12 @@
 import React from 'react';
 import APIURL from '../helpers/environment';
-
+import {RouteComponentProps, withRouter} from 'react-router-dom';
 import {Row, Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, UncontrolledTooltip} from 'reactstrap';
 
 import signup_green from '../assets/signup_green.png';
 
 
-export interface SignupProps {
+export interface SignupProps{
     updateToken: Function,
     // updateEmail: string
 
@@ -182,6 +182,7 @@ render() {
         
         {/* <div> */}
             {/* <h6>Already registered? Sign in.</h6> */}
+            {/*Link to*/}
         {/* </div> */}
         </>
         );

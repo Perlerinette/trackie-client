@@ -3,7 +3,7 @@ import React from 'react';
 import { BiDownload } from 'react-icons/bi';
 import { UncontrolledTooltip } from 'reactstrap';
 import XLSX from "xlsx";
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 
 export interface JobAppDownloadProps {
     jobappTable: Array<Object>

@@ -1,6 +1,6 @@
  import * as React from 'react';
  import APIURL from '../helpers/environment';
- import JobApp from '../interfaces/Interfaces';
+ import JobApp from '../interfaces/InterfaceJobApp';
  import './MyJobApps.css';
  import { Table, UncontrolledTooltip, Container, Alert } from 'reactstrap';
  import {TiArrowSortedDown} from 'react-icons/ti';
@@ -187,7 +187,7 @@ import JobAppDownload from './JobAppDownload';
         this.setState({alertVisible:true},()=>{
           window.setTimeout(()=>{
             this.setState({alertVisible:false})
-          },2000)
+          },3000)
         });
     }
 

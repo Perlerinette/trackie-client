@@ -1,6 +1,6 @@
 import * as React from 'react';
 import APIURL from '../helpers/environment';
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 import { BiAddToQueue } from 'react-icons/bi';
 import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip, FormText} from 'reactstrap';

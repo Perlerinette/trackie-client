@@ -3,7 +3,7 @@ import APIURL from '../helpers/environment';
 import { Container, Col, Row, Card, CardTitle, CardHeader, CardBody } from 'reactstrap';
 import { Line, Bar, Pie } from "react-chartjs-2";
 import {GiSandsOfTime} from 'react-icons/gi';
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 import './Dashboard.css';
 
 export interface DashboardProps {
@@ -11,6 +11,7 @@ export interface DashboardProps {
 }
  
 export interface DashboardState {
+    count: number,
     jobappsData: Array<JobApp>,
     datesOfApplications: Array<string>,
     numberOfApplications: number,
@@ -29,6 +30,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
     constructor(props: DashboardProps) {
         super(props);
         this.state = { 
+            count: 1,
             jobappsData: [],
             datesOfApplications: [],
             numberOfApplications: 0,
@@ -43,6 +45,12 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
         }
     }
 
+    componentDidMount() {
+        this.countJobApp();
+        this.getAllApplications();        
+    }
+
+    
 
     getAllApplications = () => {
         fetch(`${APIURL}/jobapplication/getAll`, {
@@ -63,10 +71,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
             .catch(error => { console.log(error)})
     }
 
-    componentDidMount() {
-        this.getAllApplications();
-        
-    }
+
 
     parseData = () => {
         this.setState({
@@ -192,7 +197,23 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
         ],
     }
 
+    countJobApp = () => {
 
+        fetch(`${APIURL}/jobapplication/countAll`, {
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                'Authorization': this.props.token
+            }),
+            })
+            .then((response) => response.json())
+            .then((data) => {            
+                console.log("count= ",data);
+                this.setState({ 
+                    count: data
+                }); 
+            });
+    }
 
 
 
@@ -206,6 +227,13 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     <h2 >- Dashboard -</h2>
                 </div>
                 <br/>
+
+                {this.state.count === 0 ? 
+                <Container style={{height: "100vh", textAlign: "center", paddingTop: "100px"}} >
+                <h4>To start logging your job applications, go to the tab "My applications" </h4> 
+                </Container>
+                :
+                <>
                 <Container >
                     <Row>
                         <Col style={{textAlign:"right"}} md="3"> 
@@ -240,7 +268,8 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                         </Col>
                     </Row>
                 </Container>
-
+                </>
+                 }
 
 
             <br/>
