@@ -1,0 +1,9 @@
+.icons-school-menu {
+  color: #4e3d73 !important;
+}
+
+.icons-school-menu:hover {
+  color: rgb(135, 106, 199, 0.95) !important;
+  background-color: #d4c4fb;
+  border-radius: 35%;
+}

@@ -1,10 +1,15 @@
 .footer-wrapper {
-  position: relative;
+  /* position: fixed; */
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
   /* Height of the footer*/
   height: 40px;
-  background: rgb(254, 248, 177);
+  background: #dafbc6;
+  background: -webkit-linear-gradient(left, #dafbc6, #d4c4fb);
+  background: -moz-linear-gradient(left, #dafbc6, #d4c4fb);
+  background: -ms-linear-gradient(left, #dafbc6, #d4c4fb);
+  background: -o-linear-gradient(left, #dafbc6, #d4c4fb);
+  background: linear-gradient(to right, #dafbc6, #d4c4fb);
   text-align: center;
 }

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import APIURL from '../helpers/environment';
-import { Container, Col, Row, Card, CardTitle, CardHeader, CardBody } from 'reactstrap';
-import { Line, Bar, Doughnut, Pie } from "react-chartjs-2";
+import { Container, Col, Row} from 'reactstrap';
 import {GiSandsOfTime} from 'react-icons/gi';
-import JobApp from '../interfaces/Interfaces';
+import JobApp from '../interfaces/InterfaceJobApp';
 import './Dashboard.css';
-import { PieChart } from '@material-ui/icons';
-import { access } from 'node:fs';
+import NavJobseeker from './NavJobseeker';
+import './NavJobseeker.css';
+import PieChart from './PieChart';
+import BarChart from './BarChart';
 
 export interface DashboardProps {
     token: string
@@ -17,15 +18,7 @@ export interface DashboardState {
     datesOfApplications: Array<string>,
     numberOfApplications: number,
     statusOfApplications: Array<string>,
-    nbOfPending: number,
-    nbOfShorlisted: number,
-    nbOfInterviewed: number,
-    nbOfRejected: number,
-    nbOfOffers: number,
-    nbOfOfferDeclined: number,
-    nbOfOfferAccepted: number
 }
-
 
  
 class Dashboard extends React.Component<DashboardProps, DashboardState> {
@@ -35,18 +28,17 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
             jobappsData: [],
             datesOfApplications: [],
             numberOfApplications: 0,
-            statusOfApplications: [],
-            nbOfPending: 0,
-            nbOfShorlisted: 0,
-            nbOfInterviewed: 0,
-            nbOfRejected: 0,
-            nbOfOffers: 0,
-            nbOfOfferDeclined: 0,
-            nbOfOfferAccepted: 0
+            statusOfApplications: []
             
         }
     }
 
+
+    componentDidMount() {
+        this.getAllApplications();  
+    }
+  
+  
 
     getAllApplications = () => {
         fetch(`${APIURL}/jobapplication/getAll`, {
@@ -61,57 +53,45 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 this.setState({ jobappsData: jobapps });
                 console.log('dashboard jobappsData: ', this.state.jobappsData);
                 this.parseData();
-                this.getStatusAndCount();
-                
+
             })
             .catch(error => { console.log(error)})
     }
 
-    componentDidMount() {
-        this.getAllApplications();
-        
-    }
 
     parseData = () => {
+        let dates: string[] = this.state.jobappsData.map(( (data) => data.applicationdate ));
+        let status: string[] = this.state.jobappsData.map(( (data) => data.status ));
+  
         this.setState({
-            datesOfApplications: this.state.jobappsData.map(( (data) => data.applicationdate )),
-            statusOfApplications: this.state.jobappsData.map(( (data) => data.status )),
+            datesOfApplications: dates,
+            statusOfApplications: status,
             numberOfApplications: this.state.jobappsData.length
-        })
-        console.log("dates: ", this.state.datesOfApplications);
-        console.log("status: ", this.state.statusOfApplications);
-        console.log("count: ", this.state.numberOfApplications);
+        });
+
     }
 
-    countOccurrences = (arr: Array<String>, val:string) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-
-    getStatusAndCount = () => {
-        this.setState({
-            nbOfPending: this.countOccurrences(this.state.statusOfApplications, "pending"),
-            nbOfShorlisted: this.countOccurrences(this.state.statusOfApplications, "shortlisted"),
-            nbOfInterviewed: this.countOccurrences(this.state.statusOfApplications, "interviewed"),
-            nbOfRejected: this.countOccurrences(this.state.statusOfApplications, "rejected"),
-            nbOfOffers: this.countOccurrences(this.state.statusOfApplications, "offer"),
-            nbOfOfferDeclined: this.countOccurrences(this.state.statusOfApplications, "declined"),
-            nbOfOfferAccepted: this.countOccurrences(this.state.statusOfApplications, "accepted"),
-        })
-        console.log("Pending: ", this.state.nbOfPending , "Shortlisted: ", this.state.nbOfShorlisted, "Interviewed: ", this.state.nbOfInterviewed, "Rejected: ", this.state.nbOfRejected, "Offers: ", this.state.nbOfOffers, "Accepted: ", this.state.nbOfOfferAccepted, "Declined: ", this.state.nbOfOfferDeclined);
-    }
-                
-        // var count: Object = this.state.statusOfApplications.reduce( (arr: Object, curr: any) => {
-        //     if( typeof arr[curr] === 'undefined') {arr[curr] = 1}
-        //     else { arr[curr]++ }
-        //     return arr;
-        // }, {} );
-        
-        //  counts = (arr: any[]) =>Ss.state.statusOfApplications));
-
-        /*
-        ["pending", "rejected", "interviewed", "interviewed", "pending", "pending"]  => { "pending": 3, "rejected": 1, "interviewed": 2 }  
-        ["pending", "rejected", "interveiwed"] [3, 1, 2]
-        */
     
+    // getPieData = ()  =>  {
+    //     let Pending = this.state.statusOfApplications.filter( arr => arr === "Pending");
+    //     let Interviewed = this.state.statusOfApplications.filter( arr => arr === "Interviewed");
+    //     let Rejected = this.state.statusOfApplications.filter( arr => arr === "Rejected");
+    //     let Offers = this.state.statusOfApplications.filter( arr => arr === "Offers");
+    //     let Hired = this.state.statusOfApplications.filter( arr => arr === "Hired");
+    //     let Declined = this.state.statusOfApplications.filter( arr => arr === "Declined");
 
+    //     let newObj: Object = {Pending: Pending.length, Interviewed: Interviewed.length, Rejected: Rejected.length, Offers: Offers.length, Hired: Hired.length, Declined: Declined.length }
+
+    //     this.setState({
+    //         piedata: newObj
+    //     })
+
+    //     console.log("newObj: " , newObj);
+
+    //     // return newObj;
+    // }
+
+    // Calculate the duration of the job hunt
     calculateDuration = () => {
         var date: Date = new Date(this.state.datesOfApplications[0]);
         console.log(date);
@@ -169,83 +149,71 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
         maintainAspectRatio: false,
       }
 
-    //Pie Chart
-    dataPie: Object = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [
-            {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-            },
-        ],
-    }
-
-
-
+    
 
 
     render() { 
         return ( 
             <>
+            <NavJobseeker />
             <div className="dash-wrapper">
                 <br/>
                 <div className="cadre-title" style={{width: "250px"}}>
                     <h4 >{localStorage.getItem('jobseekerName')}'s </h4>
-                    <h2 >- Dashboard -</h2>
+                    <h2 className='font'>- Dashboard -</h2>
                 </div>
                 <br/>
+
+                {this.state.numberOfApplications === 0 ? 
+                <Container style={{height: "100vh", textAlign: "center", paddingTop: "100px"}} >
+                <h4>To start logging your job applications, go to the tab "My applications" </h4> 
+                </Container>
+                :
+                <>
                 <Container >
                     <Row>
                         <Col style={{textAlign:"right"}} md="3"> 
                             <GiSandsOfTime size={30}/>
                         </Col>
                         <Col md="9">
-                            <h4>Your job hunt started <span style={{color: "#637259", fontSize: "larger"}}> {this.calculateDuration()} </span>days ago...Hang in there!</h4>
+                            <h5>Your job hunt started <span style={{color: "#637259", fontSize: "larger"}}> {this.calculateDuration()} </span>days ago...Hang in there!</h5>
                         </Col>       
                     </Row>
                 </Container>
-                <Container>
-                    <Row>
-                        
-                        <Card body className="text-center ">
-                            <CardTitle tag="h5">Number of monthly applications</CardTitle>
-                            {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
-                            <Container>
-                                <Line type={Line} data={this.dataLine} options={this.optionsLine} />
-                            </Container>
-                        </Card>
-                    </Row>
-                    <br/>
-                    <Row>
-                    <Col>
-                        <Card body className="text-center card">
-                            <CardTitle tag="h5">Applications Status</CardTitle>
-                            {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
-                            <Container>
-                            <Pie type={Pie} data={this.dataPie} className="chart-pie"/>
-                            </Container>
-                        </Card>
+                
+                <br/>
+                <br/>
+                <Container >
+                    <Row >
+                        <Col md='6' className="text-center ">
+                        <hr/>
+                        <h4 className='font'>{this.state.numberOfApplications} job applications sent!</h4>
+                        <hr/>
+                        <br/>
+                        <div className='d-flex justify-content-center'>
+                            { this.state.statusOfApplications.length > 0 ?
+                                <PieChart statusOfApplications={this.state.statusOfApplications} />
+                                : <></>}  
+                        </div>
                         </Col>
-                    </Row>
-                </Container>
-
+                        
+                        <Col md='6' className="text-center">
+                        <hr/>
+                        <h4 className='font'>Monthly Activity</h4>
+                        <hr/>
+                        <div >
+                            { this.state.datesOfApplications.length > 0 ?
+                                <BarChart datesOfApplications={this.state.datesOfApplications} />
+                                : <></>}  
+                        </div>
+                        </Col>
+                    </Row>            
+                </Container>            
+                        
+                  <br/>
+                  <br/>
+                </>
+                 }
 
 
             <br/>

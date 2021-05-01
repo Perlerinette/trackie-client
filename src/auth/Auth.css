@@ -1,33 +1,34 @@
 /** LOGIN JOBSEEEKER **/
+a {
+  text-decoration: none !important;
+  color: #637259 !important;
+}
 
 .login-container {
   height: 100vh;
   /* width: 500px !important; */
-  /* margin-top: 100px; */
-  position: relative;
+  /* margin-top: 30px; */
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* .login-wrapper {
-  border: 4px solid #dafbc6;
-  border-radius: 6px;
-  height: 400px;
-  width: 600px;
-  padding: 5px 30px 5px 30px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  background-color: white;
-} */
-
-.card-jobseeker {
-  border: solid 1px #637259 !important;
+.card-jobseeker-signup {
+  /* border: solid 1px #637259 !important; */
+  box-shadow: rgba(75, 88, 68, 0.4) -5px 5px, rgba(75, 88, 68, 0.3) -10px 10px,
+    rgba(75, 88, 68, 0.2) -15px 15px, rgba(75, 88, 68, 0.1) -20px 20px,
+    rgba(75, 88, 68, 0.05) -25px 25px;
 }
 
-.submitBtn {
+.card-jobseeker-login {
+  /* border: solid 1px #637259 !important; */
+  box-shadow: rgba(75, 88, 68, 0.4) 5px 5px, rgba(75, 88, 68, 0.3) 10px 10px,
+    rgba(75, 88, 68, 0.2) 15px 15px, rgba(75, 88, 68, 0.1) 20px 20px,
+    rgba(75, 88, 68, 0.05) 25px 25px;
+}
+
+.submit-login-signup {
   background-color: #dafbc6 !important;
   color: black !important;
   border: 1px solid #cec4ba !important;
@@ -35,7 +36,7 @@
   cursor: pointer;
 }
 
-.submitBtn:hover {
+.submit-login-signup:hover {
   background-color: #aac499 !important;
 }
 
@@ -61,13 +62,23 @@
   text-align: center;
 }
 
-#switch-form {
-  padding: 0px 30px 0px 60px;
+.switch-form {
+  padding-top: 15px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   cursor: pointer;
   font-size: smaller;
-  color: #637259;
-  font-weight: bold;
+  color: #637259 !important;
+}
+
+.switch-form:hover {
+  /* background-color: #dafbc6 !important; */
+  font-size: 14px;
+  width: fit-content;
 }
 
 .login-toggle-row {
@@ -83,8 +94,16 @@
 /**************************/
 /** LOGIN SCHOOL **/
 
-.card-school {
-  border: solid 1px #876ac7 !important;
+.card-school-login {
+  box-shadow: rgba(135, 106, 199, 0.4) 5px 5px,
+    rgba(135, 106, 199, 0.3) 10px 10px, rgba(135, 106, 199, 0.2) 15px 15px,
+    rgba(135, 106, 199, 0.1) 20px 20px, rgba(135, 106, 199, 0.05) 25px 25px;
+}
+
+.card-school-signup {
+  box-shadow: rgba(135, 106, 199, 0.4) -5px 5px,
+    rgba(135, 106, 199, 0.3) -10px 10px, rgba(135, 106, 199, 0.2) -15px 15px,
+    rgba(135, 106, 199, 0.1) -20px 20px, rgba(135, 106, 199, 0.05) -25px 25px;
 }
 
 .submitBtn-school {
@@ -110,20 +129,30 @@
 
 .link-title-school {
   text-decoration: none !important;
-  color: #876ac7;
+  color: #876ac7 !important;
 }
 
 .link-title-school:hover {
   color: #876ac7;
 }
 
-#switch-form-school {
-  padding: 0px 30px 0px 60px;
+.switch-form-school {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   cursor: pointer;
   font-size: smaller;
-  color: #876ac7;
-  font-weight: bold;
+  color: #876ac7 !important;
+}
+
+.switch-form-school:hover {
+  /* background-color: #d4c4fb !important; */
+  font-size: 14px;
+  width: fit-content;
 }
 
 /** END LOGIN SCHOOL **/

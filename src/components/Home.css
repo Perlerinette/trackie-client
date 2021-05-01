@@ -1,6 +1,16 @@
 /* NAVHOME */
 .color-nav {
-  background-color: rgb(254, 248, 177);
+  /* background-color: rgb(254, 248, 177); */
+  background: #d4c4fb;
+  background: -webkit-linear-gradient(left, #d4c4fb, #dafbc6);
+  background: -moz-linear-gradient(left, #d4c4fb, #dafbc6);
+  background: -ms-linear-gradient(left, #d4c4fb, #dafbc6);
+  background: -o-linear-gradient(left, #d4c4fb, #dafbc6);
+  background: linear-gradient(to right, #d4c4fb, #dafbc6);
+}
+
+.font {
+  font-family: "Caveat Brush", cursive;
 }
 
 .icon-home {
@@ -8,7 +18,7 @@
 }
 
 .icon-home:hover {
-  color: #f7e401;
+  color: #876ac7;
 }
 
 .jumbotron {
@@ -40,7 +50,7 @@
 }
 
 .custom-shape-divider-top-1618878871 .shape-fill {
-  fill: rgb(254, 248, 177);
+  fill: #d4c4fb;
 }
 /* END PAGE SEPARATOR */
 
@@ -63,6 +73,6 @@
 }
 
 .custom-shape-divider-top-1618879240 .shape-fill {
-  fill: rgb(254, 248, 177);
+  fill: #dafbc6;
 }
 /* END PAGE SEPARATOR */
