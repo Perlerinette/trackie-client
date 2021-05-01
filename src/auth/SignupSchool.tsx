@@ -1,12 +1,13 @@
 import React, { ComponentProps } from 'react';
 import APIURL from '../helpers/environment';
-
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button} from 'reactstrap';
+import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, Container, Row} from 'reactstrap';
 
 import signup_purple from '../assets/signup_purple.png';
+import NavHome from '../components/NavHome';
 
 
-export interface SignupSchoolProps {
+export interface SignupSchoolProps extends RouteComponentProps{
     updateToken: Function,
     // updateEmail: string
 
@@ -80,11 +81,13 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
       })
         .then((response) => response.json())
         .then((data) => {
+          localStorage.setItem('accountType', 'school');
           console.log(data);
           console.log(data.sessionSchoolToken);
-          this.props.updateToken(data.sessionSchoolToken);
+          this.props.updateToken(data.sessionSchoolToken, "school");
         //   this.props.updateEmail(data.school.email);
           console.log(data.school.email);
+          this.props.history.push('/school/dashboard');
         });
         
 }
@@ -92,46 +95,57 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
 render() { 
     return ( 
         <>
-        <Col md="8" className="col-spacing">
-        <Card className="card-school">
-            <CardHeader className="login-title-school ">
-                <h2 ><a className="link-title-school" href="/">TRACKIE</a></h2>
-            </CardHeader>
-            <CardBody>
-            <CardTitle className="login-subtitle">
-                <p >Sign up to follow your alumini</p>
-            </CardTitle>
-            
-            <div className="login-form " >
-            <Form onSubmit={this.handleSubmit}>
-                <FormGroup>
-                    <Input onChange={this.setSchoolname} type="text" name="email" placeholder="School name *" value={this.state.schoolname} required />
-              </FormGroup>
-              <FormGroup>
-                    <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
-              </FormGroup>
-              <FormGroup>
-                    <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
-              </FormGroup>
+        <NavHome/>
+        <br/>
+        <br/>
+        <Container className="login-container  ">
+            <div className="vertical-center">
+            <Row >
+                    <Col md="8" className="col-spacing">
+                    <Card className="card-school-signup">
+                        <CardHeader className="login-title-school ">
+                            <h1><a className="link-title-school font" href="/">TRACKIE</a></h1>
+                        </CardHeader>
+                        <CardBody>
+                        <CardTitle className="login-subtitle">
+                            <p >Sign up to follow your alumini</p>
+                        </CardTitle>
+                        
+                        <div className="login-form " >
+                        <Form onSubmit={this.handleSubmit}>
+                            <FormGroup>
+                                <Input onChange={this.setSchoolname} type="text" name="email" placeholder="School name *" value={this.state.schoolname} required />
+                        </FormGroup>
+                        <FormGroup>
+                                <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                        </FormGroup>
+                        <FormGroup>
+                                <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                        </FormGroup>
 
-              <div className="align-middle text-center">
-                <Button  className="submitBtn-school" type="submit">Create your account</Button>
-              </div>
-            </Form>
+                        <div className="align-middle text-center">
+                            <Button  className="submitBtn-school" type="submit" block>Create your account</Button>
+                        </div>
+                        </Form>
+                        </div>
+                        </CardBody>
+                    </Card>
+                    </Col>
+                    <Col md="4" className="col-spacing mt-auto">
+                        <img  style={{width: "150px"}} src={signup_purple} alt="" />  
+                    </Col>
+                </Row>
+                <Row>                    
+                    <Col md="8" className="col-spacing login-toggle-row " >
+                        <Link to="/school/login" ><h6 className="switch-form">Already registered? Sign in.</h6></Link>
+                    </Col>
+                    <Col md="4"></Col>
+                </Row>
             </div>
-            </CardBody>
-        </Card>
-        </Col>
-        <Col md="4" className="col-spacing mt-auto">
-            <img  style={{width: "150px"}} src={signup_purple} alt="" />  
-        </Col>
-        
-        {/* <div> */}
-            {/* <h6>Already registered? Sign in.</h6> */}
-        {/* </div> */}
+        </Container>
         </>
         );
     }
 }
  
-export default SignupSchool;
+export default withRouter(SignupSchool);

@@ -23,9 +23,9 @@ class Footer extends React.Component<FooterProps, FooterState> {
 
     render() { 
         return ( 
-            <div className="footer-wrapper">
+            <div className="footer-wrapper font">
             {/* &copy; {startDate}  {nowDate} - Laurine Leung */}
-            &copy; 2021 - Laurine Leung
+            &copy; 2021 - Trackie
             </div>
         );
     }

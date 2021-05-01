@@ -1,13 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import NavHome from './NavHome';
 import Footer from './Footer';
-import Auth from '../auth/Auth';
-import LoginSchool from '../auth/LoginSchool';
 import Home from './Home';
+import DashboardSchool from '../accounts/school/DashboardSchool';
+import Signup from '../auth/Signup';
+import Login from '../auth/Login';
 import Myjobapps from '../accounts/MyJobApps';
+import Account from '../accounts/Account';
+import Logout from '../auth/Logout';
 import Dashboard from '../accounts/Dashboard';
-import DashboardSchool from '../accounts/DashboardSchool';
+import SignupSchool from '../auth/SignupSchool';
+import LoginSchool from '../auth/LoginSchool';
+import CohortsSchool from '../accounts/school/CohortsSchool';
+import AccountSchool from '../accounts/school/AccountSchool';
 
 
 export interface MainProps {
@@ -41,14 +46,14 @@ class Main extends React.Component<MainProps, MainState> {
             this.setState({
                 sessionJobseekerToken: newToken
             });
-            console.log("sessionJobseekerToken", this.state.sessionJobseekerToken);
+            // console.log("sessionJobseekerToken", this.state.sessionJobseekerToken);
         }
         else if(tokenType === "school"){
             localStorage.setItem('schoolToken', newToken);
             this.setState({
                 sessionSchoolToken: newToken
             });
-            console.log("sessionSchoolToken", this.state.sessionSchoolToken);
+            // console.log("sessionSchoolToken", this.state.sessionSchoolToken);
         }
     }
 
@@ -56,14 +61,14 @@ class Main extends React.Component<MainProps, MainState> {
 
     componentDidMount() {
         if(localStorage.getItem('jobseekerToken') || localStorage.getItem('jobseekerToken') !== null){
-            console.log(localStorage.getItem('jobseekerToken'));
+            // console.log(localStorage.getItem('jobseekerToken'));
             this.setState({
                 sessionJobseekerToken: localStorage.getItem('jobseekerToken')!,
                 sessionSchoolToken:"",
                 accountType: "jobseeker"
             })
         } else if(localStorage.getItem('schoolToken') || localStorage.getItem('schoolToken') !== null){
-            console.log(localStorage.getItem('schoolToken'));
+            // console.log(localStorage.getItem('schoolToken'));
                 this.setState({
                     sessionSchoolToken: localStorage.getItem('schoolToken')!,
                     sessionJobseekerToken: "",
@@ -87,14 +92,6 @@ class Main extends React.Component<MainProps, MainState> {
         });
         
     }
-
-    // clearToken = () => {
-    //     localStorage.clear();
-    //     this.setState({
-    //         sessionJobseekerToken: "",
-    //         accountType:""
-    //     });
-    // }
     
       /* END of TOKEN RELATED*/
 
@@ -106,14 +103,24 @@ class Main extends React.Component<MainProps, MainState> {
             <Router>
                 <Switch>                    
                     <Route exact path="/" component={() => <Home/>} />
-                    <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <Dashboard token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route>
-                    <Route exact path="/login"> <Auth updateToken = {this.updateToken} accountType={"jobseeker"} />  </Route>
+                    {/* <Route exact path="/dashboard"  > {this.state.sessionJobseekerToken ? <NavJobseeker token={this.state.sessionJobseekerToken} logout={this.logout}/> : <Redirect to="/" />} </Route> */}
+                    {/* <Route exact path="/login"> <Auth updateToken = {this.updateToken} accountType={"jobseeker"} />  </Route>
+                    <Route exact path="/signup"> <Auth updateToken = {this.updateToken} accountType={"jobseeker"} />  </Route> */}
+                    <Route exact path="/login"> <Login updateToken = {this.updateToken}  />  </Route>
+                    <Route exact path="/signup"> <Signup updateToken = {this.updateToken} />  </Route> */
+
+                    <Route exact path="/myjobapplications"  > {this.state.sessionJobseekerToken ? <Myjobapps token={this.state.sessionJobseekerToken} /> : <Redirect to="/" />} </Route>
+                    <Route exact path="/myaccount"  > {this.state.sessionJobseekerToken ? <Account token={this.state.sessionJobseekerToken} /> : <Redirect to="/" />} </Route>
+                    <Route exact path="/mydashboard"  > {this.state.sessionJobseekerToken ? <Dashboard token={this.state.sessionJobseekerToken} /> : <Redirect to="/" />} </Route>
+                    <Route exact path="/logout"><Logout logout={this.logout}/></Route>
+
                     <Route exact path="/school/dashboard"  > {this.state.sessionSchoolToken ? <DashboardSchool schoolToken={this.state.sessionSchoolToken} logout={this.logout}/> : <Redirect to="/" /> } </Route>
-                    <Route exact path="/school/login"> <Auth updateToken = {this.updateToken} accountType={"school"} />  </Route>
+                    <Route exact path="/school/cohorts"  > {this.state.sessionSchoolToken ? <CohortsSchool schoolToken={this.state.sessionSchoolToken} logout={this.logout}/> : <Redirect to="/" /> } </Route>
+                    <Route exact path="/school/account"  > {this.state.sessionSchoolToken ? <AccountSchool schoolToken={this.state.sessionSchoolToken} logout={this.logout}/> : <Redirect to="/" /> } </Route>
+                    <Route exact path="/school/login"> <LoginSchool updateToken = {this.updateToken} />  </Route>
+                    <Route exact path="/school/signup"> <SignupSchool updateToken = {this.updateToken} />  </Route>
+                    <Route exact path="/school/logout"><Logout logout={this.logout}/></Route>
                                        
-                    {/* <Route exact path="/login/" component={() => <Login accountType="jobseeker"/> } /> */}
-                    {/* <Route exact path="/signup" component={() => <Signup accountType="jobseeker"/> } /> */}
-                    {/* <Route exact path="/myjobapplications" component={() => <Myjobapps /> } /> */}
                 </Switch>
             </Router>
             <Footer />

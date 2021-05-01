@@ -1,9 +1,42 @@
 .dash-wrapper {
   background-color: #dafbc6;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .dash-wrapper-school {
   background-color: #d4c4fb;
   height: 100vh;
+}
+
+.cadre-title {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  /* width: 200px; */
+  border: solid 5px #94ac85;
+  border-style: outset; /*ridge*/
+  background-color: #f8f9f1;
+  text-align: center;
+}
+
+.cadre-title-school {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  /* width: 200px; */
+  border: solid 5px #876ac7;
+  border-style: outset; /*ridge*/
+  background-color: #f8f9f1;
+  text-align: center;
+}
+
+.card-pie-chart {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* height: 60vh !important; */
+  /* width: 500px; */
+}
+
+.chart-line {
+  height: 200px !important;
+  width: 550px !important;
 }
