@@ -1,9 +1,8 @@
 import * as React from 'react';
 import APIURL from '../helpers/environment';
-import JobApp from '../interfaces/InterfaceJobApp';
 import { BiAddToQueue } from 'react-icons/bi';
 import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip, FormText} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip} from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -153,7 +152,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
 
     render() { 
         return ( 
-            <>
+            <>            
          {/* <div className="dash-wrapper">  */}
             <BiAddToQueue id="tooltipadd" className="icons-add-download" onClick={this.toggle}/>
             <UncontrolledTooltip placement="top" target="tooltipadd">

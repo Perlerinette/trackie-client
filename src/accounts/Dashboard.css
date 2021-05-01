@@ -19,15 +19,21 @@
   text-align: center;
 }
 
-.card-pie-chart {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  height: 300px;
-  width: 500px;
+.cadre-title-school {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  /* width: 200px; */
+  border: solid 5px #876ac7;
+  border-style: outset; /*ridge*/
+  background-color: #f8f9f1;
+  text-align: center;
 }
 
-.chart-pie {
-  height: 200px !important;
-  width: 200px !important;
+.card-pie-chart {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* height: 60vh !important; */
+  /* width: 500px; */
 }
 
 .chart-line {

@@ -152,9 +152,8 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
             <Modal isOpen={this.state.modal} toggle={this.toggle}  backdrop={true}>
      
             <Form>
-            <ModalHeader  className="modal-create-header ">
+            <ModalHeader  className="modal-edit-header ">
                 <h4>A change to make?</h4>
-                <p>{this.props.jobapp.id}</p>
             </ModalHeader>
             <ModalBody>
                 

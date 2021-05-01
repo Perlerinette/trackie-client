@@ -27,6 +27,9 @@
   cursor: pointer;
   font-size: 25px;
 }
+.icons-add-download:hover {
+  color: #637259;
+}
 
 .icon-open {
   cursor: pointer;
@@ -40,25 +43,25 @@
 
 .icon-edit {
   cursor: pointer;
-  margin-right: 5px;
-  font-size: 22px;
+  margin-right: 8px;
+  font-size: 25px;
 }
 .icon-edit:hover {
   color: #637259;
   background-color: #dafbc6;
+  border-radius: 25px;
   /* font-size: 25px; */
 }
 
 .icon-delete {
   cursor: pointer;
-  margin-left: 5px;
-  font-size: 22px;
+  margin-left: 8px;
+  font-size: 25px;
 }
 .icon-delete:hover {
   color: #e43b3b;
-  background-color: #dafbc6;
-  /* font-size: 25px; */
-  /* transition: 1s ease-out; */
+  background-color: #fbc6c6;
+  border-radius: 25px;
 }
 
 .icon-sort {
@@ -71,38 +74,44 @@
   /* font-size: 25px; */
 }
 
-/* .modal-dialog {
-  width: 700px !important;
-} */
-
-/* .modal-backdrop {
-  background-color: transparent !important;
-}
-
-.bg-modal {
-  background-color: white !important;
-} */
-
 .modal-create-header,
-.modal-create-header {
+.modal-edit-header {
   background-color: #dafbc6;
   justify-content: center !important;
 }
 
 .icon-add-modal {
   cursor: pointer;
-  font-size: 30px;
+  font-size: 40px;
 }
 .icon-add-modal:hover {
   color: #dafbc6;
   background-color: #637259;
+  border-radius: 25px;
 }
 
 .icon-cancel-modal {
   cursor: pointer;
-  font-size: 30px;
+  font-size: 40px;
 }
 .icon-cancel-modal:hover {
   color: #dafbc6;
-  background-color: #fbc6c6;
+  background-color: #fc9898;
+  border-radius: 25px;
+}
+
+.icon-ok-modal {
+  cursor: pointer;
+  font-size: 30px;
+  background-color: #dafbc6;
+  border-radius: 25px;
+}
+.icon-ok-modal:hover {
+  color: #dafbc6;
+  background-color: #637259;
+}
+
+.row-table {
+  text-align: center !important;
+  vertical-align: middle !important;
 }

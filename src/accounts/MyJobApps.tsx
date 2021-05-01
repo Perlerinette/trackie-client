@@ -9,6 +9,7 @@ import JobAppCreate from './JobAppCreate';
 import JobAppExpand from './JobAppExpand';
 import JobAppEdit from './JobAppEdit';
 import JobAppDownload from './JobAppDownload';
+import NavJobseeker from './NavJobseeker';
 
  export interface MyjobappsProps {
     token: string,
@@ -70,14 +71,14 @@ import JobAppDownload from './JobAppDownload';
             return(
                 <>
                 <tr key={index}>
-                    <th scope="row">
+                    <th scope="row" className='row-table'>
                         {/* view all info */}
                         <JobAppExpand jobapp={jobapp}/>
                     </th>
-                    <td>{jobapp.applicationdate}</td>
-                    <td>{jobapp.jobtitle}</td>
-                    <td>{jobapp.status}</td>
-                    <td>
+                    <td className='row-table'>{jobapp.applicationdate}</td>
+                    <td className='row-table'>{jobapp.jobtitle}</td>
+                    <td className='row-table'>{jobapp.status}</td>
+                    <td className='row-table'>
                         
                         {/* edit job app */}
                         <JobAppEdit token={this.props.token} getAllApplications={this.getAllApplications} jobapp={jobapp} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert}/>
@@ -205,11 +206,12 @@ import JobAppDownload from './JobAppDownload';
      render() { 
          return ( 
              <>
+             <NavJobseeker/>
             <div className="dash-wrapper">
             <br/>
             <div className="cadre-title"  style={{width: "400px"}}>
                     <h4 >{localStorage.getItem('jobseekerName')}'s </h4>
-                    <h2 >- Job Applications -</h2>
+                    <h2 className='font'>- Job Applications -</h2>
                 </div>
                 <br/>
             <Container className="tableView ">
@@ -233,7 +235,7 @@ import JobAppDownload from './JobAppDownload';
                     <thead>
                         <tr>
                             <th>View More</th>
-                            <th>Date of Applications <TiArrowSortedDown onClick={this.sortByDate} className="icon-sort"/></th>
+                            <th>Date <TiArrowSortedDown onClick={this.sortByDate} className="icon-sort"/></th>
                             <th>Job Title <TiArrowSortedDown onClick={this.sortByJobtitle} className="icon-sort"/></th>
                             <th>Status <TiArrowSortedDown onClick={this.sortByStatus} className="icon-sort"/></th>
                             <th>Edit/Delete</th>

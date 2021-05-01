@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './Dashboard.css';
+import '../Dashboard.css';
 import NavSchool from './NavSchool';
 
 export interface DashboardSchoolProps {
@@ -23,7 +23,12 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
             <>
             <NavSchool logout={this.props.logout}/>
             <div className="dash-wrapper-school">
-                <h2>Dashboard School</h2>
+                <br/>
+                <div className="cadre-title-school" style={{width: "250px"}}>
+                    <h4 >{localStorage.getItem('schoolName')}'s </h4>
+                    <h1 className='font'>- Dashboard -</h1>
+                </div>
+                <br/>
             </div>
             </>
          );

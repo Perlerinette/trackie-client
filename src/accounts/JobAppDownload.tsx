@@ -21,8 +21,11 @@ class JobAppDownload extends React.Component<JobAppDownloadProps, JobAppDownload
           };
     }
 
+    
+
     downloadXls = (event: React.SyntheticEvent) => {
         event.preventDefault();
+
 
         const ws = XLSX.utils.json_to_sheet(this.props.jobappTable);
         const wb = XLSX.utils.book_new();

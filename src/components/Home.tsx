@@ -26,9 +26,9 @@ class Home extends React.Component<HomeProps, HomeState> {
             <Navbar />
             <Jumbotron className="jumbotron"  fluid>
                 <Container className="text-center mt-4" >
-                <h1 className="display-2">Join Trackie</h1>
+                <h1 className="display-2 font">Join Trackie</h1>
                 <p className="lead">your companion, for your job search journey.</p>
-                <img className="mt-4" style={{width: "500px"}} src={Trackie} alt="" />
+                <img className="mt-4" style={{width: "450px"}} src={Trackie} alt="" />
                 </Container>
                 <br/>
             </Jumbotron>
@@ -41,7 +41,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 
             <Jumbotron className="jumbotron" style={{backgroundColor: "white"}} fluid>
                 <Container className="text-center container2" >
-                <h2 className="display-4">How does it work?</h2>
+                <h2 className="display-4 font">How does it work?</h2>
                 <Row className="mt-5">
                     <Col md="2"></Col>
                     <Col md="3" lg="3">
@@ -98,7 +98,7 @@ class Home extends React.Component<HomeProps, HomeState> {
 
             <Jumbotron className="jumbotron" style={{backgroundColor: "white"}} fluid>
                 <Container className="text-center mt-4" >
-                <h1 className="display-4">The features!</h1>
+                <h1 className="display-4 font">The features!</h1>
                 <Row>
                     <Col md="6">
                     <p className="lead">Job hunters....</p>

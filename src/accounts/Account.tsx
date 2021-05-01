@@ -12,6 +12,7 @@ import { BiLink, BiUnlink } from 'react-icons/bi';
 import {GrAddCircle, GrUpdate} from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
 import Trackie from '../assets/trackie_sol.png'
+import NavJobseeker from './NavJobseeker';
 
 
 export interface AccountProps {
@@ -278,11 +279,12 @@ class Account extends React.Component<AccountProps, AccountState> {
     render() { 
         return ( 
             <>
+            <NavJobseeker/>
            <div className="dash-wrapper">
                 <br/>
                 <div className="cadre-title"  style={{width: "250px"}}>
                     <h4 >{localStorage.getItem('jobseekerName')}'s </h4>
-                    <h2 >- Account -</h2>
+                    <h2 className='font' >- Account -</h2>
                 </div>
                 <br/>
                 {/* Display messages: Success or error to inform user */}
@@ -301,10 +303,10 @@ class Account extends React.Component<AccountProps, AccountState> {
                 <Container >                
                 <Row >
                     <Col md="4" className="profile-box "> 
-                            <h4 style={{color: "white"}}>Profile</h4>
+                            <h3 className='font' style={{color: "white", paddingTop:'10px'}}>Profile</h3>
                             <hr style={{borderTop: "5px dotted white"}}/>
                             <br/>
-                            <h5>Hello {this.state.firstname} {this.state.lastname} !</h5>
+                            <h5 style={{color: '#dafbc6'}}>Hello {this.state.firstname} {this.state.lastname} !</h5>
                             <br/>
                             <Container className="profile-container">
                                 <MdAccountCircle className="icon-profile-valid"/> Member since {this.state.membership} 
@@ -328,12 +330,12 @@ class Account extends React.Component<AccountProps, AccountState> {
                     </Col>
                     
                     <Col md="7" className="settings-box ">
-                        <h4 style={{color: "#637259"}}>Settings</h4>
+                        <h3 className='font' style={{color: "#637259", paddingTop:'10px'}}>Settings</h3>
                         <hr style={{borderTop: "5px dotted #637259"}}/>
                         <br/>
                         <Container style={{textAlign: "left"}}>
                             
-                                <Label>Modify Email: </Label>
+                                <Label style={{fontWeight: 'bold'}}>Modify Email: </Label>
                                 <InputGroup>
                                     <Input onChange={this.setNewEmail} type="email" name="email" placeholder="Enter new email" value={this.state.newEmail} required />
                                     <InputGroupAddon addonType="append" >
@@ -347,12 +349,12 @@ class Account extends React.Component<AccountProps, AccountState> {
                                 <br/>
                                 <hr style={{borderTop: "2px dotted #dafbc6"}}/>
                                 
-                                <Label>Modify Password: </Label>
+                                <Label style={{fontWeight: 'bold'}}>Modify Password: </Label>
                                 <InputGroup>
                                     <Input onChange={this.setNewPassword} type="password" name="password" placeholder="Enter new password" value={this.state.newPwd} required />
                                 </InputGroup>
                                 <br/>
-                                <Label>Confirm Password: </Label>
+                                <Label style={{fontWeight: 'bold'}}>Confirm Password: </Label>
                                 <InputGroup>
                                     <Input onChange={this.setConfirmPassword} type="password" name="password" placeholder="Re-enter new password" value={this.state.confirmPwd} required />
                                     <InputGroupAddon addonType="append" >
@@ -370,15 +372,15 @@ class Account extends React.Component<AccountProps, AccountState> {
                                 {this.state.sharedata ? 
                                 <>
                                 <Row >
-                                    <Col>
-                                    Stop sharing:   <br/>
-                                    <RiUserSharedFill className="btn-stop-sharing" onClick={this.changeSharing}/> 
+                                    <Col className='text-center'>
+                                        <Label style={{fontWeight: 'bold'}}>Stop sharing:</Label> <br/> 
+                                        <RiUserSharedFill className="btn-stop-sharing" onClick={this.changeSharing}/> 
                                     </Col>
-                                    <Col >                                    
-                                    <Label>School code:</Label>
+                                    <Col className='text-center' >                                    
+                                    <Label style={{fontWeight: 'bold'}}>School code:</Label>
                                     {this.state.invitcode ?
                                     <>                                    
-                                    <Input type="text" value={this.state.invitcode} disabled style={{width:"fit-content"}} />
+                                    <Input type="text" value={this.state.invitcode} disabled style={{width:"100px", marginLeft:'auto', marginRight: 'auto', backgroundColor:"#dafbc6", textAlign:'center'}} />
                                     </>
                                     :
                                     <>
@@ -399,11 +401,11 @@ class Account extends React.Component<AccountProps, AccountState> {
                                 <>
                                 <Row >
                                     <Col>
-                                    Share Option:   <br/>
+                                    <Label style={{fontWeight: 'bold'}}>Share Option:</Label>    <br/>
                                     <RiUserSharedFill className="btn-start-sharing" onClick={this.changeSharing}/> 
                                     </Col>
                                     <Col >
-                                    <Label>School code:</Label>
+                                    <Label style={{fontWeight: 'bold'}}>School code:</Label>
                                     {this.state.invitcode ?
                                     <>                                    
                                     <Input type="text" value={this.state.invitcode} disabled style={{width:"fit-content"}} />
