@@ -1,11 +1,5 @@
 .dash-wrapper {
   background-color: #dafbc6;
-  /* height: 100vh; */
-}
-
-.dash-wrapper-school {
-  background-color: #d4c4fb;
-  height: 100vh;
 }
 
 .cadre-title {
@@ -14,17 +8,6 @@
   height: 100px;
   /* width: 200px; */
   border: solid 5px #94ac85;
-  border-style: outset; /*ridge*/
-  background-color: #f8f9f1;
-  text-align: center;
-}
-
-.cadre-title-school {
-  margin-left: auto;
-  margin-right: auto;
-  height: 100px;
-  /* width: 200px; */
-  border: solid 5px #876ac7;
   border-style: outset; /*ridge*/
   background-color: #f8f9f1;
   text-align: center;

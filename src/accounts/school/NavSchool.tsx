@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
-import { UncontrolledTooltip, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { UncontrolledTooltip} from 'reactstrap';
 import login_purple from '../../assets/login_purple.png';
-import {MdAccountCircle} from 'react-icons/md';
-import {RiDashboard3Line, RiFileListLine, RiLogoutBoxRLine} from 'react-icons/ri';
+import {RiDashboard3Line, RiLogoutBoxRLine} from 'react-icons/ri';
+import {GiGraduateCap} from 'react-icons/gi';
 import './NavSchool.css';
+import { FaSchool } from 'react-icons/fa';
 
 export interface NavSchoolProps {
     logout: (event: React.MouseEvent<SVGElement, MouseEvent>) => void
@@ -48,13 +49,13 @@ class NavSchool extends React.Component<NavSchoolProps, NavSchoolState> {
                         </UncontrolledTooltip>
                     </NavItem>
                     <NavItem className="mr-3 ml-3">
-                        <Link to="/school/cohorts"><RiFileListLine size={30} id="tooltip3"  className="icons-school-menu" /></Link>
+                        <Link to="/school/cohorts"><GiGraduateCap size={30} id="tooltip3"  className="icons-school-menu" /></Link>
                         <UncontrolledTooltip placement="top" target="tooltip3">
                             Cohorts
                         </UncontrolledTooltip>
                     </NavItem>
                     <NavItem className="mr-3 ml-3">
-                        <Link to="/school/account"><MdAccountCircle size={30} id="tooltip1" className="icons-school-menu" /></Link>
+                        <Link to="/school/account"><FaSchool size={30} id="tooltip1" className="icons-school-menu" /></Link>
                         <UncontrolledTooltip placement="top" target="tooltip1" >
                             Account
                         </UncontrolledTooltip>

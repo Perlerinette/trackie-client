@@ -144,10 +144,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
     render() { 
         return ( 
             <>
-            <TiEdit  id="tooltipEdit" className="icon-edit" onClick={this.toggle}/>
-                <UncontrolledTooltip placement="top" target="tooltipEdit">
-                    Edit
-                </UncontrolledTooltip>
+            <TiEdit  className="icon-edit" onClick={this.toggle}/>
            
             <Modal isOpen={this.state.modal} toggle={this.toggle}  backdrop={true}>
      

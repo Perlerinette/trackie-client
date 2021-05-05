@@ -68,15 +68,15 @@
   position: fixed;
   display: block;
   width: 95%;
-  height: auto;
-  top: 270px;
+  height: 750px;
+  top: 70px;
   left: 20px;
   right: 0;
   bottom: 20px;
   background-color: rgb(75, 88, 68, 0.95);
   z-index: 2;
   border: dotted 5px #dafbc6;
-
+  padding-top: 100px;
   text-align: center;
   font-size: 50px;
   color: white;

@@ -1,0 +1,75 @@
+.dash-wrapper-school {
+  background-color: #d4c4fb;
+}
+
+.cadre-title-school {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  /* width: 200px; */
+  border: solid 5px #876ac7;
+  border-style: outset; /*ridge*/
+  background-color: #f8f9f1;
+  text-align: center;
+}
+
+.click-tip {
+  width: fit-content !important;
+  border: 6px dotted white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-cohort {
+  background-color: #876ac7 !important;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.btn-cohort:hover {
+  background-color: #4e3d73 !important;
+  transform: scale(1.2);
+}
+
+.display-cohort-title {
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #d4c4fb !important;
+  border: 2px dotted white;
+  text-shadow: 1px 1px #4e3d73;
+  background-color: #876ac7;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.btn-copyCode {
+  background-color: #876ac7 !important;
+  cursor: pointer;
+}
+.btn-copyCode:hover {
+  background-color: #4e3d73 !important;
+  color: #d4c4fb !important;
+}
+
+.table-hired {
+  background-color: white;
+  text-align: center;
+
+  /* box shadow*/
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+}
+
+.icon-hired-sort {
+  cursor: pointer;
+  font-size: 20px;
+}
+.icon-hired-sort:hover {
+  color: #4e3d73;
+  background-color: #d4c4fb;
+}

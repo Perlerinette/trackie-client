@@ -30,14 +30,16 @@ a {
 
 .submit-login-signup {
   background-color: #dafbc6 !important;
-  color: black !important;
+  color: #637259 !important;
   border: 1px solid #cec4ba !important;
   border-radius: 2px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .submit-login-signup:hover {
   background-color: #aac499 !important;
+  color: #dafbc6 !important;
 }
 
 .icon-field {
@@ -108,14 +110,16 @@ a {
 
 .submitBtn-school {
   background-color: #d4c4fb !important;
-  color: black !important;
+  color: #4e3d73 !important;
   border: 1px solid #cec4ba !important;
   border-radius: 2px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .submitBtn-school:hover {
   background-color: #876ac7 !important;
+  color: #d4c4fb !important;
 }
 
 .icon-fieldSchool {
