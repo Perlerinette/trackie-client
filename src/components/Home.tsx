@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Col, Row, Container, Jumbotron, Card, CardTitle, CardText, CardImg, CardImgOverlay, Spinner} from 'reactstrap';
 import './Home.css';
-import Navbar from '../components/NavHome';
+import NavHome from '../components/NavHome';
 import Trackie from '../assets/trackie.png';
 import TrackieSol from '../assets/trackie_sol.png';
 import Bubble_L from '../assets/bubble_left.png';
@@ -25,7 +25,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     render() { 
         return ( 
             <>
-            <Navbar />
+            <NavHome />
             <Jumbotron id="home" className="jumbotron"  fluid>
                 <Container className="text-center mt-4" >
                 <h1  className="display-2 font">Join Trackie</h1>

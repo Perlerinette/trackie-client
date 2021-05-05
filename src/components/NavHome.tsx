@@ -50,9 +50,9 @@ class NavHome extends React.Component<NavHomeProps, NavHomeState> {
                             </DropdownToggle>
 
                             <DropdownMenu >
-                                <a href="#home">
+                                <Link to="/" onClick={this.toggleNavbar} className="text-decoration-none ">
                                     <DropdownItem className="custom-hover font">Home</DropdownItem>
-                                </a>
+                                </Link>
                                 <DropdownItem divider />
                                 <a href="#about">
                                     <DropdownItem className="custom-hover font">About Trackie</DropdownItem>
