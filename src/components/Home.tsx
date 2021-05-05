@@ -25,7 +25,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     render() { 
         return ( 
             <>
-            <NavHome />
+            <NavHome menu={true} />
             <Jumbotron id="home" className="jumbotron"  fluid>
                 <Container className="text-center mt-4" >
                 <h1  className="display-2 font">Join Trackie</h1>

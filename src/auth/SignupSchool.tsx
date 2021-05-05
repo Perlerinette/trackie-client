@@ -95,7 +95,7 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
 render() { 
     return ( 
         <>
-        <NavHome/>
+        <NavHome menu={false}/>
         <br/>
         <br/>
         <Container className="login-container  ">

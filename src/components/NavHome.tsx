@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
+import {Link, NavLink} from "react-router-dom";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem} from 'reactstrap';
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {RiHomeSmileLine, RiLoginBoxLine} from 'react-icons/ri';
 
 export interface NavHomeProps {
-    
+    menu: boolean
 }
  
 export interface NavHomeState {
@@ -37,22 +37,17 @@ class NavHome extends React.Component<NavHomeProps, NavHomeState> {
                 <NavbarToggler onClick={this.toggleNavbar}  />
                 <Collapse isOpen={this.state.collapsed} navbar>
                 <Nav className="ml-auto" navbar>
-                    {/* <NavItem className="mr-3 ml-3">
-                        <Link to="/" onClick={this.toggleNavbar} className="text-decoration-none"> 
-                            <NavLink ><RiHomeSmileLine  size={30} className="icon-home"/> </NavLink>
-                         </Link> 
-                                            
-                    </NavItem> */}
+                    
+                    {this.props.menu ?
                     <NavItem  className="mr-3 ml-3">
                         <UncontrolledDropdown setActiveFromChild>
                             <DropdownToggle tag="a" className="nav-link ">
-                            <RiHomeSmileLine size={30} id="tooltipLogin" className="icon-home"/>                          
-                            </DropdownToggle>
-
+                            <RiHomeSmileLine size={30} className="icon-home"/>                          
+                            </DropdownToggle>                            
                             <DropdownMenu >
-                                <Link to="/" onClick={this.toggleNavbar} className="text-decoration-none ">
+                                <a href="#home">
                                     <DropdownItem className="custom-hover font">Home</DropdownItem>
-                                </Link>
+                                </a>
                                 <DropdownItem divider />
                                 <a href="#about">
                                     <DropdownItem className="custom-hover font">About Trackie</DropdownItem>
@@ -64,6 +59,14 @@ class NavHome extends React.Component<NavHomeProps, NavHomeState> {
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </NavItem>
+                    :
+                    <NavItem className="mr-3 ml-3">
+                        <Link to="/" onClick={this.toggleNavbar} className="nav-link"> 
+                            <RiHomeSmileLine  size={30} className="icon-home"/> 
+                         </Link> 
+                                            
+                    </NavItem>
+                    }
                     <NavItem  className="mr-3 ml-3">
                         <UncontrolledDropdown setActiveFromChild>
                             <DropdownToggle tag="a" className="nav-link ">
