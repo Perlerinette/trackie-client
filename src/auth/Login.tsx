@@ -2,7 +2,7 @@ import React, { ComponentProps} from 'react';
 import APIURL from '../helpers/environment';
 import './Auth.css';
 import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Navbar, Row, Container} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container} from 'reactstrap';
 import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import login_green from '../assets/login_green.png';
 import NavHome from '../components/NavHome';
@@ -137,7 +137,7 @@ render() {
                                     </FormGroup>
 
                                     <div className="align-middle text-center">
-                                    <Button  className="submit-login-signup " type="submit" block>Sign in</Button>
+                                    <Button  className="submit-login-signup font" type="submit" block>Sign in</Button>
                                     </div>
                                 </Form>                    
                             </div>

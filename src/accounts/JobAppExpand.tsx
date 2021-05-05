@@ -1,9 +1,8 @@
 import * as React from 'react';
 import JobApp from '../interfaces/InterfaceJobApp';
 import './MyJobApps.css';
-import { BiAddToQueue, BiExpand, BiMapPin } from 'react-icons/bi';
-import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip,  CardText, CardSubtitle, CardTitle, Container,} from 'reactstrap';
+import {BiExpand, BiMapPin } from 'react-icons/bi';
+import {FormGroup, Label, Input, Modal,ModalFooter, ModalBody, Col, Row, UncontrolledTooltip, CardSubtitle, CardTitle, Container,} from 'reactstrap';
 import { BsCheckCircle } from 'react-icons/bs';
 
 export interface JobAppExpandProps {

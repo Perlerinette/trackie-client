@@ -124,7 +124,7 @@ render() {
                         </FormGroup>
 
                         <div className="align-middle text-center">
-                            <Button  className="submitBtn-school" type="submit" block>Create your account</Button>
+                            <Button  className="submitBtn-school font" type="submit" block>Create your account</Button>
                         </div>
                         </Form>
                         </div>

@@ -1,12 +1,61 @@
 /* NAVHOME */
 .color-nav {
-  /* background-color: rgb(254, 248, 177); */
+  /* gradient de 2 couleurs */
   background: #d4c4fb;
   background: -webkit-linear-gradient(left, #d4c4fb, #dafbc6);
   background: -moz-linear-gradient(left, #d4c4fb, #dafbc6);
   background: -ms-linear-gradient(left, #d4c4fb, #dafbc6);
   background: -o-linear-gradient(left, #d4c4fb, #dafbc6);
   background: linear-gradient(to right, #d4c4fb, #dafbc6);
+}
+
+/* Spin clockwise */
+.spinnerClock {
+  animation: spinClock infinite 5s linear;
+
+  /*You can increase or decrease the timer (5s) to 
+   increase or decrease the speed of the spinner*/
+}
+
+@keyframes spinClock {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spin counter-clockwise */
+.spinner {
+  animation: spin infinite 5s linear;
+
+  /*You can increase or decrease the timer (5s) to 
+   increase or decrease the speed of the spinner*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.custom-hover {
+  font-size: larger;
+}
+
+.custom-hover:hover,
+.custom-hover:focus {
+  background-image: none;
+  background: #d4c4fb;
+  background: -webkit-linear-gradient(right, #d4c4fb, #dafbc6);
+  background: -moz-linear-gradient(right, #d4c4fb, #dafbc6);
+  background: -ms-linear-gradient(right, #d4c4fb, #dafbc6);
+  background: -o-linear-gradient(right, #d4c4fb, #dafbc6);
+  background: linear-gradient(to left, #d4c4fb, #dafbc6);
 }
 
 .font {
@@ -18,7 +67,9 @@
 }
 
 .icon-home:hover {
-  color: #876ac7;
+  color: #637259;
+  background-color: #d4c4fb;
+  border-radius: 35%;
 }
 
 .jumbotron {
@@ -30,6 +81,19 @@
 .card-bg {
   border: none !important;
   width: 200px;
+}
+
+.list-features {
+  list-style-type: none;
+  font-size: larger;
+  margin: 0;
+  padding: 0;
+  /* text-align: right !important; */
+}
+
+.list-features > li {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* PAGE SEPARATOR 1 */
@@ -50,7 +114,7 @@
 }
 
 .custom-shape-divider-top-1618878871 .shape-fill {
-  fill: #d4c4fb;
+  fill: #dafbc6;
 }
 /* END PAGE SEPARATOR */
 
@@ -73,6 +137,6 @@
 }
 
 .custom-shape-divider-top-1618879240 .shape-fill {
-  fill: #dafbc6;
+  fill: #d4c4fb;
 }
 /* END PAGE SEPARATOR */

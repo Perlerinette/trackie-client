@@ -1,18 +1,15 @@
-import React, { ComponentProps} from 'react';
-import { Alert, Col, Container, Row, Input, Form, FormGroup, Button, InputGroup, InputGroupAddon, InputGroupText, Label } from 'reactstrap';
-import Footer from '../components/Footer';
+import React from 'react';
+import { Alert, Col, Container, Row, Input, InputGroup, InputGroupAddon, InputGroupText, Label } from 'reactstrap';
 import APIURL from '../helpers/environment';
 import './Account.css';
-import {RiKey2Fill, RiUserSharedFill} from 'react-icons/ri';
-import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill, BsLink } from 'react-icons/bs';
-import UnlockSettings from './UnlockSettings';
+import {RiUserSharedFill} from 'react-icons/ri';
 import {SiMinutemailer} from 'react-icons/si';
 import InterfaceJobseeker from '../interfaces/InterfaceJobseeker';
 import { BiLink, BiUnlink } from 'react-icons/bi';
 import {GrAddCircle, GrUpdate} from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
-import Trackie from '../assets/trackie_sol.png'
 import NavJobseeker from './NavJobseeker';
+import UnlockSettings from './UnlockSettings';
 
 
 export interface AccountProps {
@@ -59,7 +56,7 @@ class Account extends React.Component<AccountProps, AccountState> {
             confirmPwd: "",
             newShare: false,
             membership: "",
-            creation: new Date
+            creation: new Date()
           };
     }
 
@@ -295,8 +292,8 @@ class Account extends React.Component<AccountProps, AccountState> {
                 
                 {/* LOCK/UNLOCK Settings */}
 
-                 {/* {this.state.unlocked ? <></> :   <UnlockSettings token={this.props.token} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert} overlayOff={this.overlayOff}/> }
-                 */}
+                 {this.state.unlocked ? <></> :   <UnlockSettings token={this.props.token} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert} overlayOff={this.overlayOff}/> }
+                
                 
                 <br/>
                 <br/>

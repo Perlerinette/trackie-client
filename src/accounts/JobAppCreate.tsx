@@ -153,7 +153,6 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
     render() { 
         return ( 
             <>            
-         {/* <div className="dash-wrapper">  */}
             <BiAddToQueue id="tooltipadd" className="icons-add-download" onClick={this.toggle}/>
             <UncontrolledTooltip placement="top" target="tooltipadd">
                 Log new
@@ -167,51 +166,50 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                 <p>Log your job applications here.</p>
             </ModalHeader>
             <ModalBody>
-                
-                    <Row>
-                        <Col>
-                            <FormGroup>
-                                <Label>Date of Application:</Label>
-                                <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.testDate} onChange= {this.handleChangeDate} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor='jobtitle' >Job Title:</Label>
-                                <Input type="select" name='jobtitle' value={this.state.jobtitle} onChange={this.setJobTitle}>
-                                    <option value=""></option>
-                                    <option value="Front-End Developer">Front-End Developer</option>
-                                    <option value="Back-End Developer">Back-End Developer</option>
-                                    <option value="Full-Stack Developer">Full-Stack Developer</option>
-                                    <option value="Other">Other</option>
-                                </Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="company" >Company Name:</Label>
-                                <Input name="company" value={this.state.company} onChange={this.setCompany}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="location" >Location:</Label>
-                                <Input name="location" value={this.state.location} onChange={this.setLocation}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor='status' >Status:</Label>
-                                <Input type="select" name='status' value={this.state.status} onChange={this.setStatus}>
-                                    <option value=""></option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Interviewed">Interviewed</option>
-                                    <option value="Rejected">Rejected</option>
-                                    <option value="Offer">Offer</option>
-                                    <option value="Declined">Declined</option>
-                                    <option value="Accepted">Hired</option>
-                                </Input>
-                            </FormGroup>
-                        </Col>
-                        <Col>
-                            <FormGroup>
-                                <Label htmlFor="description">Description:</Label>
-                                <Input name="description" type="textarea" style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setDescription}/>
-                            </FormGroup>
-                        </Col>
-                    </Row>
+                <Row>
+                    <Col>
+                        <FormGroup>
+                            <Label>Date of Application:</Label>
+                            <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.testDate} onChange= {this.handleChangeDate} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor='jobtitle' >Job Title:</Label>
+                            <Input type="select" name='jobtitle' value={this.state.jobtitle} onChange={this.setJobTitle}>
+                                <option value=""></option>
+                                <option value="Front-End Developer">Front-End Developer</option>
+                                <option value="Back-End Developer">Back-End Developer</option>
+                                <option value="Full-Stack Developer">Full-Stack Developer</option>
+                                <option value="Other">Other</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="company" >Company Name:</Label>
+                            <Input name="company" value={this.state.company} onChange={this.setCompany}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="location" >Location:</Label>
+                            <Input name="location" value={this.state.location} onChange={this.setLocation}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor='status' >Status:</Label>
+                            <Input type="select" name='status' value={this.state.status} onChange={this.setStatus}>
+                                <option value=""></option>
+                                <option value="Pending">Pending</option>
+                                <option value="Interviewed">Interviewed</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Offer">Offer</option>
+                                <option value="Declined">Declined</option>
+                                <option value="Accepted">Hired</option>
+                            </Input>
+                        </FormGroup>
+                    </Col>
+                    <Col>
+                        <FormGroup>
+                            <Label htmlFor="description">Description:</Label>
+                            <Input name="description" type="textarea" style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setDescription}/>
+                        </FormGroup>
+                    </Col>
+                </Row>
                 
             </ModalBody>
             <ModalFooter className="modal-create-header">

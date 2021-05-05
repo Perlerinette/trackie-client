@@ -1,48 +1,47 @@
 import React, {ComponentProps} from 'react';
-import APIURL from '../helpers/environment';
-import {Col, Row, Form, FormGroup, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Container } from 'reactstrap';
-import {RiKey2Fill} from 'react-icons/ri';
-import {  BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
+import { RiKey2Fill } from 'react-icons/ri';
+import { Button, Col, Container, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
-
-export interface UnlockSettingsProps {
-    token: string,
-   setTextAlert: Function,
-   onShowAlert: Function,
-   overlayOff: Function
+export interface UnlockSchoolSettingsProps {
+    schoolToken: string,
+    setTextAlert: Function,
+    onShowAlert: Function,
+    overlayOff: Function
 }
  
-export interface UnlockSettingsState {
+export interface UnlockSchoolSettingsState {
     password: string,    
     isPwdVisible: boolean,
     typePwd: ComponentProps<typeof Input>['type'],
     selectClass: string
 }
  
-class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettingsState> {
-    constructor(props: UnlockSettingsProps) {
+class UnlockSchoolSettings extends React.Component<UnlockSchoolSettingsProps, UnlockSchoolSettingsState> {
+    constructor(props: UnlockSchoolSettingsProps) {
         super(props);
         this.state = { 
             password: "",
             isPwdVisible: false,
             typePwd: "password",            
-            selectClass: "overlay",
+            selectClass: "overlay-school",
           };
     }
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         
-        fetch(`${APIURL}/jobseeker/comparePwd`, {
+        fetch(`${APIURL}/school/comparePwd`, {
             method: "POST",
             body: JSON.stringify({
-                jobseeker:{ 
+                school:{ 
                     password: this.state.password
                 }
             }),
             headers: new Headers({
               "Content-Type": "application/json",
-              'Authorization': this.props.token
+              'Authorization': this.props.schoolToken
             }),
           })
             .then((response) => {
@@ -65,6 +64,7 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
             
     }
 
+
     setPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             password: e.currentTarget.value
@@ -79,8 +79,11 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
         console.log("ispwdvisible", this.state.isPwdVisible);
     }
 
+
+
     render() { 
         return ( 
+            <>
             <Container className={this.state.selectClass} >
             <RiKey2Fill size={80}/>
             <br/>
@@ -93,7 +96,7 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
                             <InputGroup style={{marginLeft: "auto", width: "250px"}}>
                                 <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Enter your Password" value={this.state.password} required />
                                 <InputGroupAddon addonType="append" >
-                                    <InputGroupText className="icon-field">
+                                    <InputGroupText className="icon-fieldSchool">
                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
                                         {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
                                     </InputGroupText>
@@ -101,14 +104,15 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
                             </InputGroup>
                         </Col>
                         <Col md="6"> 
-                            <Button  className="submit-login-signup font" type="submit" block style={{width: "250px"}}>Unlock</Button>
+                            <Button  className="submitBtn-school font" type="submit" block style={{width: "250px"}}>Unlock</Button>
                         </Col>
                     </Row>
                 </FormGroup>
             </Form> 
             </Container>
+            </>
          );
     }
 }
  
-export default UnlockSettings;
+export default UnlockSchoolSettings;

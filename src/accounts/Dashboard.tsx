@@ -115,40 +115,6 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
         
         return diffDays;
     }
-
-    //create new array of dates and count per month:
-    monthlyCount = () =>{
-        var convertedDates = this.state.datesOfApplications.map( d => new Date(d));
-        const year = new Date
-    }
-
-    // Line chart
-    dataLine: Object = {
-        labels: ['Jan', 'Feb', 'Mar', 'Avr', 'May', '6'],
-        datasets: [
-          {
-            label: '# of job applications',
-            data: [12, 19, 3, 5, 2, 3],
-            fill: false,
-            backgroundColor: 'rgb(99, 114, 89)',
-            borderColor: 'rgba(99, 114, 89, 0.2)',
-          },
-        ],
-      }
-
-      optionsLine = {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-        maintainAspectRatio: false,
-      }
-
     
 
 

@@ -37,7 +37,7 @@
 }
 .icon-open:hover {
   color: #637259;
-  background-color: #dafbc6;
+  background-color: rgb(187, 183, 183, 0.7);
   /* font-size: 25px; */
 }
 
@@ -48,8 +48,8 @@
 }
 .icon-edit:hover {
   color: #637259;
-  background-color: #dafbc6;
-  border-radius: 25px;
+  background-color: #aac499;
+  border-radius: 15px;
   /* font-size: 25px; */
 }
 
@@ -61,7 +61,7 @@
 .icon-delete:hover {
   color: #e43b3b;
   background-color: #fbc6c6;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .icon-sort {
@@ -85,8 +85,8 @@
   font-size: 40px;
 }
 .icon-add-modal:hover {
-  color: #dafbc6;
-  background-color: #637259;
+  color: #637259;
+  background-color: #dafbc6;
   border-radius: 25px;
 }
 
@@ -95,7 +95,7 @@
   font-size: 40px;
 }
 .icon-cancel-modal:hover {
-  color: #dafbc6;
+  color: #e43b3b;
   background-color: #fc9898;
   border-radius: 25px;
 }
@@ -107,11 +107,16 @@
   border-radius: 25px;
 }
 .icon-ok-modal:hover {
-  color: #dafbc6;
-  background-color: #637259;
+  color: #637259;
+  background-color: #dafbc6;
 }
 
 .row-table {
   text-align: center !important;
   vertical-align: middle !important;
+}
+
+.jobapp-table:hover {
+  background-image: none;
+  background-color: rgb(218, 251, 198, 0.4) !important;
 }

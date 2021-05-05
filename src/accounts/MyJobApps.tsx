@@ -2,7 +2,7 @@
  import APIURL from '../helpers/environment';
  import JobApp from '../interfaces/InterfaceJobApp';
  import './MyJobApps.css';
- import { Table, UncontrolledTooltip, Container, Alert } from 'reactstrap';
+ import { Table,  Container, Alert } from 'reactstrap';
  import {TiArrowSortedDown} from 'react-icons/ti';
  import { RiDeleteBinLine} from 'react-icons/ri';
 import JobAppCreate from './JobAppCreate';
@@ -56,9 +56,7 @@ import NavJobseeker from './NavJobseeker';
             .then( (res) => res.json())
             .then((jobapps) => {
                 this.setState({ jobappsData: jobapps, arrayJobapps: jobapps });
-                console.log('myjobapps jobappsData: ', this.state.jobappsData);
-                
-                
+                console.log('myjobapps jobappsData: ', this.state.jobappsData);                
             })
             .catch(error => { console.log(error)})
     }
@@ -66,15 +64,15 @@ import NavJobseeker from './NavJobseeker';
 
 
      jobAppsMapper = (arr: JobApp[]) => {
-         console.log("in jobappsMapper");
+        //  console.log("in jobappsMapper");
           return(arr.map( (jobapp, index) => {
             return(
                 <>
-                <tr key={index}>
-                    <th scope="row" className='row-table'>
+                <tr key={index} className='jobapp-table'>
+                    <td className='d-flex align-items-center justify-content-center'>
                         {/* view all info */}
                         <JobAppExpand jobapp={jobapp}/>
-                    </th>
+                    </td>
                     <td className='row-table'>{jobapp.applicationdate}</td>
                     <td className='row-table'>{jobapp.jobtitle}</td>
                     <td className='row-table'>{jobapp.status}</td>
@@ -84,9 +82,7 @@ import NavJobseeker from './NavJobseeker';
                         <JobAppEdit token={this.props.token} getAllApplications={this.getAllApplications} jobapp={jobapp} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert}/>
                         {/* delete job app */}
                         <RiDeleteBinLine id="tooltipDel" className="icon-delete" onClick={(event: React.MouseEvent<SVGElement, MouseEvent>) => this.deleteJobapp(jobapp)}/>
-                        <UncontrolledTooltip placement="top" target="tooltipDel">
-                            Delete
-                        </UncontrolledTooltip>
+                        
                     </td>
                 </tr>
                 </>
@@ -223,11 +219,7 @@ import NavJobseeker from './NavJobseeker';
                 <div className="icons-add-download-wrapper">
                     {/* create new job application */}
                     <JobAppCreate token={this.props.token} getAllApplications={this.getAllApplications} setTextAlert={this.setTextAlert} onShowAlert={this.onShowAlert} />
-                    {/* download all applications */}
-                    {/* <BiDownload id="tooltipdld" className="icons-add-download"/>
-                    <UncontrolledTooltip placement="top" target="tooltipdld">
-                        Download all
-                    </UncontrolledTooltip> */}
+                    {/* Download table in .xls file */}
                     <JobAppDownload jobappTable={this.state.jobappsData}/>
                 </div>
                 <br/>
@@ -245,6 +237,7 @@ import NavJobseeker from './NavJobseeker';
                         {this.jobAppsMapper(this.state.arrayJobapps)}
                     </tbody>
                 </Table>
+                <br/>
             </Container>
 
             <br/>
