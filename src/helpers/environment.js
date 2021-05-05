@@ -6,10 +6,10 @@ switch (window.location.hostname) {
         // this is the local host name of your API
         APIURL = 'http://localhost:3000';
         break;
-    // this is the deployed react application
-    case 'trackie-client.herokuapp.com':
-        // this is the full url of your deployed API
-        APIURL = '';
+    // this is the deployed react application (client url)
+    case 'https://buddy-trackie.herokuapp.com':
+        // this is the full url of your deployed API (server url)
+        APIURL = 'https://trackie-server.herokuapp.com';
         break;
     default:
         break;
