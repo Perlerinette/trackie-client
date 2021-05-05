@@ -1,0 +1,162 @@
+/** LOGIN JOBSEEEKER **/
+a {
+  text-decoration: none !important;
+  color: #637259 !important;
+}
+
+.login-container {
+  height: 100vh;
+  /* width: 500px !important; */
+  /* margin-top: 30px; */
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-jobseeker-signup {
+  /* border: solid 1px #637259 !important; */
+  box-shadow: rgba(75, 88, 68, 0.4) -5px 5px, rgba(75, 88, 68, 0.3) -10px 10px,
+    rgba(75, 88, 68, 0.2) -15px 15px, rgba(75, 88, 68, 0.1) -20px 20px,
+    rgba(75, 88, 68, 0.05) -25px 25px;
+}
+
+.card-jobseeker-login {
+  /* border: solid 1px #637259 !important; */
+  box-shadow: rgba(75, 88, 68, 0.4) 5px 5px, rgba(75, 88, 68, 0.3) 10px 10px,
+    rgba(75, 88, 68, 0.2) 15px 15px, rgba(75, 88, 68, 0.1) 20px 20px,
+    rgba(75, 88, 68, 0.05) 25px 25px;
+}
+
+.submit-login-signup {
+  background-color: #dafbc6 !important;
+  color: #637259 !important;
+  border: 1px solid #cec4ba !important;
+  border-radius: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.submit-login-signup:hover {
+  background-color: #aac499 !important;
+  color: #dafbc6 !important;
+}
+
+.icon-field {
+  background-color: #dafbc6 !important;
+}
+
+.login-title {
+  background-color: #dafbc6 !important;
+  text-align: center;
+}
+
+.link-title {
+  text-decoration: none !important;
+  color: #637259;
+}
+
+.link-title:hover {
+  color: #637259;
+}
+
+.login-subtitle {
+  text-align: center;
+}
+
+.switch-form {
+  padding-top: 15px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  cursor: pointer;
+  font-size: smaller;
+  color: #637259 !important;
+}
+
+.switch-form:hover {
+  /* background-color: #dafbc6 !important; */
+  font-size: 14px;
+  width: fit-content;
+}
+
+.login-toggle-row {
+  text-align: center;
+}
+
+.col-spacing {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+/** END LOGIN JOBSEEEKER **/
+/**************************/
+/** LOGIN SCHOOL **/
+
+.card-school-login {
+  box-shadow: rgba(135, 106, 199, 0.4) 5px 5px,
+    rgba(135, 106, 199, 0.3) 10px 10px, rgba(135, 106, 199, 0.2) 15px 15px,
+    rgba(135, 106, 199, 0.1) 20px 20px, rgba(135, 106, 199, 0.05) 25px 25px;
+}
+
+.card-school-signup {
+  box-shadow: rgba(135, 106, 199, 0.4) -5px 5px,
+    rgba(135, 106, 199, 0.3) -10px 10px, rgba(135, 106, 199, 0.2) -15px 15px,
+    rgba(135, 106, 199, 0.1) -20px 20px, rgba(135, 106, 199, 0.05) -25px 25px;
+}
+
+.submitBtn-school {
+  background-color: #d4c4fb !important;
+  color: #4e3d73 !important;
+  border: 1px solid #cec4ba !important;
+  border-radius: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.submitBtn-school:hover {
+  background-color: #876ac7 !important;
+  color: #d4c4fb !important;
+}
+
+.icon-fieldSchool {
+  background-color: #d4c4fb !important;
+}
+
+.login-title-school {
+  background-color: #d4c4fb !important;
+  text-align: center;
+}
+
+.link-title-school {
+  text-decoration: none !important;
+  color: #876ac7 !important;
+}
+
+.link-title-school:hover {
+  color: #876ac7;
+}
+
+.switch-form-school {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  cursor: pointer;
+  font-size: smaller;
+  color: #876ac7 !important;
+}
+
+.switch-form-school:hover {
+  /* background-color: #d4c4fb !important; */
+  font-size: 14px;
+  width: fit-content;
+}
+
+/** END LOGIN SCHOOL **/

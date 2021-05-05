@@ -1,0 +1,122 @@
+.tableView {
+  background-color: white;
+  text-align: center;
+
+  /* box shadow*/
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+}
+
+.icons-add-download-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #dafbc6;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 1px solid #637259;
+  border-radius: 25px;
+}
+
+.icons-add-download {
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.icons-add-download:hover {
+  color: #637259;
+}
+
+.icon-open {
+  cursor: pointer;
+  font-size: 22px;
+}
+.icon-open:hover {
+  color: #637259;
+  background-color: rgb(187, 183, 183, 0.7);
+  /* font-size: 25px; */
+}
+
+.icon-edit {
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 25px;
+}
+.icon-edit:hover {
+  color: #637259;
+  background-color: #aac499;
+  border-radius: 15px;
+  /* font-size: 25px; */
+}
+
+.icon-delete {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 25px;
+}
+.icon-delete:hover {
+  color: #e43b3b;
+  background-color: #fbc6c6;
+  border-radius: 15px;
+}
+
+.icon-sort {
+  cursor: pointer;
+  font-size: 20px;
+}
+.icon-sort:hover {
+  color: #637259;
+  background-color: #dafbc6;
+  /* font-size: 25px; */
+}
+
+.modal-create-header,
+.modal-edit-header {
+  background-color: #dafbc6;
+  justify-content: center !important;
+}
+
+.icon-add-modal {
+  cursor: pointer;
+  font-size: 40px;
+}
+.icon-add-modal:hover {
+  color: #637259;
+  background-color: #dafbc6;
+  border-radius: 25px;
+}
+
+.icon-cancel-modal {
+  cursor: pointer;
+  font-size: 40px;
+}
+.icon-cancel-modal:hover {
+  color: #e43b3b;
+  background-color: #fc9898;
+  border-radius: 25px;
+}
+
+.icon-ok-modal {
+  cursor: pointer;
+  font-size: 30px;
+  background-color: #dafbc6;
+  border-radius: 25px;
+}
+.icon-ok-modal:hover {
+  color: #637259;
+  background-color: #dafbc6;
+}
+
+.row-table {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.jobapp-table:hover {
+  background-image: none;
+  background-color: rgb(218, 251, 198, 0.4) !important;
+}

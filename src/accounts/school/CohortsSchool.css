@@ -1,0 +1,92 @@
+.icon-school-delete {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 25px;
+}
+.icon-school-delete:hover {
+  color: #e43b3b;
+  background-color: #fbc6c6;
+  border-radius: 25px;
+}
+
+.cohort-table:hover {
+  background-image: none;
+  background-color: rgb(212, 196, 251, 0.4) !important;
+}
+
+.row-cohort-table {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.btn-cohort-code {
+  background-color: #d4c4fb !important;
+  color: #212529 !important;
+}
+
+.btn-cohort-code:hover {
+  background-color: #4e3d73 !important;
+  color: #d4c4fb !important;
+}
+
+.btn-cohort-code:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.icon-cohort-add-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: 50px;
+  background-color: rgb(212, 196, 251, 0.5);
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 1px solid #4e3d73;
+  border-radius: 25px;
+}
+
+.icon-cohort-add {
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.icon-cohort-add:hover {
+  color: #4e3d73;
+  background-color: #d4c4fb;
+  border-radius: 5px;
+}
+
+.modal-cohort-create-header,
+.modal-cohort-code-header {
+  background-color: #d4c4fb;
+  justify-content: center !important;
+}
+
+.icon-cohort-add-modal {
+  cursor: pointer;
+  font-size: 40px;
+}
+.icon-cohort-add-modal:hover {
+  color: #637259;
+  background-color: #dafbc6;
+  border-radius: 25px;
+}
+
+.icon-cohort-cancel-modal {
+  cursor: pointer;
+  font-size: 40px;
+}
+.icon-cohort-cancel-modal:hover {
+  color: #e43b3b;
+  background-color: #fc9898;
+  border-radius: 25px;
+}
+
+.modal-code {
+  height: 170px !important;
+  font-size: 100px !important;
+  text-align: center;
+  vertical-align: middle !important;
+}
