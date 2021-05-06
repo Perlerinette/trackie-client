@@ -207,7 +207,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                                 <option value="Rejected">Rejected</option>
                                 <option value="Offer">Offer</option>
                                 <option value="Declined">Declined</option>
-                                <option value="Accepted">Hired</option>
+                                <option value="Hired">Hired</option>
                             </Input>
                         </FormGroup>
                     </Col>

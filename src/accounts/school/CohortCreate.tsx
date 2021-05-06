@@ -146,7 +146,7 @@ class CohortCreate extends React.Component<CohortCreateProps, CohortCreateState>
                 </ModalHeader>
 
                 <ModalBody >
-                    <h6 style={{textAlign: "center"}}>Share this code with the alumini of cohort to start tracking their job hunt.</h6>
+                    <h6 style={{textAlign: "center"}}>Share this code with alumini of this cohort, and start tracking their job hunt progress.</h6>
                 <Input className="modal-code "  type="textarea" value={this.state.newcode} disabled/>
                 </ModalBody>
 

@@ -191,7 +191,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
                                     <option value="Rejected">Rejected</option>
                                     <option value="Offer">Offer</option>
                                     <option value="Declined">Declined</option>
-                                    <option value="Accepted">Hired</option>
+                                    <option value="Hired">Hired</option>
                                 </Input>
                             </FormGroup>
                         </Col>
