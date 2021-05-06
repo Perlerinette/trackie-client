@@ -78,8 +78,8 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
           console.log(data);
           console.log(data.sessionSchoolToken);
           this.props.updateToken(data.sessionSchoolToken, "school");
-        //   this.props.updateEmail(data.school.email);
-        localStorage.setItem('schoolName', data.school.schoolname);
+            //   this.props.updateEmail(data.school.email);
+          localStorage.setItem('schoolName', data.school.schoolname);
           console.log(data.school.email);
           this.props.history.push('/school/dashboard');
         });
