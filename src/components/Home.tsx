@@ -113,11 +113,11 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <Col md="6">
                     <h4 className="font" style={{textTransform: "uppercase", marginBottom: "40px"}}>Job hunters can ....</h4>
                     <ul className="list-features " style={{textAlign: "left"}}>
-                        <li ><RiStarLine style={{color: "#aac499"}}/> create their account <RiStarLine style={{color: "#aac499"}}/></li>
-                        <li ><RiStarLine style={{color: "#aac499"}}/> log their job applications <RiStarLine style={{color: "#aac499"}}/></li>
-                        <li ><RiStarLine style={{color: "#aac499"}}/> view data statistics about their search <RiStarLine style={{color: "#aac499"}}/></li>
-                        <li ><RiStarLine style={{color: "#aac499"}}/> download a list of their logged job applications <RiStarLine style={{color: "#aac499"}}/></li>
-                        <li ><RiStarLine style={{color: "#aac499"}}/> sort their job applications by status, by date or by job title <RiStarLine style={{color: "#aac499"}}/></li>
+                        <li ><RiStarLine style={{color: "#aac499"}}/> create an account <RiStarLine style={{color: "#aac499"}}/></li>
+                        <li ><RiStarLine style={{color: "#aac499"}}/> log a job application <RiStarLine style={{color: "#aac499"}}/></li>
+                        <li ><RiStarLine style={{color: "#aac499"}}/> view data statistics about the job hunt <RiStarLine style={{color: "#aac499"}}/></li>
+                        <li ><RiStarLine style={{color: "#aac499"}}/> download a list of logged job applications <RiStarLine style={{color: "#aac499"}}/></li>
+                        <li ><RiStarLine style={{color: "#aac499"}}/> sort job applications by status, by date or by job title <RiStarLine style={{color: "#aac499"}}/></li>
                     </ul>
                     </Col>
                     <Col md="6">
@@ -125,9 +125,9 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <ul className="list-features" style={{textAlign: "right"}}>
                         <li><RiStarLine style={{color: "#876ac7"}}/> create an account <RiStarLine style={{color: "#876ac7"}}/></li>
                         <li><RiStarLine style={{color: "#876ac7"}}/> create several cohorts <RiStarLine style={{color: "#876ac7"}}/></li>
-                        <li><RiStarLine style={{color: "#876ac7"}}/> connect with their alumini <RiStarLine style={{color: "#876ac7"}}/></li>
+                        <li><RiStarLine style={{color: "#876ac7"}}/> connect with alumini <RiStarLine style={{color: "#876ac7"}}/></li>
                         <li><RiStarLine style={{color: "#876ac7"}}/> get a list of the hiring companies <RiStarLine style={{color: "#876ac7"}}/></li>
-                        <li><RiStarLine style={{color: "#876ac7"}}/> pull and view specific data from their alumini <RiStarLine style={{color: "#876ac7"}}/></li>
+                        <li><RiStarLine style={{color: "#876ac7"}}/> pull and view relevant data from alumini <RiStarLine style={{color: "#876ac7"}}/></li>
                     </ul>                    
                     </Col>
                 </Row>
