@@ -4,7 +4,6 @@ import JobApp from '../interfaces/InterfaceJobApp';
 import {TiEdit} from 'react-icons/ti';
 import {RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import {Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip} from 'reactstrap';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export interface JobAppEditProps {
@@ -23,7 +22,7 @@ export interface JobAppEditState {
     location: string,
     status: string,
     modal: boolean,   
-    testDate: Date
+    testDate: string
 }
  
 class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
@@ -37,7 +36,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
             location: this.props.jobapp.location,
             status: this.props.jobapp.status,
             modal: false,            
-            testDate: new Date()
+            testDate: this.props.jobapp.applicationdate
           };
     }
  
@@ -132,13 +131,20 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
         return date;
     }
 
-    handleChangeDate = (date: Date) => {
-        console.log(date.toISOString());
+    // handleChangeDate = (date: Date) => {
+    //     console.log(date.toISOString());
+    //     this.setState({
+    //         testDate: date,
+    //         applicationdate: this.getMMDDYYYY(date.toISOString())
+    //     })
+    // }
+
+    setChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            testDate: date,
-            applicationdate: this.getMMDDYYYY(date.toISOString())
+            applicationdate: e.currentTarget.value
         })
     }
+
 
 
     render() { 
@@ -158,7 +164,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
                         <Col>
                             <FormGroup>
                                 <Label>Date of Application:</Label>
-                                <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.testDate} onChange= {this.handleChangeDate} />
+                                <Input name="company" value={this.state.applicationdate} onChange={this.setChangeDate}/>
                             </FormGroup>
                             {/* <FormGroup>
                                 <Label htmlFor="date" >Date of Application:</Label>

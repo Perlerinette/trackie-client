@@ -6,7 +6,7 @@ import {Row, Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input,
 
 import signup_green from '../assets/signup_green.png';
 import NavHome from '../components/NavHome';
-import { BsEyeFill, BsEyeSlashFill, BsLockFill } from 'react-icons/bs';
+import { BsEyeFill, BsEyeSlashFill} from 'react-icons/bs';
 
 
 export interface SignupProps extends RouteComponentProps{
