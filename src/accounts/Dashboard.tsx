@@ -71,25 +71,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     }
 
-    
-    // getPieData = ()  =>  {
-    //     let Pending = this.state.statusOfApplications.filter( arr => arr === "Pending");
-    //     let Interviewed = this.state.statusOfApplications.filter( arr => arr === "Interviewed");
-    //     let Rejected = this.state.statusOfApplications.filter( arr => arr === "Rejected");
-    //     let Offers = this.state.statusOfApplications.filter( arr => arr === "Offers");
-    //     let Hired = this.state.statusOfApplications.filter( arr => arr === "Hired");
-    //     let Declined = this.state.statusOfApplications.filter( arr => arr === "Declined");
-
-    //     let newObj: Object = {Pending: Pending.length, Interviewed: Interviewed.length, Rejected: Rejected.length, Offers: Offers.length, Hired: Hired.length, Declined: Declined.length }
-
-    //     this.setState({
-    //         piedata: newObj
-    //     })
-
-    //     console.log("newObj: " , newObj);
-
-    //     // return newObj;
-    // }
+   
 
     // Calculate the duration of the job hunt
     calculateDuration = () => {
@@ -97,7 +79,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
         console.log(date);
         // convert array of strings into array of dates
         var convertedDates = this.state.datesOfApplications.map( d => new Date(d));
-        console.log(convertedDates);
+        // console.log(convertedDates);
 
         // sort array of dates by oldest to newest dates
         const sortedDates = convertedDates.sort( (a, b) => a.getTime() - b.getTime() );
@@ -136,13 +118,13 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 </Container>
                 :
                 <>
-                <Container >
+                <Container className="mt-4">
                     <Row>
-                        <Col style={{textAlign:"right"}} md="3"> 
+                        <Col style={{textAlign:"right"}} md="4"> 
                             <GiSandsOfTime size={30}/>
                         </Col>
-                        <Col md="9">
-                            <h5>Your job hunt started <span style={{color: "#637259", fontSize: "larger"}}> {this.calculateDuration()} </span>days ago...Hang in there!</h5>
+                        <Col md="8">
+                            <h5>Your job hunt started <span style={{color: "#637259", fontSize: "larger"}}> {this.calculateDuration()} </span>days ago...</h5>
                         </Col>       
                     </Row>
                 </Container>
@@ -181,7 +163,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 </>
                  }
 
-
+            
             <br/>
             </div>
             </>

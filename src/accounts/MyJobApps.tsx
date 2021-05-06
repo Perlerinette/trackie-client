@@ -126,12 +126,16 @@ import NavJobseeker from './NavJobseeker';
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
-        this.state.sortingStatus ? this.setState({
-                                        arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.status.localeCompare(data2.status))
-                                    })    
-        : this.setState({
-                arrayJobapps: this.state.jobappsData
-            }) ;
+        this.state.sortingStatus ? 
+        this.setState({
+            // return sorted array
+            arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.status.localeCompare(data2.status))
+        })    
+        : 
+        this.setState({
+            // return normal array
+            arrayJobapps: this.state.jobappsData
+        }) ;
 
         console.log("sorting by status", this.state.sortingStatus);
     }
@@ -145,12 +149,14 @@ import NavJobseeker from './NavJobseeker';
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
-        this.state.sortingJobtitle ? this.setState({
-                                        arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.jobtitle.localeCompare(data2.jobtitle))
-                                    })    
-        : this.setState({
-                arrayJobapps: this.state.jobappsData
-            }) ;
+        this.state.sortingJobtitle ? 
+        this.setState({
+            arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.jobtitle.localeCompare(data2.jobtitle))
+        })    
+        : 
+        this.setState({
+            arrayJobapps: this.state.jobappsData
+        }) ;
 
         console.log("sorting by jobtitle", this.state.sortingStatus);
     }
@@ -164,12 +170,14 @@ import NavJobseeker from './NavJobseeker';
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
-        this.state.sortingDate ? this.setState({
-                                        arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.applicationdate.localeCompare(data2.applicationdate))
-                                    })    
-        : this.setState({
-                arrayJobapps: this.state.jobappsData
-            }) ;
+        this.state.sortingDate ? 
+        this.setState({
+            arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.applicationdate.localeCompare(data2.applicationdate))
+        })    
+        : 
+        this.setState({
+            arrayJobapps: this.state.jobappsData
+        }) ;
 
         console.log("sorting by date", this.state.sortingDate);
     }
@@ -239,7 +247,7 @@ import NavJobseeker from './NavJobseeker';
                 </Table>
                 <br/>
             </Container>
-
+            <div style={{height: "100px"}}></div>
             <br/>
             <br/>
             </div>

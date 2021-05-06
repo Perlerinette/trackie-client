@@ -30,9 +30,6 @@ class BarChartSchool extends React.Component<BarChartSchoolProps, BarChartSchool
     }
 
     getJobTitles = () => {
-        let positionArray: string[] = this.props.dataHired.map( (data) => data.jobtitle );
-
-        console.log("position array: ", positionArray);
 
         let front: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Front-End Developer" );
         let end: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Back-End Developer" );
@@ -46,7 +43,7 @@ class BarChartSchool extends React.Component<BarChartSchoolProps, BarChartSchool
             labels: ['Front-End', 'Back-End', 'Full-Stack', 'Other'],
             datasets: [
                 {
-                label: 'Positions found',
+                label: 'Job Titles',
                 data: [front.length, end.length, full.length, other.length],
                 // data:[1,5,2,3],
                 backgroundColor: [

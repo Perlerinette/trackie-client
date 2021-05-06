@@ -1,14 +1,14 @@
 interface JobApp{
-    id: number,
+    id?: number,
     jobtitle: string,
     company: string,
     applicationdate: string,
     jobdescription: string,
     location: string,
     status: string,
-    jobseekerid: number,
-    createdAt: string,
-    updateAt: string
+    jobseekerid?: number,
+    createdAt?: string,
+    updatedAt?: string
 }
 
 export default JobApp;

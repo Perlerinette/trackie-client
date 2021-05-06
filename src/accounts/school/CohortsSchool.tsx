@@ -178,7 +178,7 @@ class CohortsSchool extends React.Component<CohortsSchoolProps, CohortsSchoolSta
                 </Table>
                 <br/>
             </Container>
-
+            
 
             <br/>
             <br/>

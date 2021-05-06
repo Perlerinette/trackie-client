@@ -21,7 +21,7 @@ export interface JobAppCreateState {
     location: string,
     status: string,
     modal: boolean,
-    testDate: Date
+    now: Date
    
 }
   
@@ -36,14 +36,22 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
             location: "",
             status: "",
             modal: false,
-            testDate: new Date()
+            now: new Date("2022")
           };
     }
 
     
     createNew = (event: React.SyntheticEvent) => {
         event.preventDefault();
-        
+
+        // to prevent error in date in case user does not select a date
+        // let today: Date = new Date();
+        // let strToday: string = this.getMMDDYYYY(today.toISOString());
+        // this.state.applicationdate === "" ? 
+        //     this.setState({ applicationdate: strToday}) : 
+        //     <></>;
+        // console.log("setdate :", this.state.applicationdate)
+
         console.log("in create new");
         fetch(`${APIURL}/jobapplication/create`, {
             method: 'POST',
@@ -144,12 +152,12 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
     handleChangeDate = (date: Date) => {
         console.log(date.toISOString());
         this.setState({
-            testDate: date,
+            now: date,
             applicationdate: this.getMMDDYYYY(date.toISOString())
         })
     }
 
-
+    
     render() { 
         return ( 
             <>            
@@ -161,7 +169,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
             <Modal isOpen={this.state.modal} toggle={this.toggle}  backdrop={true}>
      
             <Form>
-            <ModalHeader className="modal-create-header ">
+            <ModalHeader className="modal-create-header text-center">
                 <h4>Applied somewhere?</h4>
                 <p>Log your job applications here.</p>
             </ModalHeader>
@@ -170,7 +178,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                     <Col>
                         <FormGroup>
                             <Label>Date of Application:</Label>
-                            <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.testDate} onChange= {this.handleChangeDate} />
+                            <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.now} onChange= {this.handleChangeDate} required />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor='jobtitle' >Job Title:</Label>
@@ -184,11 +192,11 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="company" >Company Name:</Label>
-                            <Input name="company" value={this.state.company} onChange={this.setCompany}/>
+                            <Input type="text" name="company" value={this.state.company} onChange={this.setCompany}/>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="location" >Location:</Label>
-                            <Input name="location" value={this.state.location} onChange={this.setLocation}/>
+                            <Input type="text" placeholder="City, State" name="location" value={this.state.location} onChange={this.setLocation}/>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor='status' >Status:</Label>
@@ -206,7 +214,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                     <Col>
                         <FormGroup>
                             <Label htmlFor="description">Description:</Label>
-                            <Input name="description" type="textarea" style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setDescription}/>
+                            <Input name="description" type="textarea" placeholder="description of the position, technical skills required, platform where the offer is posted ..etc.." style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setDescription}/>
                         </FormGroup>
                     </Col>
                 </Row>

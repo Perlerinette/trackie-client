@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Button, Col, Container, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, Table, UncontrolledTooltip } from 'reactstrap';
+import { Button, Col, Container,  Row, Table, UncontrolledTooltip } from 'reactstrap';
 import APIURL from '../../helpers/environment';
 import DataShared from '../../interfaces/InterfaceDataShared';
 import '../Dashboard.css';
 import { GrCopy, GrWorkshop } from 'react-icons/gr';
-import {IoStatsChartSharp} from 'react-icons/io5';
 import PieChartSchool from './PieChartSchool';
-import { TiArrowSortedDown } from 'react-icons/ti';
+import { TiArrowRight, TiArrowSortedDown } from 'react-icons/ti';
 import { BiMapPin } from 'react-icons/bi';
 import BarChartSchool from './BarChartSchool';
+import { FaUserGraduate } from 'react-icons/fa';
+
 
 
 export interface InfoForDashboardSchoolProps {
@@ -22,7 +23,12 @@ export interface InfoForDashboardSchoolState {
     nbOfJobseekers: number,
     nbAppSent: number,
     nbOfHired: number,
-    dataHired: DataShared[]
+    nbOfRemoteJobs: number,
+    popularJob: string
+    dataHired: DataShared[],
+    arrayDataHired: DataShared[],
+    sortingCompany: boolean,
+    sortingLocation: boolean
 }
  
 class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps, InfoForDashboardSchoolState> {
@@ -34,7 +40,12 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
             nbOfJobseekers: 0,
             nbAppSent: 0,
             nbOfHired: 0,
-            dataHired: []
+            nbOfRemoteJobs: 0,
+            popularJob: "",
+            dataHired: [],
+            arrayDataHired: [],
+            sortingCompany: false,
+            sortingLocation: false
           };
     }
 
@@ -50,6 +61,8 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
         }
     }
 
+
+    /* FETCH: GET DATA for a specific cohort */
     getInfoCohort = () => {
         // console.log("in info cohort");
         fetch(`${APIURL}/cohort/getData/${this.props.cohortToDisplay}`, {
@@ -61,8 +74,8 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
            }) 
            .then( (res) => res.json())
            .then((cohort: DataShared[]) => {
-                console.log("cohort info: ", cohort);
-                this.getNbJobseeker(cohort);
+                // console.log("cohort info: ", cohort);
+                this.parseDataCohort(cohort);
                 this.setState({ 
                     nbAppSent: cohort.length
                 });
@@ -71,9 +84,11 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
            .catch(error => { console.log(error)})
    }
 
-   //calculate the number of people who shared their data withe the school
-   getNbJobseeker = (cohort: DataShared[]) => {
-    let jobseekerArray: string[] = cohort.map( (data) => data.jobseekerid );
+   /* PARSE DATA */
+   //calculate the number of people who shared their data with the school
+   // build a new array only with data from successful application (hired)
+   parseDataCohort = (cohort: DataShared[]) => {
+    let jobseekerArray: number[] = cohort.map( (data) => data.jobseekerid );
     jobseekerArray = jobseekerArray.filter((element,i) => i === jobseekerArray.indexOf(element));
 
     // grab info for hired only applications
@@ -82,24 +97,52 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
         for(let j=0; j< cohort.length; j++){
             if(cohort[j].jobseekerid === jobseekerArray[i] && cohort[j].status === "Hired"){
                 dataHired.push(cohort[j]);
-                
             }
         }
     }
 
-    // console.log(jobseekerArray);
+    let remoteHired: number = dataHired.filter( arr => arr.location.toLowerCase() === "remote").length;
+
+    let front: number = dataHired.filter( arr => arr.jobtitle === "Front-End Developer").length;
+    let back: number = dataHired.filter( arr => arr.jobtitle === "Back-End Developer").length;
+    let full: number = dataHired.filter( arr => arr.jobtitle === "Full-Stack Developer").length;
+    let other: number = dataHired.filter( arr => arr.jobtitle === "Other").length;
+
+    let arrCount: number[] = [front, back, full, other ];
+    let arrTitle: string[] = ["Front-End", "Back-End", "Full-Stack", "Other"];
+    let index = this.indexOfMax(arrCount);
+
     this.setState({ 
         nbOfJobseekers: jobseekerArray.length,
         nbOfHired: dataHired.length,
-        dataHired: dataHired
+        nbOfRemoteJobs: remoteHired,
+        popularJob: arrTitle[index],
+        dataHired: dataHired,
+        arrayDataHired: dataHired //to be able to sort or not
     });
 
     console.log("dataHired: ", this.state.dataHired)
    }
 
+   indexOfMax = (arr: Number[]) => {
+    if (arr.length === 0) {
+        return -1;
+    }
 
+    var max = arr[0];
+    var maxIndex = 0;
 
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+    return maxIndex;
+}
+  
 
+   /*FETCH: GET code associated to a specific cohort */
    getCodeCohort = () => {        
     // console.log("in getCode");
     fetch(`${APIURL}/cohort/getCode/${this.props.cohortToDisplay}`, {
@@ -124,6 +167,7 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
         this.onTimer();
     }
 
+    // display tooltip 1s and turn off
     onTimer = ()=>{
         this.setState({tooltipOpen: !this.state.tooltipOpen},()=>{
           window.setTimeout(()=>{
@@ -133,9 +177,9 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
     }
 
 
-    
+    /* Create the table with companies that hired alumin and their location*/
     dataHiredMapper = (arr: DataShared[]) => {
-        console.log("in datahiredMapper");
+        // console.log("in datahiredMapper");
         return(arr.map( (data, index) => {
             return(
                 <>
@@ -152,13 +196,46 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
         }))
     }
     
-   
-    sortByCompany = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
+    /* SORTING */
+    sortByCompany = (event: React.MouseEvent<SVGElement, MouseEvent>) => { 
+        // set the corresponding variable to true
+        this.setState({
+            sortingCompany: true,
+            sortingLocation: false
+        })
+        //if true, re-arrange the array of objects based on status alphabetical order
+        this.state.sortingCompany ? 
+        this.setState({
+            // return sorted array
+            arrayDataHired: this.state.dataHired.sort( (data1, data2) => data1.company.localeCompare(data2.company) )
+        })
+        :
+        this.setState({
+            // return normal array
+            arrayDataHired: this.state.dataHired
+        })
         console.log("sorting by company");
     }
 
     sortByLocation = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
-        console.log("sorting by location");
+        // set the corresponding variable to true
+        this.setState({
+            sortingCompany: false,
+            sortingLocation: true
+        })
+        //if true, re-arrange the array of objects based on status alphabetical order
+        this.state.sortingLocation ? 
+        this.setState({
+            // return sorted array
+            arrayDataHired: this.state.dataHired.sort( (data1, data2) => data1.location.localeCompare(data2.location) )
+        })
+        :
+        this.setState({
+            // return normal array
+            arrayDataHired: this.state.dataHired
+        })
+
+        console.log("sorting by location");        
     }
 
 
@@ -168,29 +245,35 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
             <hr />
             {this.getCodeCohort}
             {this.getInfoCohort}
-            <Container>
+            <Container style={{marginBottom: "15px"}}>
                 <Row>
-                    <Col>
-                    <h1 className="display-cohort-title" >Cohort {this.props.cohortToDisplay} </h1>
-                    
+                    <Col className='d-flex align-items-center justify-content-end'>
+                        <FaUserGraduate size={80} className="icon-cohort-view"/>
                     </Col>
-                    <Col style={{ textAlign:"right", marginTop: "auto", marginBottom: "auto"}} >
-                        {this.state.code !== ""? <>
-                            <h6>Associated code:</h6>
-                            <Button 
-                            id="toolcopy" 
-                            className="btn-copyCode" 
-                            onClick={(event: React.MouseEvent<HTMLButtonElement>) => this.copyCode(this.state.code)}>
-                                {this.state.code} <GrCopy/>
-                            </Button>
-                            <UncontrolledTooltip placement="top" target="toolcopy" isOpen={this.state.tooltipOpen}>
-                                Copied to clipboard!
-                            </UncontrolledTooltip>
-                        </> : 
-                        <></> }
+                    <Col>
+                        
+                            <h1 className="display-cohort-title" >Cohort {this.props.cohortToDisplay} </h1>
+                        
+                    </Col>
+                    <Col style={{ textAlign:"left", marginTop: "auto", marginBottom: "auto"}} >
+                        
+                            {this.state.code !== ""? <>
+                                <h6 style={{color: "#4e3d73"}}>Associated code:</h6>
+                                <Button 
+                                id="toolcopy" 
+                                className="btn-copyCode" 
+                                onClick={(event: React.MouseEvent<HTMLButtonElement>) => this.copyCode(this.state.code)}>
+                                    {this.state.code} <GrCopy/>
+                                </Button>
+                                <UncontrolledTooltip placement="top" target="toolcopy" isOpen={this.state.tooltipOpen}>
+                                    Copied to clipboard!
+                                </UncontrolledTooltip>
+                            </> : 
+                            <></> }
+                        
                     </Col>
                 </Row>
-                </Container>
+                </Container >
                 <br/>
                 {this.state.nbAppSent === 0 ?
                 <Container className="text-center">
@@ -202,13 +285,16 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
                 <Row >
                     <Col md='7' >
                         <hr/>
-                        <h4 className='text-center font'>Some Stats <IoStatsChartSharp size={20} /></h4>
+                        <h4 className='text-center font'>Some Stats </h4>
                         <hr/>
                         <br/>
                     
-                        <h5 ><span style={{color: "#876AC7"}}>{this.state.nbOfJobseekers}</span> alumini are sharing their data </h5> 
-                        <h5 ><span style={{color: "#876AC7"}}>{this.state.nbAppSent}</span> job applications have been sent </h5> 
-                        <h5 ><span style={{color: "#876AC7"}}>{this.state.nbOfHired} </span>alumini already hired!</h5> 
+                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfJobseekers}</span> alumini are sharing their data </h5> 
+                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbAppSent}</span> job applications have been sent </h5> 
+                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfHired} </span>alumini already hired!</h5> 
+                        <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "25px"}}>{this.state.nbOfRemoteJobs} </span> remote position</h5> 
+                        <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "25px"}}>{this.state.nbOfHired-this.state.nbOfRemoteJobs} </span> in-office position</h5> 
+                        <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "20px"}}>{this.state.popularJob} </span> is the most popular position</h5> 
                     
                     
                     </Col>
@@ -245,6 +331,7 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
                             <tbody>
                                 {this.dataHiredMapper(this.state.dataHired)}
                             </tbody>
+                            <br/>
                         </Table>
                         <br/>
                     </Col>
