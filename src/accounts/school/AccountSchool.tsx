@@ -190,7 +190,8 @@ class AccountSchool extends React.Component<AccountSchoolProps, AccountSchoolSta
                         console.log(data);
                         this.setState({ 
                             password: this.state.newPwd,
-                            newPwd:""
+                            newPwd:"",
+                            confirmPwd: ""
                         }); 
                         this.setTextAlert("success",`Password updated!`);
                         this.onShowAlert();
@@ -259,7 +260,7 @@ class AccountSchool extends React.Component<AccountSchoolProps, AccountSchoolSta
                                 <InputGroup>
                                     <Input onChange={this.setNewEmail} type="email" name="email" placeholder="Enter new email" value={this.state.newEmail} required />
                                     <InputGroupAddon addonType="append" >
-                                            <InputGroupText className="icon-fieldSchool">
+                                            <InputGroupText className="icon-field-school">
                                                 <span style={{cursor:'pointer'}} onClick={this.changeEmail}>
                                                 <GrUpdate /></span>
                                             </InputGroupText>
@@ -278,7 +279,7 @@ class AccountSchool extends React.Component<AccountSchoolProps, AccountSchoolSta
                                 <InputGroup>
                                     <Input onChange={this.setConfirmPassword} type="password" name="password" placeholder="Re-enter new password" value={this.state.confirmPwd} required />
                                     <InputGroupAddon addonType="append" >
-                                            <InputGroupText className="icon-fieldSchool">
+                                            <InputGroupText className="icon-field-school">
                                                 <span style={{cursor:'pointer'}} onClick={this.changePwd}>
                                                 <GrUpdate /></span>
                                             </InputGroupText>

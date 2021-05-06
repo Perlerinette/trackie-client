@@ -81,3 +81,10 @@
   font-size: 50px;
   color: white;
 }
+
+.icon-field-btn {
+  background-color: #dafbc6 !important;
+}
+.icon-field-btn:hover {
+  background-color: #aac499 !important;
+}

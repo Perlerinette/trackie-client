@@ -198,7 +198,8 @@ class Account extends React.Component<AccountProps, AccountState> {
                         console.log(data);
                         this.setState({ 
                             password: this.state.newPwd,
-                            newPwd:""
+                            newPwd:"",
+                            confirmPwd:""
                         }); 
                         this.setTextAlert("success",`Password updated!`);
                         this.onShowAlert();
@@ -336,7 +337,7 @@ class Account extends React.Component<AccountProps, AccountState> {
                                 <InputGroup>
                                     <Input onChange={this.setNewEmail} type="email" name="email" placeholder="Enter new email" value={this.state.newEmail} required />
                                     <InputGroupAddon addonType="append" >
-                                            <InputGroupText className="icon-field">
+                                            <InputGroupText className="icon-field-btn">
                                                 <span style={{cursor:'pointer'}} onClick={this.changeEmail}>
                                                 <GrUpdate /></span>
                                             </InputGroupText>
@@ -355,7 +356,7 @@ class Account extends React.Component<AccountProps, AccountState> {
                                 <InputGroup>
                                     <Input onChange={this.setConfirmPassword} type="password" name="password" placeholder="Re-enter new password" value={this.state.confirmPwd} required />
                                     <InputGroupAddon addonType="append" >
-                                            <InputGroupText className="icon-field">
+                                            <InputGroupText className="icon-field-btn">
                                                 <span style={{cursor:'pointer'}} onClick={this.changePwd}>
                                                 <GrUpdate /></span>
                                             </InputGroupText>
@@ -384,7 +385,7 @@ class Account extends React.Component<AccountProps, AccountState> {
                                     <InputGroup>
                                         <Input onChange={this.setCode} type="text" name="code" placeholder="Add your code" value={this.state.newCode} required />
                                         <InputGroupAddon addonType="append" >
-                                                <InputGroupText className="icon-field">
+                                                <InputGroupText className="icon-field-btn">
                                                     <span style={{cursor:'pointer'}} onClick={this.addCode}>
                                                     <GrAddCircle /></span>
                                                 </InputGroupText>
@@ -412,7 +413,7 @@ class Account extends React.Component<AccountProps, AccountState> {
                                     <InputGroup>
                                         <Input onChange={this.setCode} type="text" name="code" placeholder="Add your code" value={this.state.newCode} required />
                                         <InputGroupAddon addonType="append" >
-                                                <InputGroupText className="icon-field">
+                                                <InputGroupText className="icon-field-btn">
                                                     <span style={{cursor:'pointer'}} onClick={this.addCode}>
                                                     <GrAddCircle /></span>
                                                 </InputGroupText>

@@ -53,3 +53,10 @@
   font-size: 50px;
   color: white;
 }
+
+.icon-field-school {
+  background-color: #d4c4fb !important;
+}
+.icon-field-school:hover {
+  background-color: #876ac7 !important;
+}
