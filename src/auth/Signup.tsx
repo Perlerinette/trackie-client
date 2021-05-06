@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps}  from 'react';
 import APIURL from '../helpers/environment';
 import './Auth.css';
 import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
@@ -6,6 +6,7 @@ import {Row, Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input,
 
 import signup_green from '../assets/signup_green.png';
 import NavHome from '../components/NavHome';
+import { BsEyeFill, BsEyeSlashFill, BsLockFill } from 'react-icons/bs';
 
 
 export interface SignupProps extends RouteComponentProps{
@@ -20,7 +21,9 @@ export interface SignupState {
     email: string,
     password: string,
     sharedata: boolean,
-    invitcode?: string
+    invitcode?: string,
+    isPwdVisible: boolean,
+    typePwd: ComponentProps<typeof Input>['type'],
 }
  
 
@@ -34,7 +37,9 @@ class Signup extends React.Component<SignupProps, SignupState> {
             email: "",
             password: "",
             sharedata: false,
-            invitcode: ""
+            invitcode: "",
+            isPwdVisible: false,
+            typePwd: "password"
         };
 }
 
@@ -42,6 +47,14 @@ setPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
         password: e.currentTarget.value
     })
+}
+
+showPwd = () => {
+    this.setState({
+        isPwdVisible: !(this.state.isPwdVisible)
+    });
+    this.state.isPwdVisible ? this.setState({typePwd: "password"}) : this.setState({typePwd: "text"});
+    console.log("ispwdvisible", this.state.isPwdVisible);
 }
 
 setEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,10 +185,18 @@ render() {
                             </Col>
                         </Row>
                     <FormGroup>
-                            <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                        <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                     </FormGroup>
                     <FormGroup>
-                            <Input onChange={this.setPassword} type="password" minLength={6} name="password" placeholder="Password *"  required />
+                        <InputGroup>                            
+                            <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                            <InputGroupAddon addonType="append" >
+                                    <InputGroupText className="icon-field">
+                                        <span style={{cursor:'pointer'}} onClick={this.showPwd}>
+                                        {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                    </InputGroupText>
+                            </InputGroupAddon>
+                        </InputGroup>
                     </FormGroup>
 
                     <div className="align-middle text-center">

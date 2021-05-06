@@ -1,10 +1,11 @@
 import React, { ComponentProps } from 'react';
 import APIURL from '../helpers/environment';
 import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, Container, Row} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, Container, Row, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
 
 import signup_purple from '../assets/signup_purple.png';
 import NavHome from '../components/NavHome';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 
 
 export interface SignupSchoolProps extends RouteComponentProps{
@@ -109,7 +110,7 @@ render() {
                         </CardHeader>
                         <CardBody>
                         <CardTitle className="login-subtitle">
-                            <p >Sign up to follow your alumini</p>
+                            <p >Sign up to follow alumini</p>
                         </CardTitle>
                         
                         <div className="login-form " >
@@ -121,7 +122,15 @@ render() {
                                 <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                         </FormGroup>
                         <FormGroup>
+                            <InputGroup>                                
                                 <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                                <InputGroupAddon addonType="append" >
+                                        <InputGroupText className="icon-fieldSchool">
+                                            <span style={{cursor:'pointer'}} onClick={this.showPwd}>
+                                            {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                        </InputGroupText>
+                                </InputGroupAddon>
+                            </InputGroup>
                         </FormGroup>
 
                         <div className="align-middle text-center">
