@@ -150,7 +150,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
      
             <Form>
             <ModalHeader  className="modal-edit-header ">
-                <h4>A change to make?</h4>
+                <h4>Something to update?</h4>
             </ModalHeader>
             <ModalBody>
                 

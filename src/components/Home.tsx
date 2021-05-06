@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Col, Row, Container, Jumbotron, Card, CardTitle, CardText, CardImg, CardImgOverlay, Spinner} from 'reactstrap';
+import {Col, Row, Container, Jumbotron, Card, CardTitle, CardText, CardImg, CardImgOverlay} from 'reactstrap';
 import './Home.css';
 import NavHome from '../components/NavHome';
 import Trackie from '../assets/trackie.png';
@@ -35,13 +35,13 @@ class Home extends React.Component<HomeProps, HomeState> {
                 <br/>
             </Jumbotron>
 
-            <div id="about" className="custom-shape-divider-top-1618878871">
+            <div  className="custom-shape-divider-top-1618878871">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill"></path>
                 </svg>
             </div>
 
-            <Jumbotron className="jumbotron" style={{backgroundColor: "white"}} fluid>
+            <Jumbotron id="about" className="jumbotron" style={{backgroundColor: "white"}} fluid>
                 <Container className="text-center container2" >
                 <h2 className="display-4 font">How does it work?</h2>
                 <Row className="mt-5">
@@ -94,14 +94,14 @@ class Home extends React.Component<HomeProps, HomeState> {
             <br/>
             <br/>
             <br/>
-            <div id="features" className="custom-shape-divider-top-1618879240 ">
+            <div  className="custom-shape-divider-top-1618879240 ">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill"></path>
                 </svg>
             </div>
 
-            <Jumbotron  className="jumbotron" style={{backgroundColor: "white"}} fluid>
-                <Container className="text-center mt-4" >
+            <Jumbotron id="features" className="jumbotron" style={{backgroundColor: "white"}} fluid>
+                <Container  className="text-center mt-4" >
                 <h1  className="display-4 font">The features!</h1>
                 <Row className="justify-content-center">
                     <RiStarFill  className="spinnerClock" style={{color: "#d4c4fb"}} size={40}/>
@@ -131,7 +131,6 @@ class Home extends React.Component<HomeProps, HomeState> {
                     </ul>                    
                     </Col>
                 </Row>
-                <br/>
                 <br/>
                 <Row className="justify-content-center">
                     <img className="mt-4" style={{width: "160px"}} src={Feature} alt="" />

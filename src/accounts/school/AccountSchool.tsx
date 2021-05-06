@@ -290,6 +290,7 @@ class AccountSchool extends React.Component<AccountSchoolProps, AccountSchoolSta
                             </Col>
                 </Row>
                 </Container>
+                
                 <br/>
                 <br/>
             </div>

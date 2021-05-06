@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { GiGraduateCap } from 'react-icons/gi';
-import { Button, Col, Container, Row } from 'reactstrap';
+import { Button,Container, Row } from 'reactstrap';
 import APIURL from '../../helpers/environment';
 import Cohort from '../../interfaces/InterfaceCohort';
 import './DashboardSchool.css';
 import NavSchool from './NavSchool';
 import InfoForDashboardSchool from './InfoForDashboardSchool';
 import {FaRegHandPointRight} from 'react-icons/fa';
-import CohortCreate from './CohortCreate';
 
 export interface DashboardSchoolProps {
     schoolToken: string,
@@ -73,6 +72,7 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
 
                 <>
                 <Button 
+                size="lg"
                 className="mr-2 btn-cohort" 
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) => this.displayCohort(cohort)}
                 > 
@@ -108,8 +108,8 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
                 <br/>
 
                 {this.state.cohorts.length === 0 ? 
-                <Container style={{height: "100vh", textAlign: "center", paddingTop: "100px"}} >
-                <h4>To start tracking your alumini's job journey, go to the tab "My Cohorts" to create a new cohort </h4> 
+                <Container style={{ textAlign: "center", paddingTop: "100px"}} >
+                    <h3>To start tracking your alumini's job journey, go to the tab "My Cohorts" to create a new cohort </h3> 
                 </Container>
                 :
                 <>
@@ -126,18 +126,22 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
                     <br/>
                     <br/>
                 {/* Display info related to button clicked */}
+                
                 {this.state.btnCohortClicked?
                     <>
                     <InfoForDashboardSchool schoolToken={this.props.schoolToken} cohortToDisplay={this.state.cohortToDisplay} />
-                    </> : <>
-                    <h6 className="click-tip"> <FaRegHandPointRight size={30}/> click on a cohort to follow your alumini's journey..</h6>
-                    </>
+                    
+                    </> : 
+                    <div style={{height: "300px"}}>
+                        <h6 className="click-tip"> <FaRegHandPointRight size={30}/> click on a cohort to follow your alumini's journey..</h6>
+                    </div>
                 }
-
+                
                 <br/>
                 <br/>
                 </>
                 }
+                
 
             <br/>
             <br/>

@@ -1,6 +1,6 @@
 interface DataShared{
-    company: number,
-    jobseekerid: string,
+    company: string,
+    jobseekerid: number,
     jobtitle: string,
     location: string,
     status: string
