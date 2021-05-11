@@ -109,7 +109,7 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
 
                 {this.state.cohorts.length === 0 ? 
                 <Container style={{ textAlign: "center", paddingTop: "100px"}} >
-                    <h3>To start tracking your alumini's job journey, go to the tab "My Cohorts" to create a new cohort </h3> 
+                    <h3>To start tracking alumni's job journey, go to the tab "My Cohorts" to create a new cohort </h3> 
                 </Container>
                 :
                 <>
@@ -133,7 +133,7 @@ class DashboardSchool extends React.Component<DashboardSchoolProps, DashboardSch
                     
                     </> : 
                     <div style={{height: "300px"}}>
-                        <h6 className="click-tip"> <FaRegHandPointRight size={30}/> click on a cohort to follow your alumini's journey..</h6>
+                        <h6 className="click-tip"> <FaRegHandPointRight size={30}/> click on a cohort to follow your alumni's journey..</h6>
                     </div>
                 }
                 

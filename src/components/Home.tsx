@@ -60,7 +60,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                             <CardImg  src={Bubble_R} alt="Card image cap" />
                             <CardImgOverlay>
                             <CardTitle tag="h4"></CardTitle>
-                            <CardText tag="h5" className="pt-2">No more surveys or emails to alumini.</CardText>
+                            <CardText tag="h5" className="pt-2">No more surveys or emails to alumni.</CardText>
                             </CardImgOverlay>
                         </Card>
                     </Col>
@@ -125,9 +125,9 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <ul className="list-features" style={{textAlign: "right"}}>
                         <li><RiStarLine style={{color: "#876ac7"}}/> create an account <RiStarLine style={{color: "#876ac7"}}/></li>
                         <li><RiStarLine style={{color: "#876ac7"}}/> create several cohorts <RiStarLine style={{color: "#876ac7"}}/></li>
-                        <li><RiStarLine style={{color: "#876ac7"}}/> connect with alumini <RiStarLine style={{color: "#876ac7"}}/></li>
+                        <li><RiStarLine style={{color: "#876ac7"}}/> connect with alumni <RiStarLine style={{color: "#876ac7"}}/></li>
                         <li><RiStarLine style={{color: "#876ac7"}}/> get a list of the hiring companies <RiStarLine style={{color: "#876ac7"}}/></li>
-                        <li><RiStarLine style={{color: "#876ac7"}}/> pull and view relevant data from alumini <RiStarLine style={{color: "#876ac7"}}/></li>
+                        <li><RiStarLine style={{color: "#876ac7"}}/> pull and view relevant data from alumni <RiStarLine style={{color: "#876ac7"}}/></li>
                     </ul>                    
                     </Col>
                 </Row>

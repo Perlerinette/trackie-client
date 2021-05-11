@@ -277,7 +277,7 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
                 <br/>
                 {this.state.nbAppSent === 0 ?
                 <Container className="text-center">
-                <h5>No alumini started to log job applications yet..</h5>
+                <h5>No alumni started to log job applications yet..</h5>
                 </Container>
                 :
                 <>
@@ -289,9 +289,9 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
                         <hr/>
                         <br/>
                     
-                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfJobseekers}</span> alumini are sharing their data </h5> 
+                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfJobseekers}</span> alumni are sharing their data </h5> 
                         <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbAppSent}</span> job applications have been sent </h5> 
-                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfHired} </span>alumini already hired!</h5> 
+                        <h5 style={{marginBottom:"15px"}}><span style={{color: "#876AC7", fontSize: "25px"}}>{this.state.nbOfHired} </span>alumni already hired!</h5> 
                         <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "25px"}}>{this.state.nbOfRemoteJobs} </span> remote position</h5> 
                         <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "25px"}}>{this.state.nbOfHired-this.state.nbOfRemoteJobs} </span> in-office position</h5> 
                         <h5 style={{marginLeft: "15px"}}><TiArrowRight size={30}/><span style={{color: "white", fontSize: "20px"}}>{this.state.popularJob} </span> is the most popular position</h5> 
@@ -300,7 +300,7 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
                     </Col>
                     <Col md='5' className="text-center ">
                         <hr/>
-                        <h4 className='font'>Status of alumini</h4>
+                        <h4 className='font'>Status of alumni</h4>
                         <hr/>
                         <br/>
                         <div className='d-flex justify-content-center'>

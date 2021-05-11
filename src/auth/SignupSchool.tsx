@@ -110,7 +110,7 @@ render() {
                         </CardHeader>
                         <CardBody>
                         <CardTitle className="login-subtitle">
-                            <p >Sign up to follow alumini</p>
+                            <p >Sign up to follow alumni</p>
                         </CardTitle>
                         
                         <div className="login-form " >

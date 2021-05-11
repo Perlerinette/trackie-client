@@ -41,7 +41,7 @@ class PieChartSchool extends React.Component<PieChartSchoolProps, PieChartSchool
             labels: ['Searching', 'Hired'],
             datasets: [
                 {
-                label: "Status of alumini 's job hunt",            
+                label: "Status of alumni 's job hunt",            
                 data: [(this.props.nbOfJobseekers-this.props.nbOfHired), this.props.nbOfHired],
                 // data: [2, 3] ,
                 backgroundColor: [
