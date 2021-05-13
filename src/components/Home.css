@@ -11,6 +11,8 @@
 
 /* Spin clockwise */
 .spinnerClock {
+  font-size: 25px;
+  color: #d4c4fb;
   animation: spinClock infinite 5s linear;
 
   /*You can increase or decrease the timer (5s) to 
@@ -28,6 +30,8 @@
 
 /* Spin counter-clockwise */
 .spinner {
+  font-size: 25px;
+  color: #dafbc6;
   animation: spin infinite 5s linear;
 
   /*You can increase or decrease the timer (5s) to 
@@ -74,21 +78,31 @@
 
 .jumbotron {
   background-color: white !important;
-  height: 100vh !important;
+  height: auto;
   width: auto;
 }
 
 .card-bg {
   border: none !important;
-  width: 200px;
+  width: auto;
+}
+
+.text-bubble {
+  justify-content: center;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-overlay {
+  display: flex;
 }
 
 .list-features {
   list-style-type: none;
-  font-size: larger;
+  font-size: 20px;
   margin: 0;
   padding: 0;
-  /* text-align: right !important; */
 }
 
 .list-features > li {
@@ -140,3 +154,342 @@
   fill: #d4c4fb;
 }
 /* END PAGE SEPARATOR */
+
+@media (min-width: 1200px) {
+  .img-trackie-home {
+    width: 850px;
+  }
+
+  .img-trackiesol-home {
+    width: 300px;
+  }
+
+  .img-features-home {
+    width: 220px;
+  }
+
+  .h1-title-home {
+    font-size: 5.5em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .h4-title-home {
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .h2-title-home {
+    font-size: 3.5em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .text-bubble1 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+  }
+  .text-bubble2 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+  }
+  .text-bubble3 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+  }
+
+  .spinnerClock {
+    font-size: 40px;
+  }
+  .spinner {
+    font-size: 40px;
+  }
+
+  .h4-title-features {
+    font-size: 2rem !important;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+  }
+
+  .list-features {
+    font-size: 25px;
+    text-align: center !important;
+  }
+
+  .green-star-features {
+    color: #aac499;
+    font-size: 15px;
+  }
+
+  .purple-star-features {
+    color: #876ac7;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .img-trackie-home {
+    width: 450px;
+  }
+
+  .img-trackiesol-home {
+    width: 250px;
+  }
+
+  .img-features-home {
+    width: 220px;
+  }
+
+  .h1-title-home {
+    font-size: 4.5em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .h4-title-home {
+    font-size: 1.4em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .h2-title-home {
+    font-size: 3.3em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .text-bubble1 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+  }
+  .text-bubble2 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+  }
+  .text-bubble3 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+  }
+
+  .spinnerClock {
+    font-size: 36px;
+  }
+  .spinner {
+    font-size: 36px;
+  }
+
+  .h4-title-features {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .list-features {
+    font-size: 23px;
+    text-align: center !important;
+  }
+
+  .green-star-features {
+    color: #aac499;
+    font-size: 15px;
+  }
+
+  .purple-star-features {
+    color: #876ac7;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .img-trackie-home {
+    width: 350px;
+  }
+
+  .img-trackiesol-home {
+    width: 220px;
+  }
+
+  .img-features-home {
+    width: 200px;
+  }
+
+  .h1-title-home {
+    font-size: 4em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .h4-title-home {
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .h2-title-home {
+    font-size: 3.1em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .text-bubble1 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+  .text-bubble2 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: -2px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+  .text-bubble3 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+
+  .spinnerClock {
+    font-size: 34px;
+  }
+  .spinner {
+    font-size: 34px;
+  }
+
+  .h4-title-features {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .list-features {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .green-star-features {
+    color: #aac499;
+    font-size: 12px;
+  }
+
+  .purple-star-features {
+    color: #876ac7;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 10px) and (max-width: 767px) {
+  .img-trackie-home {
+    width: 250px;
+  }
+  .h1-title-home {
+    font-size: 3.5em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .h4-title-home {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .img-trackiesol-home {
+    width: 200px;
+  }
+
+  .img-features-home {
+    width: 150px;
+  }
+
+  .h2-title-home {
+    font-size: 3.1em;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .text-bubble1 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+  .text-bubble2 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+  }
+  .text-bubble3 {
+    justify-content: center;
+    align-self: auto;
+    margin-top: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+  }
+
+  .spinnerClock {
+    font-size: 32px;
+  }
+  .spinner {
+    font-size: 32px;
+  }
+
+  .h4-title-features {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .list-features {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .green-star-features {
+    color: #aac499;
+    font-size: 12px;
+  }
+
+  .purple-star-features {
+    color: #876ac7;
+    font-size: 12px;
+  }
+}
