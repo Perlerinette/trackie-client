@@ -137,38 +137,38 @@ render() {
         <br/>
         <Container className="login-container  ">
             <div className="vertical-center">
-            <Row >
-                <Col md="8" className="col-spacing ">
-                <Card className="card-jobseeker-signup">
+            <Row className="first-row-signup" >
+                <Col xs="8" sm="8" md="8" lg="8" className="col-spacing pr-0 " style={{marginRight: "auto"}}>
+                <Card className="card-jobseeker-signup" >
                     <CardHeader className="login-title ">
                         <h1><a className="link-title font" href="/">TRACKIE</a></h1>
                     </CardHeader>
                     <CardBody>
-                    <CardTitle className="login-subtitle">
+                    <CardTitle className="login-subtitle font">
                         <p >Sign up to start tracking your job search</p>
                     </CardTitle>
                     
-                    <div className="login-form " >
+                    <div >
                     <Form onSubmit={this.handleSubmit}>
-                        <Row form>
-                            <Col md={6}>
+                        <Row form >
+                            <Col xs="6" sm="6" md="6" lg="6">
                             <FormGroup>
-                                <Input onChange={this.setFirstName} type="text" name="firstname" placeholder="First name *" value={this.state.firstname} required />
+                                <Input className="form-inputs" onChange={this.setFirstName} type="text" name="firstname" placeholder="First name *" value={this.state.firstname} required />
                             </FormGroup>
                             </Col>
-                            <Col md={6}>
+                            <Col xs="6" sm="6" md="6" lg="6">
                             <FormGroup>
-                                <Input onChange={this.setLastName} type="text" name="lastname" placeholder="Last name *" value={this.state.lastname} required/>
+                                <Input className="form-inputs" onChange={this.setLastName} type="text" name="lastname" placeholder="Last name *" value={this.state.lastname} required/>
                             </FormGroup>
                             </Col>
                         </Row>
                         <Row form>
-                            <Col md={6}>
+                            <Col xs="6" sm="6" md="6" lg="6">
                             <FormGroup>
-                                <Input onChange={this.setInvitcode} type="text" name="invitcode" placeholder="InviteCode " value={this.state.invitcode} />
+                                <Input className="form-inputs" onChange={this.setInvitcode} type="text" name="invitcode" placeholder="InviteCode " value={this.state.invitcode} />
                             </FormGroup>
                             </Col>
-                            <Col md={6}>
+                            <Col xs="6" sm="6" md="6" lg="6">
                             <FormGroup>
                                 <InputGroup>
                                     <InputGroupAddon addonType="prepend">
@@ -176,7 +176,7 @@ render() {
                                             <Input addon type="checkbox" id="cb" checked={this.state.sharedata} onChange={this.setCheckbox} />
                                         </InputGroupText>
                                     </InputGroupAddon>
-                                    <Input placeholder="Share data" id="moreInfoToolTip"/>
+                                    <Input className="form-inputs" placeholder="Share data" id="moreInfoToolTip"/>
                                     <UncontrolledTooltip placement="top" target="moreInfoToolTip">
                                         If checked, you agree to share some information from your job applications. Your name will remain anonymous.
                                     </UncontrolledTooltip>
@@ -185,15 +185,15 @@ render() {
                             </Col>
                         </Row>
                     <FormGroup>
-                        <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                        <Input className="form-inputs" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                     </FormGroup>
                     <FormGroup>
                         <InputGroup>                            
-                            <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                            <Input className="form-inputs" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
                             <InputGroupAddon addonType="append" >
                                     <InputGroupText className="icon-field">
                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                        {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login-signup"/> : <BsEyeFill className="icons-login-signup"/>}</span>
                                     </InputGroupText>
                             </InputGroupAddon>
                         </InputGroup>
@@ -201,21 +201,22 @@ render() {
 
                     <div className="align-middle text-center">
                         <Button  className="submit-login-signup font" type="submit" block>Create your account</Button>
-                    </div>
+                    </div> 
+                    <div><p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p></div>
                     </Form>
                     </div>
                     </CardBody>
                 </Card>
                 </Col>
-                <Col md="4" className="col-spacing mt-auto">
-                    <img  style={{width: "150px"}} src={signup_green} alt="" />  
+                <Col xs="4" sm="4" md="4" lg="4"  className="pl-0 mt-auto" >
+                    <img  className="img-signup-green" src={signup_green} alt="" />  
                 </Col>
                 </Row>
                 <Row className="mt-2">                    
-                    <Col md="8" className="col-spacing login-toggle-row " >
-                        <Link to="/login" ><h6 className="switch-form">Already registered? Sign in.</h6></Link>
+                    <Col xs="8" sm="8" md="8" lg="8" className=" signup-toggle-row " >
+                        <Link to="/login" ><h6 className="switch-form font">Already registered? Sign in.</h6></Link>
                     </Col>
-                    <Col md="4"></Col>
+                    <Col xs="4" sm="4" md="4" lg="4"></Col>
                 </Row>
             </div>
         </Container>

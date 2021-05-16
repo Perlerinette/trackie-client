@@ -46,7 +46,7 @@ a {
   background-color: #dafbc6 !important;
 }
 
-.form-inputs-login {
+.form-inputs {
   font-style: italic !important;
 }
 
@@ -74,9 +74,6 @@ a {
   padding-bottom: 8px;
   padding-left: 4px;
   padding-right: 4px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
   cursor: pointer;
   color: #637259 !important;
 }
@@ -90,9 +87,15 @@ a {
   text-align: center;
 }
 
+.signup-toggle-row {
+  text-align: end !important;
+}
+
 .col-spacing {
-  padding-right: 0px !important;
-  padding-left: 0px !important;
+  /* padding-right: 0px !important; */
+  /* padding-left: 0px !important; */
+  display: flex;
+  justify-content: flex-end;
 }
 
 .col-spacing-login {
@@ -170,18 +173,21 @@ a {
 }
 
 /** END LOGIN SCHOOL **/
-
+/**** XL ****/
 @media (min-width: 1200px) {
-  .first-row-login {
-    min-width: 1000px;
+  .first-row-login,
+  .first-row-signup {
+    min-width: 1140px;
     height: auto;
   }
 
-  .card-jobseeker-login {
+  .card-jobseeker-login,
+  .card-jobseeker-signup {
     width: 450px;
   }
 
-  .img-login-green {
+  .img-login-green,
+  .img-signup-green {
     width: 190px;
   }
 
@@ -193,11 +199,11 @@ a {
     font-size: 55px;
   }
 
-  .icons-login {
-    font-size: 30px;
+  .icons-login-signup {
+    font-size: 28px;
   }
 
-  .form-inputs-login {
+  .form-inputs {
     font-size: 1.2rem !important;
   }
 
@@ -213,17 +219,21 @@ a {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
-  .first-row-login {
-    min-width: 900px;
+/**** LG ****/
+@media (min-width: 992px) and (max-width: 1200px) {
+  .first-row-login,
+  .first-row-signup {
+    min-width: 960px;
     height: auto;
   }
 
   .card-jobseeker-login {
-    width: 450px;
+    width: 400px;
+    margin-right: 0 !important;
   }
 
-  .img-login-green {
+  .img-login-green,
+  .img-signup-green {
     width: 180px;
   }
 
@@ -235,11 +245,11 @@ a {
     font-size: 50px;
   }
 
-  .icons-login {
+  .icons-login-signup {
     font-size: 25px;
   }
 
-  .form-inputs-login {
+  .form-inputs {
     font-size: 1.1rem !important;
   }
 
@@ -255,17 +265,20 @@ a {
   }
 }
 
+/**** MD ****/
 @media (min-width: 768px) and (max-width: 992px) {
-  .first-row-login {
-    min-width: 900px;
+  .first-row-login,
+  .first-row-signup {
+    min-width: 720px;
     height: auto;
   }
 
   .card-jobseeker-login {
-    width: 450px;
+    width: 420px;
   }
 
-  .img-login-green {
+  .img-login-green,
+  .img-signup-green {
     width: 180px;
   }
 
@@ -277,11 +290,11 @@ a {
     font-size: 50px;
   }
 
-  .icons-login {
+  .icons-login-signup {
     font-size: 25px;
   }
 
-  .form-inputs-login {
+  .form-inputs {
     font-size: 1.1rem !important;
   }
 
@@ -297,5 +310,117 @@ a {
   }
 }
 
-@media (min-width: 10px) and (max-width: 767px) {
+/**** SM ****/
+@media (min-width: 576px) and (max-width: 768px) {
+  .first-row-login,
+  .first-row-signup {
+    min-width: 540px;
+    height: auto;
+  }
+
+  .card-jobseeker-login {
+    width: 300px;
+  }
+
+  .img-login-green {
+    width: 140px;
+  }
+
+  .img-signup-green {
+    width: 140px;
+  }
+
+  .login-subtitle {
+    font-size: 18px;
+  }
+
+  .link-title {
+    font-size: 30px;
+    display: flex;
+    align-content: center !important;
+    justify-content: center !important;
+  }
+
+  .card-header {
+    height: 60px;
+  }
+
+  .icons-login-signup {
+    font-size: 18px;
+  }
+
+  .form-inputs {
+    font-size: 0.9rem !important;
+  }
+
+  .submit-login-signup {
+    font-size: 18px !important;
+  }
+
+  .switch-form {
+    font-size: 16px;
+  }
+  .switch-form:hover {
+    font-size: 18px;
+  }
+}
+
+/**** XS ****/
+@media (max-width: 576px) {
+  .first-row-login,
+  .first-row-signup {
+    max-width: auto;
+    height: auto;
+  }
+
+  .login-container {
+    max-width: auto;
+  }
+
+  .card-jobseeker-login,
+  .card-jobseeker-signup {
+    width: 280px;
+  }
+
+  .img-login-green {
+    width: 100px;
+  }
+
+  .img-signup-green {
+    width: 100px;
+  }
+
+  .login-subtitle {
+    font-size: 18px;
+  }
+
+  .link-title {
+    font-size: 30px;
+    display: flex;
+    align-content: center !important;
+    justify-content: center !important;
+  }
+
+  .card-header {
+    height: 60px;
+  }
+
+  .icons-login {
+    font-size: 25px;
+  }
+
+  .form-inputs {
+    font-size: 0.9rem !important;
+  }
+
+  .submit-login-signup {
+    font-size: 18px !important;
+  }
+
+  .switch-form {
+    font-size: 16px;
+  }
+  .switch-form:hover {
+    font-size: 18px;
+  }
 }

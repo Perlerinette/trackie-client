@@ -92,13 +92,13 @@ render() {
     return ( 
         <>
         <NavHome menu={false}/>
-        <Container className="login-container  ">
+        <Container className="login-container ">
             <div className="vertical-center">
             <Row className="first-row-login">
-                <Col xs="2" sm="2" md="4" lg="4" className="pr-0 mt-auto " style={{textAlign: "right"}}>
+                <Col xs="4" sm="4" md="4" lg="4" className="pr-0 mt-auto " style={{textAlign: "right"}}>
                     <img className="img-login-green" src={login_green} alt="" />  
                 </Col>
-                <Col xs="10" sm="10" md="8" lg="8" className="col-spacing-login ">
+                <Col xs="8" sm="8" md="8" lg="8" className="col-spacing-login ">
                     <Card className="card-jobseeker-login">
                         <CardHeader className="login-title ">
                             {/* <Link to="/" className="text-decoration-none">
@@ -116,21 +116,21 @@ render() {
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon addonType="prepend">
-                                                <InputGroupText className="icon-field"><BsPersonFill className="icons-login" /></InputGroupText>
+                                                <InputGroupText className="icon-field"><BsPersonFill className="icons-login-signup" /></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input className="form-inputs-login" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                                            <Input className="form-inputs" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                                         </InputGroup>
                                     </FormGroup>
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon  addonType="prepend">
-                                                <InputGroupText className="icon-field"><BsLockFill className="icons-login" /></InputGroupText>
+                                                <InputGroupText className="icon-field"><BsLockFill className="icons-login-signup" /></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input className="form-inputs-login" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                                            <Input className="form-inputs" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
                                             <InputGroupAddon addonType="append" >
                                                     <InputGroupText className="icon-field">
                                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login"/> : <BsEyeFill className="icons-login"/>}</span>
+                                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login-signup"/> : <BsEyeFill className="icons-login-signup"/>}</span>
                                                     </InputGroupText>
                                             </InputGroupAddon>
                                         </InputGroup>
@@ -139,6 +139,7 @@ render() {
                                     <div className="align-middle text-center">
                                     <Button  className="submit-login-signup font" type="submit" block>Sign in</Button>
                                     </div>
+                                    <div><p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p></div>
                                 </Form>                    
                             </div>
                         </CardBody>
@@ -146,8 +147,8 @@ render() {
                 </Col>
                 </Row>
                 <Row className="mt-2">
-                    <Col md="4"></Col>
-                    <Col md="8" className="col-spacing-login login-toggle-row " >
+                    <Col xs="4" sm="4" md="4" lg="4"></Col>
+                    <Col xs="8" sm="8" md="8" lg="8" className="col-spacing-login login-toggle-row " >
                         <Link to="/signup" ><h6 className="switch-form font">Don't have an account? Sign up.</h6></Link>
                     </Col>
                 </Row>
