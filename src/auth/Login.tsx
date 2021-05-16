@@ -94,11 +94,11 @@ render() {
         <NavHome menu={false}/>
         <Container className="login-container  ">
             <div className="vertical-center">
-            <Row >
-                <Col md="4" className="pr-5 mt-auto " style={{textAlign: "right"}}>
-                    <img  style={{width: "150px"}} src={login_green} alt="" />  
+            <Row className="first-row-login">
+                <Col xs="2" sm="2" md="4" lg="4" className="pr-0 mt-auto " style={{textAlign: "right"}}>
+                    <img className="img-login-green" src={login_green} alt="" />  
                 </Col>
-                <Col md="8" className="col-spacing">
+                <Col xs="10" sm="10" md="8" lg="8" className="col-spacing-login ">
                     <Card className="card-jobseeker-login">
                         <CardHeader className="login-title ">
                             {/* <Link to="/" className="text-decoration-none">
@@ -107,30 +107,30 @@ render() {
                             <h1><a className="link-title font" href="/">TRACKIE</a></h1>
                         </CardHeader>
                         <CardBody>
-                            <CardTitle className="login-subtitle">
+                            <CardTitle className="login-subtitle font">
                                 <p >Sign into your account here.</p>
                             </CardTitle>
                             
-                            <div className="login-form " >
+                            <div >
                                 <Form onSubmit={this.handleSubmit}>
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon addonType="prepend">
-                                                <InputGroupText className="icon-field"><BsPersonFill /></InputGroupText>
+                                                <InputGroupText className="icon-field"><BsPersonFill className="icons-login" /></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                                            <Input className="form-inputs-login" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                                         </InputGroup>
                                     </FormGroup>
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon  addonType="prepend">
-                                                <InputGroupText className="icon-field"><BsLockFill /></InputGroupText>
+                                                <InputGroupText className="icon-field"><BsLockFill className="icons-login" /></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                                            <Input className="form-inputs-login" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
                                             <InputGroupAddon addonType="append" >
                                                     <InputGroupText className="icon-field">
                                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                                        {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login"/> : <BsEyeFill className="icons-login"/>}</span>
                                                     </InputGroupText>
                                             </InputGroupAddon>
                                         </InputGroup>
@@ -145,10 +145,10 @@ render() {
                     </Card>
                 </Col>
                 </Row>
-                <Row>
+                <Row className="mt-2">
                     <Col md="4"></Col>
-                    <Col md="8" className="col-spacing login-toggle-row " >
-                        <Link to="/signup" ><h6 className="switch-form">Don't have an account? Sign up.</h6></Link>
+                    <Col md="8" className="col-spacing-login login-toggle-row " >
+                        <Link to="/signup" ><h6 className="switch-form font">Don't have an account? Sign up.</h6></Link>
                     </Col>
                 </Row>
             </div>

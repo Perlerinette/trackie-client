@@ -46,6 +46,10 @@ a {
   background-color: #dafbc6 !important;
 }
 
+.form-inputs-login {
+  font-style: italic !important;
+}
+
 .login-title {
   background-color: #dafbc6 !important;
   text-align: center;
@@ -62,6 +66,7 @@ a {
 
 .login-subtitle {
   text-align: center;
+  color: #637259;
 }
 
 .switch-form {
@@ -73,12 +78,10 @@ a {
   margin-right: auto;
   text-align: center;
   cursor: pointer;
-  font-size: smaller;
   color: #637259 !important;
 }
 
 .switch-form:hover {
-  /* background-color: #dafbc6 !important; */
   font-size: 14px;
   width: fit-content;
 }
@@ -90,6 +93,13 @@ a {
 .col-spacing {
   padding-right: 0px !important;
   padding-left: 0px !important;
+}
+
+.col-spacing-login {
+  /* padding-right: 0px !important;
+  padding-left: 0px !important; */
+  display: flex;
+  justify-content: center;
 }
 
 /** END LOGIN JOBSEEEKER **/
@@ -160,3 +170,132 @@ a {
 }
 
 /** END LOGIN SCHOOL **/
+
+@media (min-width: 1200px) {
+  .first-row-login {
+    min-width: 1000px;
+    height: auto;
+  }
+
+  .card-jobseeker-login {
+    width: 450px;
+  }
+
+  .img-login-green {
+    width: 190px;
+  }
+
+  .login-subtitle {
+    font-size: 25px;
+  }
+
+  .link-title {
+    font-size: 55px;
+  }
+
+  .icons-login {
+    font-size: 30px;
+  }
+
+  .form-inputs-login {
+    font-size: 1.2rem !important;
+  }
+
+  .submit-login-signup {
+    font-size: 22px !important;
+  }
+
+  .switch-form {
+    font-size: 18px;
+  }
+  .switch-form:hover {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .first-row-login {
+    min-width: 900px;
+    height: auto;
+  }
+
+  .card-jobseeker-login {
+    width: 450px;
+  }
+
+  .img-login-green {
+    width: 180px;
+  }
+
+  .login-subtitle {
+    font-size: 24px;
+  }
+
+  .link-title {
+    font-size: 50px;
+  }
+
+  .icons-login {
+    font-size: 25px;
+  }
+
+  .form-inputs-login {
+    font-size: 1.1rem !important;
+  }
+
+  .submit-login-signup {
+    font-size: 22px !important;
+  }
+
+  .switch-form {
+    font-size: 18px;
+  }
+  .switch-form:hover {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .first-row-login {
+    min-width: 900px;
+    height: auto;
+  }
+
+  .card-jobseeker-login {
+    width: 450px;
+  }
+
+  .img-login-green {
+    width: 180px;
+  }
+
+  .login-subtitle {
+    font-size: 24px;
+  }
+
+  .link-title {
+    font-size: 50px;
+  }
+
+  .icons-login {
+    font-size: 25px;
+  }
+
+  .form-inputs-login {
+    font-size: 1.1rem !important;
+  }
+
+  .submit-login-signup {
+    font-size: 22px !important;
+  }
+
+  .switch-form {
+    font-size: 18px;
+  }
+  .switch-form:hover {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 10px) and (max-width: 767px) {
+}

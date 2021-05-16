@@ -186,31 +186,6 @@
     line-height: 1.2;
   }
 
-  .text-bubble1 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 24px;
-  }
-  .text-bubble2 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 24px;
-  }
-  .text-bubble3 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 24px;
-  }
-
   .spinnerClock {
     font-size: 40px;
   }
@@ -269,31 +244,6 @@
     font-size: 3.3em;
     font-weight: 300;
     line-height: 1.2;
-  }
-
-  .text-bubble1 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
-  }
-  .text-bubble2 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
-  }
-  .text-bubble3 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 22px;
   }
 
   .spinnerClock {
@@ -356,31 +306,6 @@
     line-height: 1.2;
   }
 
-  .text-bubble1 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-  .text-bubble2 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: -2px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-  .text-bubble3 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-
   .spinnerClock {
     font-size: 34px;
   }
@@ -438,31 +363,6 @@
     font-size: 3.1em;
     font-weight: 300;
     line-height: 1.2;
-  }
-
-  .text-bubble1 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-  .text-bubble2 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: -8px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-  }
-  .text-bubble3 {
-    justify-content: center;
-    align-self: auto;
-    margin-top: -8px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 14px;
   }
 
   .spinnerClock {

@@ -20,6 +20,7 @@ import NavJobseeker from './NavJobseeker';
     sortingStatus: boolean,
     sortingJobtitle: boolean,
     sortingDate: boolean,
+    sortingCompany: boolean,
     arrayJobapps: JobApp[],
     alertText: String,
     alertColor: string,
@@ -34,6 +35,7 @@ import NavJobseeker from './NavJobseeker';
             sortingStatus: false,
             sortingJobtitle: false,
             sortingDate: false,
+            sortingCompany: false,
             arrayJobapps: [],
             alertText: "",
             alertColor: "",
@@ -74,6 +76,7 @@ import NavJobseeker from './NavJobseeker';
                         <JobAppExpand jobapp={jobapp}/>
                     </td>
                     <td className='row-table'>{jobapp.applicationdate}</td>
+                    <td className='row-table'>{jobapp.company}</td>
                     <td className='row-table'>{jobapp.jobtitle}</td>
                     <td className='row-table'>{jobapp.status}</td>
                     <td className='row-table'>
@@ -123,6 +126,7 @@ import NavJobseeker from './NavJobseeker';
             sortingStatus: true,
             sortingJobtitle: false,
             sortingDate: false,
+            sortingCompany: false
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
@@ -145,7 +149,8 @@ import NavJobseeker from './NavJobseeker';
         this.setState({
             sortingJobtitle: true,
             sortingDate: false,
-            sortingStatus: false
+            sortingStatus: false,
+            sortingCompany: false
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
@@ -166,7 +171,8 @@ import NavJobseeker from './NavJobseeker';
         this.setState({
             sortingJobtitle: false,
             sortingDate: true,
-            sortingStatus: false
+            sortingStatus: false,
+            sortingCompany: false
         });
 
         //if true, re-arrange the array of objects based on status alphabetical order
@@ -180,6 +186,28 @@ import NavJobseeker from './NavJobseeker';
         }) ;
 
         console.log("sorting by date", this.state.sortingDate);
+    }
+
+    sortByCompany = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
+        // set it to true
+        this.setState({
+            sortingJobtitle: false,
+            sortingDate: false,
+            sortingStatus: false,
+            sortingCompany: true
+        });
+
+        //if true, re-arrange the array of objects based on status alphabetical order
+        this.state.sortingCompany ? 
+        this.setState({
+            arrayJobapps: this.state.jobappsData.sort( (data1, data2) => data1.company.localeCompare(data2.company))
+        })    
+        : 
+        this.setState({
+            arrayJobapps: this.state.jobappsData
+        }) ;
+
+        console.log("sorting by company", this.state.sortingCompany);
     }
 
     /* END of SORTING */
@@ -236,6 +264,7 @@ import NavJobseeker from './NavJobseeker';
                         <tr>
                             <th>View More</th>
                             <th>Date <TiArrowSortedDown onClick={this.sortByDate} className="icon-sort"/></th>
+                            <th>Company <TiArrowSortedDown onClick={this.sortByCompany} className="icon-sort"/></th>
                             <th>Job Title <TiArrowSortedDown onClick={this.sortByJobtitle} className="icon-sort"/></th>
                             <th>Status <TiArrowSortedDown onClick={this.sortByStatus} className="icon-sort"/></th>
                             <th>Edit/Delete</th>

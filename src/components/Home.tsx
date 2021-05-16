@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Col, Row, Container, Jumbotron, Card, CardTitle, CardText, CardImg, CardImgOverlay} from 'reactstrap';
+import {Col, Row, Container, Jumbotron, Card, CardImg} from 'reactstrap';
 import './Home.css';
 import NavHome from '../components/NavHome';
 import Trackie from '../assets/trackie.png';
 import TrackieSol from '../assets/trackie_sol.png';
 import Bubble_L from '../assets/bubble_left.png';
 import Bubble_R from '../assets/bubble_right.png';
+import Bubble_B from '../assets/bubble_below.png';
 import Feature from '../assets/feature.png';
 import { RiStarFill, RiStarLine } from 'react-icons/ri';
-import Footer from './Footer';
 
 export interface HomeProps {
     
@@ -52,17 +52,11 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <Col xs="4" sm="4" md="3" lg="3">
                         <Card className="card-bg" >
                             <CardImg  src={Bubble_L} alt="Card image cap" />
-                            <CardImgOverlay className="card-overlay">
-                                <CardText tag="h5" className="text-bubble1">All-in-One.</CardText>
-                            </CardImgOverlay>
                         </Card>
                     </Col>
                     <Col xs="4" sm="4" md="3" lg="3">
                     <Card className="card-bg " >
                             <CardImg  src={Bubble_R} alt="Card image cap" />
-                            <CardImgOverlay className="card-overlay">
-                            <CardText tag="h5" className="text-bubble2">No more surveys or emails to alumni.</CardText>
-                            </CardImgOverlay>
                         </Card>
                     </Col>
                 </Row>
@@ -70,10 +64,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                     <Col xs="2"sm="2" md="2"></Col>
                     <Col xs="4" sm="4" md="3" lg="3">
                         <Card className="card-bg">
-                            <CardImg  src={Bubble_R} alt="Card image cap" />
-                            <CardImgOverlay className="card-overlay">
-                                <CardText tag="h5" className="text-bubble3">No more loose papers or worsksheets.</CardText>
-                            </CardImgOverlay>
+                            <CardImg  src={Bubble_B} alt="Card image cap" />
                         </Card>
                     </Col>
                     <Col xs="6" sm="6" md="6" lg="7">

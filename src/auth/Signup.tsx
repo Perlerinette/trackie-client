@@ -211,7 +211,7 @@ render() {
                     <img  style={{width: "150px"}} src={signup_green} alt="" />  
                 </Col>
                 </Row>
-                <Row>                    
+                <Row className="mt-2">                    
                     <Col md="8" className="col-spacing login-toggle-row " >
                         <Link to="/login" ><h6 className="switch-form">Already registered? Sign in.</h6></Link>
                     </Col>
