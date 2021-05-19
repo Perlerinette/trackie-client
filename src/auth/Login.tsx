@@ -2,7 +2,7 @@ import React, { ComponentProps} from 'react';
 import APIURL from '../helpers/environment';
 import './Auth.css';
 import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert} from 'reactstrap';
 import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import login_green from '../assets/login_green.png';
 import NavHome from '../components/NavHome';
@@ -20,6 +20,9 @@ export interface LoginState {
     password: string,
     isPwdVisible: boolean,
     typePwd: ComponentProps<typeof Input>['type'],
+    alertText: String,
+    alertColor: string,
+    alertVisible: boolean,
 }
  
 
@@ -32,7 +35,10 @@ class Login extends React.Component<LoginProps, LoginState> {
             email: "",
             password: "",
             isPwdVisible: false,
-            typePwd: "password"
+            typePwd: "password",
+            alertText: "",
+            alertColor: "",
+            alertVisible: false
         };
 }
 
@@ -60,6 +66,7 @@ showPwd = () => {
 
 handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(e);
     console.log(this.state.email, this.state.password);
     
     fetch(`${APIURL}/jobseeker/login`, {
@@ -75,18 +82,52 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
         }),
       })
         .then((response) => response.json())
-        .then((data) => {            
-          localStorage.setItem('accountType', 'jobseeker');
-          console.log(data);
-          console.log(data.sessionJobseekerToken);
-          this.props.updateToken(data.sessionJobseekerToken, "jobseeker");
-        //   this.props.updateEmail(data.user.email);
-          localStorage.setItem('jobseekerName', data.jobseeker.firstname);
-          console.log(data.jobseeker.email);
-          this.props.history.push('/mydashboard');
-        });
+        .then((data) => {   
+            if(!data.ok){
+                if(data.error === "Login failed") {
+                    this.setTextAlert("danger", `Incorrect password!`);
+                    this.onShowAlert();
+                }
+                if(data.error === "Job seeker does not exist") {
+                    this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
+                    this.onShowAlert();
+                }
+            } else{                  
+                localStorage.setItem('accountType', 'jobseeker');
+                console.log(data);
+                console.log(data.sessionJobseekerToken);
+                this.props.updateToken(data.sessionJobseekerToken, "jobseeker");
+                //   this.props.updateEmail(data.user.email);
+                localStorage.setItem('jobseekerName', data.jobseeker.firstname);
+                localStorage.setItem('jobseekerLastName', data.jobseeker.lastname);
+                console.log(data.jobseeker.email);
+                this.props.history.push('/mydashboard');
+            }
+        })
+        .catch((err) => console.log("error: ", err));
         
 }
+
+/* ALERT MESSAGES */
+    // alert will display and disappear after 2sec
+    onShowAlert = ()=>{
+        this.setState({alertVisible:true},()=>{
+          window.setTimeout(()=>{
+            this.setState({alertVisible:false})
+          },3000)
+        });
+    }
+
+    setTextAlert = (color: string, text: string) => {
+        this.setState({
+            alertColor: color,
+            alertText: text
+        })
+    }  
+
+      /* END of ALERT MESSAGES */
+
+ 
 
 render() { 
     return ( 
@@ -141,6 +182,9 @@ render() {
                                     </div>
                                     <div>
                                         <p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p>
+                                        <Alert   color={this.state.alertColor} isOpen={this.state.alertVisible}>
+                                            {this.state.alertText}
+                                        </Alert  >
                                     </div>
                                 </Form>                    
                             </div>

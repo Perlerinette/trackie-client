@@ -1,7 +1,7 @@
 import React, { ComponentProps} from 'react';
 import APIURL from '../helpers/environment';
 import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert} from 'reactstrap';
 import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import login_purple from '../assets/login_purple.png';
 import NavHome from '../components/NavHome';
@@ -17,7 +17,10 @@ export interface LoginSchoolState {
     email: string,
     password: string,
     isPwdVisible: boolean,
-    typePwd: ComponentProps<typeof Input>['type']
+    typePwd: ComponentProps<typeof Input>['type'],
+    alertText: String,
+    alertColor: string,
+    alertVisible: boolean,
 }
  
 
@@ -30,7 +33,10 @@ class LoginSchool extends React.Component<LoginSchoolProps, LoginSchoolState> {
             email: "",
             password: "",
             isPwdVisible: false,
-            typePwd: "password"
+            typePwd: "password",
+            alertText: "",
+            alertColor: "",
+            alertVisible: false
         };
 }
 
@@ -74,17 +80,49 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
       })
         .then((response) => response.json())
         .then((data) => {
-          localStorage.setItem('accountType', 'school');
-          console.log(data);
-          console.log(data.sessionSchoolToken);
-          this.props.updateToken(data.sessionSchoolToken, "school");
-            //   this.props.updateEmail(data.school.email);
-          localStorage.setItem('schoolName', data.school.schoolname);
-          console.log(data.school.email);
-          this.props.history.push('/school/dashboard');
-        });
+            if(!data.ok){
+                if(data.error === "Login failed") {
+                    this.setTextAlert("danger", `Incorrect password!`);
+                    this.onShowAlert();
+                }
+                if(data.error === "School does not exist") {
+                    this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
+                    this.onShowAlert();
+                }
+            } else{  
+                localStorage.setItem('accountType', 'school');
+                console.log(data);
+                console.log(data.sessionSchoolToken);
+                this.props.updateToken(data.sessionSchoolToken, "school");
+                    //   this.props.updateEmail(data.school.email);
+                localStorage.setItem('schoolName', data.school.schoolname);
+                console.log(data.school.email);
+                this.props.history.push('/school/dashboard');
+            }
+        })
+        .catch((err) => console.log("error: ", err));
+        
     
 }
+
+/* ALERT MESSAGES */
+    // alert will display and disappear after 2sec
+    onShowAlert = ()=>{
+        this.setState({alertVisible:true},()=>{
+          window.setTimeout(()=>{
+            this.setState({alertVisible:false})
+          },3000)
+        });
+    }
+
+    setTextAlert = (color: string, text: string) => {
+        this.setState({
+            alertColor: color,
+            alertText: text
+        })
+    }  
+
+      /* END of ALERT MESSAGES */
 
 render() { 
     return ( 
@@ -139,6 +177,9 @@ render() {
                                     </div>
                                     <div>
                                         <p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p>
+                                        <Alert   color={this.state.alertColor} isOpen={this.state.alertVisible}>
+                                            {this.state.alertText}
+                                        </Alert  >
                                     </div>
                                 </Form>                    
                             </div>

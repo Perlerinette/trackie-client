@@ -215,7 +215,7 @@ render() {
                 </Col>
                 </Row>
                 <Row className="mt-2">                    
-                    <Col xs="8" sm="8" md="8" lg="8" className=" signup-toggle-row " >
+                    <Col xs="8" sm="8" md="8" lg="8" className="col-spacing signup-toggle-row " >
                         <Link to="/login" >
                             <h6 className="switch-form font">Already registered? Sign in.</h6>
                         </Link>

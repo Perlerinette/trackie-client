@@ -36,12 +36,24 @@ class JobAppDownload extends React.Component<JobAppDownloadProps, JobAppDownload
             delete tableToDwnld[i]['id'];
         }
 
-        // create file and prompt to save table into .xls
+        // create file and prompt to save table into .xlsx
         const ws = XLSX.utils.json_to_sheet(this.props.jobappTable);
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "MyJobApplications");
         /* generate XLSX file and send to client */
-        XLSX.writeFile(wb, "jobapps.xlsx");
+        /* nameFile as YYYYMMDD_LastName_Jobapps.xlsx*/
+
+        /* 1. get the date in proper format */
+        const today = new Date();
+        const month = today.getMonth();
+        let month2digits = "";
+        month.toString().length === 1 ? month2digits = "0" + "" + month.toString() : month2digits = month.toString();
+        const dateFile = today.getFullYear() +"" + month2digits +"" + today.getDate();
+        /* 2. build the file name */
+        const nameFile: string = dateFile + "_" + localStorage.getItem("jobseekerLastName" ) + "_" + "Jobapps.xlsx";
+
+        /* 3. ready to save */
+        XLSX.writeFile(wb, nameFile);
     }
 
 

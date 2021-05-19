@@ -154,12 +154,29 @@
   fill: #d4c4fb;
 }
 /* END PAGE SEPARATOR */
-
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .img-trackie-home {
     width: 850px;
   }
 
+  .list-features {
+    font-size: 25px;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .img-trackie-home {
+    width: 550px;
+  }
+
+  .list-features {
+    font-size: 23px;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1200px) {
   .img-trackiesol-home {
     width: 300px;
   }
@@ -197,11 +214,6 @@
     font-size: 2rem !important;
     text-transform: uppercase;
     margin-bottom: 35px;
-  }
-
-  .list-features {
-    font-size: 25px;
-    text-align: center !important;
   }
 
   .green-star-features {
