@@ -67,10 +67,10 @@
 .overlay {
   position: fixed;
   display: block;
-  width: 95%;
-  height: 750px;
+  /* width: 95%; */
+  height: auto;
   top: 70px;
-  left: 20px;
+  left: 0;
   right: 0;
   bottom: 20px;
   background-color: rgb(75, 88, 68, 0.95);
@@ -87,4 +87,90 @@
 }
 .icon-field-btn:hover {
   background-color: #aac499 !important;
+}
+
+@media (max-width: 576px) {
+  .pwd-input {
+    width: 200px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-unlock {
+    width: 200px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .icon-key {
+    font-size: 45px;
+  }
+  .text-identity {
+    font-size: 24px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .pwd-input {
+    width: 210px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-unlock {
+    width: 210px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .icon-key {
+    font-size: 50px;
+  }
+  .text-identity {
+    font-size: 28px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .pwd-input {
+    width: 240px !important;
+    margin-left: auto;
+  }
+  .btn-unlock {
+    width: 240px !important;
+  }
+  .icon-key {
+    font-size: 50px;
+  }
+  .text-identity {
+    font-size: 32px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .pwd-input {
+    width: 260px !important;
+    margin-left: auto;
+  }
+  .btn-unlock {
+    width: 260px !important;
+  }
+  .icon-key {
+    font-size: 60px;
+  }
+  .text-identity {
+    font-size: 36px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pwd-input {
+    width: 300px !important;
+    margin-left: auto;
+  }
+  .btn-unlock {
+    width: 300px !important;
+  }
+  .icon-key {
+    font-size: 70px;
+  }
+  .text-identity {
+    font-size: 38px !important;
+  }
 }

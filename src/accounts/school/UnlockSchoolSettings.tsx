@@ -104,7 +104,7 @@ class UnlockSchoolSettings extends React.Component<UnlockSchoolSettingsProps, Un
                             </InputGroup>
                         </Col>
                         <Col md="6"> 
-                            <Button  className="submitBtn-school font" type="submit" block style={{width: "250px"}}>Unlock</Button>
+                            <Button  className="submit-login-signup-school font" type="submit" block style={{width: "250px"}}>Unlock</Button>
                         </Col>
                     </Row>
                 </FormGroup>

@@ -120,11 +120,11 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 <>
                 <Container className="mt-4">
                     <Row>
-                        <Col style={{textAlign:"right"}} md="4"> 
+                        <Col className="col-timer" xs="12" sm="3" md="4" lg="4"> 
                             <GiSandsOfTime size={30}/>
                         </Col>
-                        <Col md="8">
-                            <h5>Your job hunt started <span style={{color: "#637259", fontSize: "larger"}}> {this.calculateDuration()} </span>days ago...</h5>
+                        <Col className="col-timer-text " xs="12" sm="9" md="8" lg="8">
+                            <h5 >Your job hunt started &nbsp; <span className="days"> &nbsp;{this.calculateDuration()} </span>&nbsp; days ago...</h5>
                         </Col>       
                     </Row>
                 </Container>

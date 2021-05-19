@@ -23,3 +23,44 @@
   height: 200px !important;
   width: 550px !important;
 }
+
+.days {
+  color: #dafbc6;
+  font-size: larger;
+  background-color: #637259;
+  border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+  .col-timer,
+  .col-timer-text {
+    text-align: center;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .col-timer {
+    text-align: right;
+  }
+  .col-timer-text {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .col-timer {
+    text-align: right;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .col-timer {
+    text-align: right;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-timer {
+    text-align: right;
+  }
+}

@@ -81,27 +81,27 @@ class UnlockSettings extends React.Component<UnlockSettingsProps, UnlockSettings
 
     render() { 
         return ( 
-            <Container className={this.state.selectClass} >
-            <RiKey2Fill size={80}/>
+            <Container lg="12" className={this.state.selectClass} >
+            <RiKey2Fill className="icon-key" />
             <br/>
-            <h2 className="font">Confirm your identity to access the settings</h2>
+            <h2 className="text-identity font">Confirm your identity to access the settings</h2>
             <br/>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Row>
-                        <Col md="6">
-                            <InputGroup style={{marginLeft: "auto", width: "250px"}}>
-                                <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Enter your Password" value={this.state.password} required />
+                        <Col xs="12" sm="12" md="6">
+                            <InputGroup className="pwd-input" >
+                                <Input  className="form-inputs" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Enter your Password *" value={this.state.password} required />
                                 <InputGroupAddon addonType="append" >
                                     <InputGroupText className="icon-field">
                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                        {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login-signup"/> : <BsEyeFill className="icons-login-signup"/>}</span>
                                     </InputGroupText>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Col>
-                        <Col md="6"> 
-                            <Button  className="submit-login-signup font" type="submit" block style={{width: "250px"}}>Unlock</Button>
+                        <Col xs="12" sm="12" md="6"> 
+                            <Button  className="submit-login-signup btn-unlock font" type="submit" block >Unlock</Button>
                         </Col>
                     </Row>
                 </FormGroup>
