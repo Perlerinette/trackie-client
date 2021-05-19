@@ -15,31 +15,31 @@
 }
 
 @media (max-width: 576px) {
-  h4 {
+  .footer-text {
     font-size: 14px !important;
   }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
-  h4 {
+  .footer-text {
     font-size: 14px !important;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  h4 {
+  .footer-text {
     font-size: 16px !important;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  h4 {
+  .footer-text {
     font-size: 18px !important;
   }
 }
 
 @media (min-width: 1200px) {
-  h4 {
+  .footer-text {
     font-size: 18px !important;
   }
 }

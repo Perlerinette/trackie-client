@@ -202,7 +202,9 @@ render() {
                     <div className="align-middle text-center">
                         <Button  className="submit-login-signup font" type="submit" block>Create your account</Button>
                     </div> 
-                    <div><p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p></div>
+                    <div>
+                        <p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p>
+                    </div>
                     </Form>
                     </div>
                     </CardBody>
@@ -214,7 +216,9 @@ render() {
                 </Row>
                 <Row className="mt-2">                    
                     <Col xs="8" sm="8" md="8" lg="8" className=" signup-toggle-row " >
-                        <Link to="/login" ><h6 className="switch-form font">Already registered? Sign in.</h6></Link>
+                        <Link to="/login" >
+                            <h6 className="switch-form font">Already registered? Sign in.</h6>
+                        </Link>
                     </Col>
                     <Col xs="4" sm="4" md="4" lg="4"></Col>
                 </Row>

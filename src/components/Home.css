@@ -175,7 +175,7 @@
   }
 
   .h4-title-home {
-    font-size: 1.5em;
+    font-size: 25px !important; /*1.5em;*/
     font-weight: 500;
     line-height: 1.2;
   }
@@ -215,7 +215,7 @@
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1200px) {
   .img-trackie-home {
     width: 450px;
   }
@@ -235,7 +235,7 @@
   }
 
   .h4-title-home {
-    font-size: 1.4em;
+    font-size: 23px !important; /* 1.4em;*/
     font-weight: 500;
     line-height: 1.2;
   }
@@ -254,7 +254,7 @@
   }
 
   .h4-title-features {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
     text-transform: uppercase;
     margin-bottom: 30px;
   }
@@ -295,7 +295,7 @@
   }
 
   .h4-title-home {
-    font-size: 1.2em;
+    font-size: 20px !important;
     font-weight: 500;
     line-height: 1.2;
   }
@@ -314,7 +314,7 @@
   }
 
   .h4-title-features {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
     text-transform: uppercase;
     margin-bottom: 20px;
   }
@@ -346,7 +346,7 @@
   }
 
   .h4-title-home {
-    font-size: 1em;
+    font-size: 18px !important;
     font-weight: 500;
     line-height: 1.2;
   }
@@ -373,7 +373,7 @@
   }
 
   .h4-title-features {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     text-transform: uppercase;
     margin-bottom: 10px;
   }

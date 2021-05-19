@@ -92,11 +92,11 @@ render() {
         <NavHome menu={false}/>
         <Container className="login-container  ">
             <div className="vertical-center">
-            <Row >
-                <Col md="4" className="pr-5 mt-auto col-spacing" style={{textAlign: "right"}}>
-                    <img  style={{width: "150px"}} src={login_purple} alt="" />  
+            <Row className="first-row-login-school">
+                <Col  xs="4" sm="4" md="4" lg="4" className="pr-0 mt-auto " style={{textAlign: "right"}}>
+                    <img  className="img-login-purple" src={login_purple} alt="" />  
                 </Col>
-                <Col md="8" className="col-spacing">
+                <Col xs="8" sm="8" md="8" lg="8" className="col-spacing-login-school ">
                     <Card className="card-school-login">
                         <CardHeader className="login-title-school ">
                             {/* <Link to="/" className="text-decoration-none">
@@ -105,37 +105,40 @@ render() {
                             <h1 ><a className="link-title-school font" href="/">TRACKIE</a></h1>
                         </CardHeader>
                         <CardBody>
-                            <CardTitle className="login-subtitle">
+                            <CardTitle className="login-subtitle font">
                                 <p >Sign into your school account here.</p>
                             </CardTitle>
                             
-                            <div className="login-form " >
+                            <div>
                                 <Form onSubmit={this.handleSubmit}>
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon addonType="prepend">
-                                                <InputGroupText className="icon-fieldSchool"><BsPersonFill /></InputGroupText>
+                                                <InputGroupText className="icon-fieldSchool"><BsPersonFill className="icons-login-signup"/></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                                            <Input className="form-inputs" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                                         </InputGroup>
                                     </FormGroup>
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon  addonType="prepend">
-                                                <InputGroupText className="icon-fieldSchool"><BsLockFill /></InputGroupText>
+                                                <InputGroupText className="icon-fieldSchool"><BsLockFill className="icons-login-signup"/></InputGroupText>
                                             </InputGroupAddon>
-                                            <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                                            <Input className="form-inputs" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
                                             <InputGroupAddon addonType="append" >
                                                     <InputGroupText className="icon-fieldSchool">
                                                         <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                                        {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                                        {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login-signup"/> : <BsEyeFill className="icons-login-signup"/>}</span>
                                                     </InputGroupText>
                                             </InputGroupAddon>
                                         </InputGroup>
                                     </FormGroup>
 
                                     <div className="align-middle text-center">
-                                    <Button  className="submitBtn-school font" type="submit" block>Sign in</Button>
+                                    <Button  className="submit-login-signup-school font" type="submit" block>Sign in</Button>
+                                    </div>
+                                    <div>
+                                        <p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p>
                                     </div>
                                 </Form>                    
                             </div>
@@ -143,10 +146,12 @@ render() {
                     </Card>
                 </Col>
                 </Row>
-                <Row>
-                    <Col md="4"></Col>
-                    <Col md="8" className="col-spacing login-toggle-row " >
-                        <Link to="/school/signup" ><h6 className="switch-form">Don't have an account? Sign up.</h6></Link>
+                <Row className="mt-2">
+                    <Col xs="4" sm="4" md="4" lg="4"></Col>
+                    <Col xs="8" sm="8" md="8" lg="8" className="col-spacing-login-school login-toggle-row " >
+                        <Link to="/school/signup" >
+                            <h6 className="switch-form font">Don't have an account? Sign up.</h6>
+                        </Link>
                     </Col>
                 </Row>
             </div>

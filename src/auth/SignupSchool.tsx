@@ -102,54 +102,59 @@ render() {
         <br/>
         <Container className="login-container  ">
             <div className="vertical-center">
-            <Row >
-                    <Col md="8" className="col-spacing">
+            <Row className="first-row-signup">
+                    <Col xs="8" sm="8" md="8" lg="8" className="col-spacing pr-0 " style={{marginRight: "auto"}}>
                     <Card className="card-school-signup">
                         <CardHeader className="login-title-school ">
                             <h1><a className="link-title-school font" href="/">TRACKIE</a></h1>
                         </CardHeader>
                         <CardBody>
-                        <CardTitle className="login-subtitle">
+                        <CardTitle className="login-subtitle font">
                             <p >Sign up to follow alumni</p>
                         </CardTitle>
                         
-                        <div className="login-form " >
+                        <div >
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
-                                <Input onChange={this.setSchoolname} type="text" name="email" placeholder="School name *" value={this.state.schoolname} required />
+                                <Input className="form-inputs" onChange={this.setSchoolname} type="text" name="email" placeholder="School name *" value={this.state.schoolname} required />
                         </FormGroup>
                         <FormGroup>
-                                <Input onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
+                                <Input className="form-inputs" onChange={this.setEmail} type="email" name="email" placeholder="Email *" value={this.state.email} required />
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>                                
-                                <Input onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
+                                <Input className="form-inputs" onChange={this.setPassword} type={this.state.typePwd} minLength={6} name="password" placeholder="Password *" value={this.state.password} required />
                                 <InputGroupAddon addonType="append" >
                                         <InputGroupText className="icon-fieldSchool">
                                             <span style={{cursor:'pointer'}} onClick={this.showPwd}>
-                                            {this.state.isPwdVisible ? <BsEyeSlashFill /> : <BsEyeFill />}</span>
+                                            {this.state.isPwdVisible ? <BsEyeSlashFill className="icons-login-signup"/> : <BsEyeFill className="icons-login-signup"/>}</span>
                                         </InputGroupText>
                                 </InputGroupAddon>
                             </InputGroup>
                         </FormGroup>
 
                         <div className="align-middle text-center">
-                            <Button  className="submitBtn-school font" type="submit" block>Create your account</Button>
+                            <Button  className="submit-login-signup-school font" type="submit" block>Create your account</Button>
+                        </div>
+                        <div>
+                            <p style={{marginBottom: "0px", fontSize: "14px", color: "#637259", fontStyle:"italic"}}>* required fields</p>
                         </div>
                         </Form>
                         </div>
                         </CardBody>
                     </Card>
                     </Col>
-                    <Col md="4" className="col-spacing mt-auto">
-                        <img  style={{width: "150px"}} src={signup_purple} alt="" />  
+                    <Col xs="4" sm="4" md="4" lg="4"  className="pl-0 mt-auto">
+                        <img className="img-signup-purple" src={signup_purple} alt="" />  
                     </Col>
                 </Row>
-                <Row>                    
-                    <Col md="8" className="col-spacing login-toggle-row " >
-                        <Link to="/school/login" ><h6 className="switch-form">Already registered? Sign in.</h6></Link>
+                <Row className="mt-2">                    
+                    <Col xs="8" sm="8" md="8" lg="8" className=" signup-toggle-row " >
+                        <Link to="/school/login" >
+                            <h6 className="switch-form font">Already registered? Sign in.</h6>
+                        </Link>
                     </Col>
-                    <Col md="4"></Col>
+                    <Col xs="4" sm="4" md="4" lg="4"></Col>
                 </Row>
             </div>
         </Container>

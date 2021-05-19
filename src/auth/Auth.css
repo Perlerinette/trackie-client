@@ -121,7 +121,7 @@ a {
     rgba(135, 106, 199, 0.1) -20px 20px, rgba(135, 106, 199, 0.05) -25px 25px;
 }
 
-.submitBtn-school {
+.submit-login-signup-school {
   background-color: #d4c4fb !important;
   color: #4e3d73 !important;
   border: 1px solid #cec4ba !important;
@@ -130,7 +130,7 @@ a {
   text-transform: uppercase;
 }
 
-.submitBtn-school:hover {
+.submit-login-signup-school:hover {
   background-color: #876ac7 !important;
   color: #d4c4fb !important;
 }
@@ -172,22 +172,34 @@ a {
   width: fit-content;
 }
 
+.col-spacing-login-school {
+  /* padding-right: 0px !important;
+  padding-left: 0px !important; */
+  display: flex;
+  justify-content: center;
+}
+
 /** END LOGIN SCHOOL **/
 /**** XL ****/
 @media (min-width: 1200px) {
   .first-row-login,
+  .first-row-login-school,
   .first-row-signup {
     min-width: 1140px;
     height: auto;
   }
 
   .card-jobseeker-login,
-  .card-jobseeker-signup {
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
     width: 450px;
   }
 
   .img-login-green,
-  .img-signup-green {
+  .img-signup-green,
+  .img-login-purple,
+  .img-signup-purple {
     width: 190px;
   }
 
@@ -195,7 +207,8 @@ a {
     font-size: 25px;
   }
 
-  .link-title {
+  .link-title,
+  .link-title-school {
     font-size: 55px;
   }
 
@@ -207,7 +220,8 @@ a {
     font-size: 1.2rem !important;
   }
 
-  .submit-login-signup {
+  .submit-login-signup,
+  .submit-login-signup-school {
     font-size: 22px !important;
   }
 
@@ -222,18 +236,24 @@ a {
 /**** LG ****/
 @media (min-width: 992px) and (max-width: 1200px) {
   .first-row-login,
+  .first-row-login-school,
   .first-row-signup {
     min-width: 960px;
     height: auto;
   }
 
-  .card-jobseeker-login {
+  .card-jobseeker-login,
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
     width: 400px;
     margin-right: 0 !important;
   }
 
   .img-login-green,
-  .img-signup-green {
+  .img-signup-green,
+  .img-login-purple,
+  .img-signup-purple {
     width: 180px;
   }
 
@@ -241,7 +261,8 @@ a {
     font-size: 24px;
   }
 
-  .link-title {
+  .link-title,
+  .link-title-school {
     font-size: 50px;
   }
 
@@ -253,7 +274,8 @@ a {
     font-size: 1.1rem !important;
   }
 
-  .submit-login-signup {
+  .submit-login-signup,
+  .submit-login-signup-school {
     font-size: 22px !important;
   }
 
@@ -268,17 +290,23 @@ a {
 /**** MD ****/
 @media (min-width: 768px) and (max-width: 992px) {
   .first-row-login,
+  .first-row-login-school,
   .first-row-signup {
     min-width: 720px;
     height: auto;
   }
 
-  .card-jobseeker-login {
+  .card-jobseeker-login,
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
     width: 420px;
   }
 
   .img-login-green,
-  .img-signup-green {
+  .img-signup-green,
+  .img-login-purple,
+  .img-signup-purple {
     width: 180px;
   }
 
@@ -286,7 +314,8 @@ a {
     font-size: 24px;
   }
 
-  .link-title {
+  .link-title,
+  .link-title-school {
     font-size: 50px;
   }
 
@@ -298,7 +327,8 @@ a {
     font-size: 1.1rem !important;
   }
 
-  .submit-login-signup {
+  .submit-login-signup,
+  .submit-login-signup-school {
     font-size: 22px !important;
   }
 
@@ -313,20 +343,26 @@ a {
 /**** SM ****/
 @media (min-width: 576px) and (max-width: 768px) {
   .first-row-login,
+  .first-row-login-school,
   .first-row-signup {
     min-width: 540px;
     height: auto;
   }
 
-  .card-jobseeker-login {
+  .card-jobseeker-login,
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
     width: 300px;
   }
 
-  .img-login-green {
+  .img-login-green,
+  .img-login-purple {
     width: 140px;
   }
 
-  .img-signup-green {
+  .img-signup-green,
+  .img-signup-purple {
     width: 140px;
   }
 
@@ -334,7 +370,8 @@ a {
     font-size: 18px;
   }
 
-  .link-title {
+  .link-title,
+  .link-title-school {
     font-size: 30px;
     display: flex;
     align-content: center !important;
@@ -353,7 +390,8 @@ a {
     font-size: 0.9rem !important;
   }
 
-  .submit-login-signup {
+  .submit-login-signup,
+  .submit-login-signup-school {
     font-size: 18px !important;
   }
 
@@ -368,6 +406,7 @@ a {
 /**** XS ****/
 @media (max-width: 576px) {
   .first-row-login,
+  .first-row-login-school,
   .first-row-signup {
     max-width: auto;
     height: auto;
@@ -378,15 +417,19 @@ a {
   }
 
   .card-jobseeker-login,
-  .card-jobseeker-signup {
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
     width: 280px;
   }
 
-  .img-login-green {
+  .img-login-green,
+  .img-login-purple {
     width: 100px;
   }
 
-  .img-signup-green {
+  .img-signup-green,
+  .img-signup-purple {
     width: 100px;
   }
 
@@ -394,7 +437,8 @@ a {
     font-size: 18px;
   }
 
-  .link-title {
+  .link-title,
+  .link-title-school {
     font-size: 30px;
     display: flex;
     align-content: center !important;
@@ -413,7 +457,8 @@ a {
     font-size: 0.9rem !important;
   }
 
-  .submit-login-signup {
+  .submit-login-signup,
+  .submit-login-signup-school {
     font-size: 18px !important;
   }
 
