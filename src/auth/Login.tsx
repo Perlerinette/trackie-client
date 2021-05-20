@@ -2,7 +2,7 @@ import React, { ComponentProps} from 'react';
 import APIURL from '../helpers/environment';
 import './Auth.css';
 import {RouteComponentProps, withRouter, Link} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert, Spinner} from 'reactstrap';
 import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import login_green from '../assets/login_green.png';
 import NavHome from '../components/NavHome';
@@ -20,9 +20,9 @@ export interface LoginState {
     password: string,
     isPwdVisible: boolean,
     typePwd: ComponentProps<typeof Input>['type'],
-    alertText: String,
+    alertText: string,
     alertColor: string,
-    alertVisible: boolean,
+    alertVisible: boolean
 }
  
 
@@ -60,7 +60,7 @@ showPwd = () => {
         isPwdVisible: !(this.state.isPwdVisible)
     });
     this.state.isPwdVisible ? this.setState({typePwd: "password"}) : this.setState({typePwd: "text"});
-    console.log("ispwdvisible", this.state.isPwdVisible);
+    // console.log("ispwdvisible", this.state.isPwdVisible);
 }
 
 
@@ -83,21 +83,22 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
       })
         .then((response) => response.json())
         .then((data) => {   
-            if(!data.ok){
-                if(data.error === "Login failed") {
-                    this.setTextAlert("danger", `Incorrect password!`);
-                    this.onShowAlert();
-                }
-                if(data.error === "Job seeker does not exist") {
-                    this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
-                    this.onShowAlert();
-                }
-            } else{                  
+            if(data.error === "Login failed") {
+                this.setTextAlert("danger", `Incorrect password!`);
+                this.onShowAlert();
+            }
+            else if(data.error === "Job seeker does not exist") {
+                this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
+                this.onShowAlert();
+            }
+            else{           
+                <Spinner color="success" />
+                this.setTextAlert("success", `....Connecting to your account....`);
+                this.onShowAlert();       
                 localStorage.setItem('accountType', 'jobseeker');
                 console.log(data);
                 console.log(data.sessionJobseekerToken);
                 this.props.updateToken(data.sessionJobseekerToken, "jobseeker");
-                //   this.props.updateEmail(data.user.email);
                 localStorage.setItem('jobseekerName', data.jobseeker.firstname);
                 localStorage.setItem('jobseekerLastName', data.jobseeker.lastname);
                 console.log(data.jobseeker.email);
@@ -131,7 +132,7 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
 
 render() { 
     return ( 
-        <>
+        < >
         <NavHome menu={false}/>
         <Container className="login-container ">
             <div className="vertical-center">
@@ -153,7 +154,7 @@ render() {
                             </CardTitle>
                             
                             <div >
-                                <Form onSubmit={this.handleSubmit}>
+                                <Form onSubmit={this.handleSubmit} >
                                     <FormGroup>
                                         <InputGroup>
                                             <InputGroupAddon addonType="prepend">

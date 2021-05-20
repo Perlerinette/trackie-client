@@ -1,7 +1,7 @@
 import React, { ComponentProps} from 'react';
 import APIURL from '../helpers/environment';
 import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
-import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert} from 'reactstrap';
+import {Col, Card, CardBody, CardHeader, CardTitle, Form, FormGroup, Input, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Container, Alert, Spinner} from 'reactstrap';
 import { BsLockFill, BsPersonFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import login_purple from '../assets/login_purple.png';
 import NavHome from '../components/NavHome';
@@ -80,21 +80,22 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
       })
         .then((response) => response.json())
         .then((data) => {
-            if(!data.ok){
-                if(data.error === "Login failed") {
-                    this.setTextAlert("danger", `Incorrect password!`);
-                    this.onShowAlert();
-                }
-                if(data.error === "School does not exist") {
-                    this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
-                    this.onShowAlert();
-                }
-            } else{  
+            if(data.error === "Login failed") {
+                this.setTextAlert("danger", `Incorrect password!`);
+                this.onShowAlert();
+            }
+            else if(data.error === "School does not exist") {
+                this.setTextAlert("danger", `Email " ${this.state.email}" does not exist!`);
+                this.onShowAlert();
+            }
+            else{  
+                <Spinner color="success" />
+                this.setTextAlert("success", `....Connecting to your account....`);
+                this.onShowAlert();    
                 localStorage.setItem('accountType', 'school');
                 console.log(data);
                 console.log(data.sessionSchoolToken);
                 this.props.updateToken(data.sessionSchoolToken, "school");
-                    //   this.props.updateEmail(data.school.email);
                 localStorage.setItem('schoolName', data.school.schoolname);
                 console.log(data.school.email);
                 this.props.history.push('/school/dashboard');
