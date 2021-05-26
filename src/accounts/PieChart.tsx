@@ -63,7 +63,7 @@ class PieChart extends React.Component<PieChartProps, PieChartState> {
             datasets: [
                 {
                     label: 'Status of job applications',
-                    data: [this.pending, this.interviewed, this.rejected, this.offers, this.declined, this.accepted],
+                    data: [this.pending, this.interviewed, this.rejected, this.offers, this.accepted, this.declined],
                     // data:[0,0,0,0,0,0],
                     backgroundColor: [
                         'rgba(255, 99, 132, 1)',

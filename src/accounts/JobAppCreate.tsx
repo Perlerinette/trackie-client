@@ -3,7 +3,6 @@ import APIURL from '../helpers/environment';
 import { BiAddToQueue } from 'react-icons/bi';
 import {RiAddCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import {Form, FormGroup, Label, Input, Modal, ModalHeader, ModalFooter, ModalBody, Col, Row, UncontrolledTooltip} from 'reactstrap';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export interface JobAppCreateProps {
@@ -20,8 +19,7 @@ export interface JobAppCreateState {
     jobdescription: string,
     location: string,
     status: string,
-    modal: boolean,
-    now: Date
+    modal: boolean
    
 }
   
@@ -35,8 +33,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
             jobdescription: "",
             location: "",
             status: "",
-            modal: false,
-            now: new Date("2022")
+            modal: false
           };
     }
 
@@ -94,7 +91,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
        })
    }
 
-
+   
     setDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             jobdescription: e.currentTarget.value
@@ -136,7 +133,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
-        console.log("modal :", this.state.modal);
+        // console.log("modal :", this.state.modal);
     }
 
     getMMDDYYYY = (date: string) => {
@@ -149,14 +146,17 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
         return date;
     }
 
-    handleChangeDate = (date: Date) => {
-        console.log(date.toISOString());
+    setDate = (e: React.ChangeEvent<HTMLInputElement> ) => {
         this.setState({
-            now: date,
-            applicationdate: this.getMMDDYYYY(date.toISOString())
+            // applicationdate: this.getMMDDYYYY(e.currentTarget.value) 
+            applicationdate: e.currentTarget.value
         })
     }
 
+    getToday = () => {
+        let today = new Date().toISOString().split("T")[0];
+        return today;
+    }
     
     render() { 
         return ( 
@@ -178,7 +178,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                     <Col>
                         <FormGroup>
                             <Label>Date of Application:</Label>
-                            <DatePicker dateFormat= "MM/dd/yyyy" placeholderText=" " selected= {this.state.now} onChange= {this.handleChangeDate} required />
+                            <Input type="date" placeholder="yyyy-mm-dd" max={this.getToday()} onChange={this.setDate} required />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor='jobtitle' >Job Title:</Label>
@@ -187,6 +187,7 @@ class JobAppCreate extends React.Component<JobAppCreateProps, JobAppCreateState>
                                 <option value="Front-End Developer">Front-End Developer</option>
                                 <option value="Back-End Developer">Back-End Developer</option>
                                 <option value="Full-Stack Developer">Full-Stack Developer</option>
+                                <option value="SW Engineer">Software Engineer</option>
                                 <option value="Other">Other</option>
                             </Input>
                         </FormGroup>

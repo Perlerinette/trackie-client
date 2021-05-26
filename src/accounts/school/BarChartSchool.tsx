@@ -34,17 +34,18 @@ class BarChartSchool extends React.Component<BarChartSchoolProps, BarChartSchool
         let front: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Front-End Developer" );
         let end: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Back-End Developer" );
         let full: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Full-Stack Developer" );
+        let sw: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "SW Engineer");
         let other: DataShared[] = this.props.dataHired.filter( arr => arr.jobtitle === "Other" );
     
     
     
         let dataBar: Object = {
             
-            labels: ['Front-End', 'Back-End', 'Full-Stack', 'Other'],
+            labels: ['Front-End', 'Back-End', 'Full-Stack', 'SW', 'Other'],
             datasets: [
                 {
                 label: 'Job Titles',
-                data: [front.length, end.length, full.length, other.length],
+                data: [front.length, end.length, full.length, sw.length, other.length],
                 // data:[1,5,2,3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',

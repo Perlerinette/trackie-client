@@ -24,7 +24,8 @@ class JobAppExpand extends React.Component<JobAppExpandProps, JobAppExpandState>
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
-        console.log("modal :", this.state.modal);
+        // console.log("modal :", this.state.modal);
+        console.log("jobapp: ", this.props.jobapp);
     }
 
     render() { 

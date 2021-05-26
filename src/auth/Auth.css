@@ -180,8 +180,10 @@ a {
 }
 
 /** END LOGIN SCHOOL **/
-/**** XL ****/
-@media (min-width: 1200px) {
+
+/*** RESPONSIVE ***/
+/**** XXL ****/
+@media (min-width: 1400px) {
   .first-row-login,
   .first-row-login-school,
   .first-row-signup {
@@ -233,6 +235,59 @@ a {
   }
 }
 
+/**** XL ****/
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .first-row-login,
+  .first-row-login-school,
+  .first-row-signup {
+    min-width: 1140px;
+    height: auto;
+  }
+
+  .card-jobseeker-login,
+  .card-school-login,
+  .card-jobseeker-signup,
+  .card-school-signup {
+    width: 430px;
+  }
+
+  .img-login-green,
+  .img-signup-green,
+  .img-login-purple,
+  .img-signup-purple {
+    width: 170px;
+  }
+
+  .login-subtitle {
+    font-size: 23px;
+  }
+
+  .link-title,
+  .link-title-school {
+    font-size: 45px;
+  }
+
+  .icons-login-signup {
+    font-size: 23px;
+  }
+
+  .form-inputs {
+    font-size: 1.1rem !important;
+  }
+
+  .submit-login-signup,
+  .submit-login-signup-school {
+    font-size: 22px !important;
+  }
+
+  .switch-form {
+    font-size: 18px;
+  }
+  .switch-form:hover {
+    font-size: 20px;
+  }
+}
+
 /**** LG ****/
 @media (min-width: 992px) and (max-width: 1200px) {
   .first-row-login,
@@ -267,7 +322,7 @@ a {
   }
 
   .icons-login-signup {
-    font-size: 25px;
+    font-size: 23px;
   }
 
   .form-inputs {
@@ -320,7 +375,7 @@ a {
   }
 
   .icons-login-signup {
-    font-size: 25px;
+    font-size: 23px;
   }
 
   .form-inputs {

@@ -44,8 +44,17 @@ import NavJobseeker from './NavJobseeker';
      }
 
      componentDidMount() {
-        this.getAllApplications();     
+        this.getAllApplications();    
     }
+
+    // componentDidUpdate(prevProps: MyjobappsProps, prevState: MyjobappsState) {
+    //     if(prevState.arrayJobapps !== this.state.arrayJobapps){
+            
+    //     this.jobAppsMapper(this.state.arrayJobapps); 
+    //     }
+    // }
+    
+
 
      getAllApplications = () => {
         fetch(`${APIURL}/jobapplication/getAll`, {
@@ -58,7 +67,8 @@ import NavJobseeker from './NavJobseeker';
             .then( (res) => res.json())
             .then((jobapps) => {
                 this.setState({ jobappsData: jobapps, arrayJobapps: jobapps });
-                console.log('myjobapps jobappsData: ', this.state.jobappsData);                
+                console.log('myjobapps jobappsData: ', this.state.jobappsData);  
+                console.log('myjobapps arrayJobapps: ', this.state.arrayJobapps);              
             })
             .catch(error => { console.log(error)})
     }
@@ -66,7 +76,7 @@ import NavJobseeker from './NavJobseeker';
 
 
      jobAppsMapper = (arr: JobApp[]) => {
-        //  console.log("in jobappsMapper");
+         console.log("in jobappsMapper: ", arr);
           return(arr.map( (jobapp, index) => {
             return(
                 <>

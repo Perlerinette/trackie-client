@@ -66,7 +66,6 @@ showPwd = () => {
 
 handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
     console.log(this.state.email, this.state.password);
     
     fetch(`${APIURL}/jobseeker/login`, {
@@ -92,6 +91,7 @@ handleSubmit = (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFor
                 this.onShowAlert();
             }
             else{           
+                console.log("fetch login success! waiting to connect to account...");
                 <Spinner color="success" />
                 this.setTextAlert("success", `....Connecting to your account....`);
                 this.onShowAlert();       

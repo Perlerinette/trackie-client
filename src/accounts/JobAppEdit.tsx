@@ -21,8 +21,7 @@ export interface JobAppEditState {
     jobdescription: string,
     location: string,
     status: string,
-    modal: boolean,   
-    testDate: string
+    modal: boolean
 }
  
 class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
@@ -35,16 +34,27 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
             jobdescription: this.props.jobapp.jobdescription,
             location: this.props.jobapp.location,
             status: this.props.jobapp.status,
-            modal: false,            
-            testDate: this.props.jobapp.applicationdate
+            modal: false
           };
     }
  
+    // componentDidMount() {
+    //     this.setState({
+    //         jobtitle: this.state.jobtitle, 
+    //         company: this.state.company,
+    //         applicationdate: this.state.applicationdate,
+    //         jobdescription: this.state.jobdescription,
+    //         location: this.state.location,
+    //         status: this.state.status
+    //     })
+    // }
+   
     
     editJobapp = (event: React.SyntheticEvent) => {
         event.preventDefault();
         
         console.log("in edit new");
+        console.log("jobapp: " , this.props.jobapp);
         fetch(`${APIURL}/jobapplication/edit/${this.props.jobapp.id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -74,78 +84,77 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
            .catch(error => { console.log(error)})
    }
 
-   
 
-
-    setDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChangeDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             jobdescription: e.currentTarget.value
         })
     }
 
-    setDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            applicationdate: e.currentTarget.value
-        })
-    }
-
-    setJobTitle = (e: React.ChangeEvent<HTMLInputElement> ) => {
+    setChangeJobTitle = (e: React.ChangeEvent<HTMLInputElement> ) => {
         this.setState({
             jobtitle: e.currentTarget.value
         })
     }
 
-    setStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChangeStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             status: e.currentTarget.value
         })
     }
 
-    setLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChangeLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             location: e.currentTarget.value
         })
     }
 
-    setCompany = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChangeCompany = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             company: e.currentTarget.value
         })
     }
 
     //to close/open modal form 
+    // force to refresh states as well
     toggle = () => {
         this.setState(prevState => ({
-            modal: !prevState.modal
+            modal: !prevState.modal,
+
+            jobtitle: this.props.jobapp.jobtitle, 
+            company: this.props.jobapp.company,
+            applicationdate: this.props.jobapp.applicationdate,
+            jobdescription: this.props.jobapp.jobdescription,
+            location: this.props.jobapp.location,
+            status: this.props.jobapp.status
         }));
-        console.log("modal :", this.state.modal);
     }
 
-    getMMDDYYYY = (date: string) => {
+    // NOT USED ANYMORE
+    // getMMDDYYYY = (date: string) => {
         
-        let year = date.slice(0,4);
-        let month = date.slice(5,7);
-        let day = date.slice(8,10);
-        date = month + '/' + day + '/' + year;
+    //     let year = date.slice(0,4);
+    //     let month = date.slice(5,7);
+    //     let day = date.slice(8,10);
+    //     date = month + '/' + day + '/' + year;
         
-        return date;
-    }
-
-    // handleChangeDate = (date: Date) => {
-    //     console.log(date.toISOString());
-    //     this.setState({
-    //         testDate: date,
-    //         applicationdate: this.getMMDDYYYY(date.toISOString())
-    //     })
+    //     return date;
     // }
+
 
     setChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             applicationdate: e.currentTarget.value
         })
+        console.log(this.state.applicationdate);
     }
 
-
+    // used to set up a maximum date in the calendar
+    // cannot log a job application in the future
+    getToday = () => {
+        let today = new Date().toISOString().split("T")[0];
+        return today;
+    }
 
     render() { 
         return ( 
@@ -164,7 +173,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
                         <Col>
                             <FormGroup>
                                 <Label>Date of Application:</Label>
-                                <Input name="company" value={this.state.applicationdate} onChange={this.setChangeDate}/>
+                                <Input type="date" placeholder="yyyy-mm-dd" max={this.getToday()} value={this.state.applicationdate} onChange={this.setChangeDate}/>
                             </FormGroup>
                             {/* <FormGroup>
                                 <Label htmlFor="date" >Date of Application:</Label>
@@ -172,25 +181,26 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
                             </FormGroup> */}
                             <FormGroup>
                                 <Label htmlFor='jobtitle' >Job Title:</Label>
-                                <Input type="select" name='jobtitle' value={this.state.jobtitle} onChange={this.setJobTitle}>
+                                <Input type="select" name='jobtitle' value={this.state.jobtitle} onChange={this.setChangeJobTitle}>
                                     <option value=""></option>
                                     <option value="Front-End Developer">Front-End Developer</option>
                                     <option value="Back-End Developer">Back-End Developer</option>
                                     <option value="Full-Stack Developer">Full-Stack Developer</option>
+                                    <option value="SW Engineer">Software Engineer</option>
                                     <option value="Other">Other</option>
                                 </Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="company" >Company Name:</Label>
-                                <Input name="company" value={this.state.company} onChange={this.setCompany}/>
+                                <Input name="company" value={this.state.company} onChange={this.setChangeCompany}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="location" >Location:</Label>
-                                <Input name="location" value={this.state.location} onChange={this.setLocation}/>
+                                <Input name="location" value={this.state.location} onChange={this.setChangeLocation}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor='status' >Status:</Label>
-                                <Input type="select" name='status' value={this.state.status} onChange={this.setStatus}>
+                                <Input type="select" name='status' value={this.state.status} onChange={this.setChangeStatus}>
                                     <option value=""></option>
                                     <option value="Pending">Pending</option>
                                     <option value="Interviewed">Interviewed</option>
@@ -204,7 +214,7 @@ class JobAppEdit extends React.Component<JobAppEditProps, JobAppEditState> {
                         <Col>
                             <FormGroup>
                                 <Label htmlFor="description">Description:</Label>
-                                <Input name="description" type="textarea" style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setDescription}/>
+                                <Input name="description" type="textarea" style={{height: "370px"}} columns={10} value={this.state.jobdescription} onChange={this.setChangeDescription}/>
                             </FormGroup>
                         </Col>
                     </Row>

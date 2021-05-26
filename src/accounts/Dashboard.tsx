@@ -37,8 +37,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
     componentDidMount() {
         this.getAllApplications();  
     }
-  
-  
+    
 
     getAllApplications = () => {
         fetch(`${APIURL}/jobapplication/getAll`, {

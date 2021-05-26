@@ -16,20 +16,20 @@ class BarChart extends React.Component<PieChartProps, PieChartState> {
           };
     }
     
-    janCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "01").length;
-    febCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "02").length;
-    marCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "03").length;
-    aprCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "04").length;
-    mayCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "05").length;
-    junCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "06").length;
-    julCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "07").length;
-    augCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "08").length;
-    sepCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "09").length;
-    octCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "10").length;
-    novCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "11").length;
-    decCount = this.props.datesOfApplications.filter( arr => arr.slice(0,2) === "12").length;
+    janCount = this.props.datesOfApplications.filter( arr => arr.includes("-01-")).length;
+    febCount = this.props.datesOfApplications.filter( arr => arr.includes("-02-")).length;
+    marCount = this.props.datesOfApplications.filter( arr => arr.includes("-03-")).length;
+    aprCount = this.props.datesOfApplications.filter( arr => arr.includes("-04-")).length;
+    mayCount = this.props.datesOfApplications.filter( arr => arr.includes("-05-")).length;
+    junCount = this.props.datesOfApplications.filter( arr => arr.includes("-06-")).length;
+    julCount = this.props.datesOfApplications.filter( arr => arr.includes("-07-")).length;
+    augCount = this.props.datesOfApplications.filter( arr => arr.includes("-08-")).length;
+    sepCount = this.props.datesOfApplications.filter( arr => arr.includes("-09-")).length;
+    octCount = this.props.datesOfApplications.filter( arr => arr.includes("-10-")).length;
+    novCount = this.props.datesOfApplications.filter( arr => arr.includes("-11-")).length;
+    decCount = this.props.datesOfApplications.filter( arr => arr.includes("-12-")).length;
 
-
+    
     //Bar Chart
         
     dataBar: Object = {

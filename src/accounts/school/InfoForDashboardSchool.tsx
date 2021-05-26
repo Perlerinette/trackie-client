@@ -106,10 +106,11 @@ class InfoForDashboardSchool extends React.Component<InfoForDashboardSchoolProps
     let front: number = dataHired.filter( arr => arr.jobtitle === "Front-End Developer").length;
     let back: number = dataHired.filter( arr => arr.jobtitle === "Back-End Developer").length;
     let full: number = dataHired.filter( arr => arr.jobtitle === "Full-Stack Developer").length;
+    let sw: number = dataHired.filter( arr => arr.jobtitle === "sw").length;
     let other: number = dataHired.filter( arr => arr.jobtitle === "Other").length;
 
-    let arrCount: number[] = [front, back, full, other ];
-    let arrTitle: string[] = ["Front-End", "Back-End", "Full-Stack", "Other"];
+    let arrCount: number[] = [front, back, full, sw, other ];
+    let arrTitle: string[] = ["Front-End", "Back-End", "Full-Stack", "SW", "Other"];
     let index = this.indexOfMax(arrCount);
 
     this.setState({ 
