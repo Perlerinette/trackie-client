@@ -45,11 +45,19 @@ class JobAppDownload extends React.Component<JobAppDownloadProps, JobAppDownload
 
         /* 1. get the date in proper format */
         const today = new Date();
+        /* -format month with 2 digits*/
         const month = today.getMonth();
         let month2digits = "";
         month.toString().length === 1 ? month2digits = ["0", (month+1).toString()].join('') : month2digits = (month+1).toString();
+
+        /* - format day with 2 digits*/
+        const day = today.getDate();
+        console.log(day);
+        let day2digits = "";
+        day.toString().length === 1? day2digits = ["0", day.toString()].join('') : day2digits = day.toString();
         
-        const dateFile = [today.getFullYear(), month2digits , today.getDate()].join('-'); // yyyy-mm-dd
+        /* - concatenate all */
+        const dateFile = [today.getFullYear(), month2digits , day2digits].join('-'); // yyyy-mm-dd
         
         /* 2. build the file name */
         const nameFile: string = [dateFile , localStorage.getItem("jobseekerLastName" ) , "Jobapps.xlsx"].join('_');
