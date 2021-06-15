@@ -2,7 +2,7 @@
  import APIURL from '../helpers/environment';
  import JobApp from '../interfaces/InterfaceJobApp';
  import './MyJobApps.css';
- import { Table,  Container, Alert } from 'reactstrap';
+ import { Table,  Container, Alert, Input } from 'reactstrap';
  import {TiArrowSortedDown} from 'react-icons/ti';
  import { RiDeleteBinLine} from 'react-icons/ri';
 import JobAppCreate from './JobAppCreate';
@@ -25,6 +25,7 @@ import NavJobseeker from './NavJobseeker';
     alertText: String,
     alertColor: string,
     alertVisible: boolean,
+    searchBox: string
  }
   
  class Myjobapps extends React.Component<MyjobappsProps, MyjobappsState> {
@@ -40,6 +41,7 @@ import NavJobseeker from './NavJobseeker';
             alertText: "",
             alertColor: "",
             alertVisible: false,
+            searchBox: ""
         };
      }
 
@@ -66,9 +68,14 @@ import NavJobseeker from './NavJobseeker';
             }) 
             .then( (res) => res.json())
             .then((jobapps) => {
-                this.setState({ jobappsData: jobapps, arrayJobapps: jobapps });
-                console.log('myjobapps jobappsData: ', this.state.jobappsData);  
-                console.log('myjobapps arrayJobapps: ', this.state.arrayJobapps);              
+                console.log(jobapps);
+                const searchCompany = jobapps.filter( (x: JobApp) => {
+                    return x.company.toLowerCase().includes(this.state.searchBox.toLowerCase()) 
+                })
+                console.log('search: ', searchCompany);
+                this.setState({ jobappsData: jobapps, arrayJobapps: searchCompany });
+                console.log('myjobapps jobappsData: ', this.state.jobappsData);
+                console.log('myjobapps arrayJobapps: ', this.state.arrayJobapps);
             })
             .catch(error => { console.log(error)})
     }
@@ -102,6 +109,35 @@ import NavJobseeker from './NavJobseeker';
             )
          }))
      }
+
+     /* SEARCH BOX */
+     /* grab company name to search in the table */
+    search = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            searchBox: e.currentTarget.value
+        });
+    }
+
+    /* refresh the table with search results if any */
+    componentDidUpdate(prevProps: MyjobappsProps, prevState: MyjobappsState) {
+        if(prevState.searchBox !== this.state.searchBox) {
+            this.getAllApplications();
+        }
+    }
+
+    /* search entry by company name  */
+    searchByKeyword = () => {
+        return(
+            <>
+            <Container className="searchbox font">
+            <label > Looking for an application by company name:</label>
+            <Input className="searchInput" placeholder="enter a company name" value={this.state.searchBox} onChange={this.search}   />  
+            <br/> 
+            </Container>
+            </>   
+        )
+    }
+
 
      /* DELETE */
     deleteJobapp = (jobapp: JobApp) => {
@@ -268,6 +304,8 @@ import NavJobseeker from './NavJobseeker';
                     {/* Download table in .xls file */}
                     <JobAppDownload jobappTable={this.state.jobappsData}/>
                 </div>
+                <br/>
+                {this.searchByKeyword()}
                 <br/>
                 <Table hover>
                     <thead>
